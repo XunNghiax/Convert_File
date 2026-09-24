@@ -32,7 +32,7 @@ def render_tab_dict(dict_manager: DictManager):
             use_container_width=True,
             key="editor_common",
             column_config={
-                "id": st.column_config.TextColumn("ID", disabled=True),
+                "id": st.column_config.NumberColumn("STT", disabled=True, format="%d"),
                 "source": st.column_config.TextColumn("Từ gốc (Bản thô)", required=True),
                 "target": st.column_config.TextColumn("Từ thay thế chuẩn", required=True),
                 "category": st.column_config.SelectboxColumn("Phân loại", options=["Lỗi dịch máy", "Xưng hô", "Cụm từ Hán Việt", "Thuật ngữ", "Chung"]),
@@ -44,10 +44,10 @@ def render_tab_dict(dict_manager: DictManager):
         with col1:
             if st.button("💾 Lưu thay đổi (Từ phổ biến)", type="primary", key="save_common"):
                 updated_terms = []
-                for _, row in edited_common.iterrows():
+                for idx, (_, row) in enumerate(edited_common.iterrows(), start=1):
                     if pd.notna(row.get("source")) and str(row.get("source")).strip():
                         updated_terms.append(CommonTerm(
-                            id=str(row.get("id")) if pd.notna(row.get("id")) and str(row.get("id")).strip() else "",
+                            id=idx,
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
                             category=str(row.get("category", "Chung")),
@@ -81,7 +81,7 @@ def render_tab_dict(dict_manager: DictManager):
             use_container_width=True,
             key="editor_char",
             column_config={
-                "id": st.column_config.TextColumn("ID", disabled=True),
+                "id": st.column_config.NumberColumn("STT", disabled=True, format="%d"),
                 "source": st.column_config.TextColumn("Tên gốc (Thô)", required=True),
                 "target": st.column_config.TextColumn("Tên chuẩn hóa", required=True),
                 "novel_tag": st.column_config.TextColumn("Tag truyện", required=True),
@@ -93,10 +93,10 @@ def render_tab_dict(dict_manager: DictManager):
         with col1:
             if st.button("💾 Lưu thay đổi (Tên nhân vật)", type="primary", key="save_char"):
                 updated_chars = []
-                for _, row in edited_char.iterrows():
+                for idx, (_, row) in enumerate(edited_char.iterrows(), start=1):
                     if pd.notna(row.get("source")) and str(row.get("source")).strip():
                         updated_chars.append(CharacterTerm(
-                            id=str(row.get("id")) if pd.notna(row.get("id")) and str(row.get("id")).strip() else "",
+                            id=idx,
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
                             novel_tag=str(row.get("novel_tag", "Chung")).strip(),

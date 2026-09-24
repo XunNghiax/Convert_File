@@ -5,8 +5,7 @@ set PYTHONPATH=%~dp0
 set PYTHONIOENCODING=utf-8
 
 echo ===================================================
-echo   KHOI DONG TRINH CONVERT TRUYEN DICH THO
-echo   Dia chi WebApp: http://localhost:8501
+echo runing http://localhost:8501
 echo ===================================================
 
 if exist ".\venv\Scripts\streamlit.exe" (

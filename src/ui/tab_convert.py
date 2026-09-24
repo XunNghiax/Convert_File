@@ -53,23 +53,25 @@ def render_tab_convert(dict_manager: DictManager, config: Config):
         selected_tags = st.multiselect("Lọc Tag nhân vật áp dụng:", options=all_tags, default=all_tags)
 
     # Xây dựng bảng ánh xạ (mappings)
-    mappings = {}
+    common_mappings = {}
     if apply_common:
         for t in common_terms:
             if t.source and t.target:
-                mappings[t.source] = t.target
+                common_mappings[t.source] = t.target
             
+    character_mappings = {}
     for c in char_terms:
         if c.novel_tag in selected_tags and c.source and c.target:
-            mappings[c.source] = c.target
+            character_mappings[c.source] = c.target
 
-    st.info(f"👉 Tổng số cụm từ sẽ được tự động thay thế: **{len(mappings):,}** cụm từ.")
+    total_terms = len(common_mappings) + len(character_mappings)
+    st.info(f"👉 Tổng số cụm từ áp dụng: **{total_terms:,}** (gồm {len(character_mappings)} tên nhân vật [ch-] tự động viết hoa và {len(common_mappings)} từ phổ biến [co-]).")
 
-    if not mappings:
+    if total_terms == 0:
         st.warning("⚠️ Hiện chưa có từ nào trong từ điển được chọn. Hãy thêm từ trước khi convert.")
         return
 
-    engine = ReplacerEngine(mappings=mappings, case_sensitive=True)
+    engine = ReplacerEngine(common_mappings=common_mappings, character_mappings=character_mappings)
 
     # 3. Xem trước Diff (Preview)
     st.divider()

@@ -726,5 +726,26 @@
     "target": "Lỗ Quân",
     "novel_tag": "Thiếu Long",
     "gender_role": "nam."
+  },
+  {
+    "id": "ch-105",
+    "source": "Cao Bồi",
+    "target": "Long Kiếm Phi",
+    "novel_tag": "Thiếu Long",
+    "gender_role": "nam."
+  },
+  {
+    "id": "ch-106",
+    "source": "Kiếm Phi",
+    "target": "Kiếm Phi",
+    "novel_tag": "Thiếu Long",
+    "gender_role": "nam."
+  },
+  {
+    "id": "ch-107",
+    "source": "Phi Nhi",
+    "target": "Phi Nhi",
+    "novel_tag": "Thiếu Long",
+    "gender_role": "nam."
   }
 ]

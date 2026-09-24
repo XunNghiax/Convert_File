@@ -9,7 +9,7 @@ def render_tab_dict(dict_manager: DictManager):
     
     # ---------------- TAB 1: TỪ PHỔ BIẾN ----------------
     with subtab1:
-        st.subheader("Danh sách các từ & cụm từ dịch thô phổ biến")
+        st.subheader("Danh sách các từ & cụm từ dịch thô phổ biến (ID: co-1, co-2...)")
         common_terms = dict_manager.load_common_dict()
         df_common = pd.DataFrame([t.model_dump() for t in common_terms])
         
@@ -22,7 +22,8 @@ def render_tab_dict(dict_manager: DictManager):
         if search_common:
             df_display_common = df_common[
                 df_common["source"].str.contains(search_common, case=False, na=False) |
-                df_common["target"].str.contains(search_common, case=False, na=False)
+                df_common["target"].str.contains(search_common, case=False, na=False) |
+                df_common["id"].str.contains(search_common, case=False, na=False)
             ]
 
         # Bảng chỉnh sửa tương tác
@@ -32,7 +33,7 @@ def render_tab_dict(dict_manager: DictManager):
             use_container_width=True,
             key="editor_common",
             column_config={
-                "id": st.column_config.NumberColumn("STT", disabled=True, format="%d"),
+                "id": st.column_config.TextColumn("ID", disabled=True),
                 "source": st.column_config.TextColumn("Từ gốc (Bản thô)", required=True),
                 "target": st.column_config.TextColumn("Từ thay thế chuẩn", required=True),
                 "category": st.column_config.SelectboxColumn("Phân loại", options=["Lỗi dịch máy", "Xưng hô", "Cụm từ Hán Việt", "Thuật ngữ", "Chung"]),
@@ -47,7 +48,7 @@ def render_tab_dict(dict_manager: DictManager):
                 for idx, (_, row) in enumerate(edited_common.iterrows(), start=1):
                     if pd.notna(row.get("source")) and str(row.get("source")).strip():
                         updated_terms.append(CommonTerm(
-                            id=idx,
+                            id=f"co-{idx}",
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
                             category=str(row.get("category", "Chung")),
@@ -59,7 +60,7 @@ def render_tab_dict(dict_manager: DictManager):
 
     # ---------------- TAB 2: TÊN NHÂN VẬT ----------------
     with subtab2:
-        st.subheader("Danh sách Tên nhân vật (Phân loại theo Tag truyện)")
+        st.subheader("Danh sách Tên nhân vật (ID: ch-1, ch-2...)")
         char_terms = dict_manager.load_character_dict()
         df_char = pd.DataFrame([t.model_dump() for t in char_terms])
         
@@ -81,7 +82,7 @@ def render_tab_dict(dict_manager: DictManager):
             use_container_width=True,
             key="editor_char",
             column_config={
-                "id": st.column_config.NumberColumn("STT", disabled=True, format="%d"),
+                "id": st.column_config.TextColumn("ID", disabled=True),
                 "source": st.column_config.TextColumn("Tên gốc (Thô)", required=True),
                 "target": st.column_config.TextColumn("Tên chuẩn hóa", required=True),
                 "novel_tag": st.column_config.TextColumn("Tag truyện", required=True),
@@ -96,7 +97,7 @@ def render_tab_dict(dict_manager: DictManager):
                 for idx, (_, row) in enumerate(edited_char.iterrows(), start=1):
                     if pd.notna(row.get("source")) and str(row.get("source")).strip():
                         updated_chars.append(CharacterTerm(
-                            id=idx,
+                            id=f"ch-{idx}",
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
                             novel_tag=str(row.get("novel_tag", "Chung")).strip(),

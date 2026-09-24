@@ -1,69 +1,69 @@
 [
   {
-    "id": 1,
+    "id": "co-1",
     "source": "đương gia hoa đán",
     "target": "ngôi sao trụ cột",
     "category": "Lỗi dịch máy",
     "notes": ""
   },
   {
-    "id": 2,
+    "id": "co-2",
     "source": "đợi ảnh thị kịch",
     "target": "các phim ảnh",
     "category": "Lỗi dịch máy",
     "notes": ""
   },
   {
-    "id": 3,
+    "id": "co-3",
     "source": "lấy gã bác sĩ",
     "target": "gả cho bác sĩ",
     "category": "Lỗi dịch máy",
     "notes": ""
   },
   {
-    "id": 4,
+    "id": "co-4",
     "source": "thành thục mỹ phụ",
     "target": "mỹ phụ chín chắn",
     "category": "Cụm từ Hán Việt",
     "notes": ""
   },
   {
-    "id": 5,
+    "id": "co-5",
     "source": "tiêu thụ bộ quản lí",
     "target": "trưởng phòng kinh doanh",
     "category": "Thuật ngữ",
     "notes": ""
   },
   {
-    "id": 6,
+    "id": "co-6",
     "source": "ba ba",
     "target": "bố",
     "category": "Xưng hô",
     "notes": ""
   },
   {
-    "id": 7,
+    "id": "co-7",
     "source": "ma ma",
     "target": "mẹ",
     "category": "Xưng hô",
     "notes": ""
   },
   {
-    "id": 8,
+    "id": "co-8",
     "source": "đệ đệ",
     "target": "em trai",
     "category": "Xưng hô",
     "notes": ""
   },
   {
-    "id": 9,
+    "id": "co-9",
     "source": "muội muội",
     "target": "em gái",
     "category": "Xưng hô",
     "notes": ""
   },
   {
-    "id": 10,
+    "id": "co-10",
     "source": "nữ nhi",
     "target": "con gái",
     "category": "Xưng hô",

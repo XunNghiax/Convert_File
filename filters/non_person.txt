@@ -1,0 +1,28 @@
+# DANH SÁCH TỪ PHI NHÂN VẬT (NON-PERSON / ĐỊA DANH / TỔ CHỨC)
+# Các từ chỉ địa danh, trường học, bệnh viện, đồ vật, khái niệm không phải tên người.
+# Mỗi dòng một từ/cụm từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
+
+bắc kinh
+bến xe
+bệnh viện
+công ty
+hoàng hà
+hoàng đế
+khách sạn
+nam phương
+nhà hàng
+nhật nguyệt
+nông thôn
+quân đội
+quận huyện
+sân bay
+sơn hải
+thiên địa
+thành phố
+thôn trang
+thượng hải
+thị trấn
+thị xã
+trung nguyên
+trường học
+đại lâu

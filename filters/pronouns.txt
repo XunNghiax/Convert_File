@@ -1,0 +1,150 @@
+# DANH SÁCH ĐẠI TỪ NHÂN XƯNG & TỪ MỞ ĐẦU CÂU (PRONOUNS & STARTS)
+# Các từ này tuyệt đối không được đứng đầu trong tên nhân vật hoặc tên riêng.
+# Mỗi dòng một từ/cụm từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
+
+ai
+bà ấy
+bác sĩ
+bên
+bất quá
+bọn
+bọn họ
+bỗng nhiên
+bởi
+bởi vì
+cho nên
+chuyện
+chính là
+chính văn
+chúng
+chúng ta
+chưa
+chương
+chẳng
+chẳng lẽ
+chỉ có
+chỉ là
+con
+cái
+có
+có thể
+cô gái
+do
+dù
+dù sao
+dưới
+dẫu
+giữa
+gã
+hai người
+hiện tại
+hôm nay
+hôm qua
+hơn nữa
+hắn
+họ
+hồi
+khi
+không
+không bao lâu
+không biết
+không có
+không thể
+kẻ
+kết quả
+kỳ thật
+lão giả
+lên
+lúc
+lúc này
+lại
+lập tức
+mày
+mình
+mặc dù
+mọi người
+một bên
+một cái
+một lát
+một lát sau
+mới
+ngoài
+ngoài ra
+nguyên lai
+ngày mai
+ngươi
+người
+người này
+ngược lại
+nha đầu
+nhìn thấy
+như vậy
+nhưng
+nhưng là
+nhưng mà
+nàng
+nó
+nói cách khác
+nếu
+nếu như
+qua
+quả nhiên
+ra
+rồi
+sau
+sau khi
+sau đó
+sẽ
+ta
+tao
+thanh niên
+thiếu nữ
+thậm chí
+thế
+thị
+thời điểm
+thứ
+thực ra
+tiết
+tiểu tử
+trong
+trong chốc lát
+trong lòng
+trên
+trên bờ
+trên thực tế
+trước
+trước đó
+tuy
+tuy nhiên
+tên
+tôi
+tại
+tập
+tới
+từ
+việc
+vài cái
+vài ngày sau
+vài người
+vào
+vào lúc
+vì
+vậy
+về
+vị
+vừa
+vừa rồi
+xuống
+y
+y tá
+ông ấy
+đang
+đã
+đúng vậy
+đến
+đồng thời
+đột nhiên
+đứa
+đứa nhỏ
+ở

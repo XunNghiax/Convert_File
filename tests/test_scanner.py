@@ -212,4 +212,32 @@ def test_reload_filters(tmp_path):
     assert "cấm thử nghiệm" in scanner.blacklist
     assert counts["blacklist"] >= 1
 
+def test_extended_urban_novel_vocabulary():
+    text = """
+    Lý tổng và Vương đổng vừa đến tập đoàn.
+    Tiểu Vương cùng A Tinh đang ở quán bar gặp gỡ.
+    Trần thiếu rất có ý tứ, ghét nhất tiểu tam và phú nhị đại.
+    Nàng mặc nhục ti cùng hắc ti đi dạo phố.
+    """
+    scanner = NovelScanner()
+    candidates = scanner.scan_text(text, min_count=1)
+    phrases = {c.phrase for c in candidates}
+
+    # Bắt được tên kèm danh xưng
+    assert any("Lý tổng" in p for p in phrases)
+    assert any("Vương đổng" in p for p in phrases)
+    assert any("Trần thiếu" in p for p in phrases)
+    assert any("Tiểu Vương" in p for p in phrases)
+    assert any("A Tinh" in p for p in phrases)
+
+    # Không bắt nhầm từ phi nhân vật
+    assert "tập đoàn" not in phrases
+    assert "quán bar" not in phrases
+
+    # Bắt được lỗi dịch máy đô thị
+    assert any("tiểu tam" in p for p in phrases)
+    assert any("phú nhị đại" in p for p in phrases)
+    assert any("nhục ti" in p for p in phrases)
+
+
 

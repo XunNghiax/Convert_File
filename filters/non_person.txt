@@ -2,27 +2,51 @@
 # Các từ chỉ địa danh, trường học, bệnh viện, đồ vật, khái niệm không phải tên người.
 # Mỗi dòng một từ/cụm từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
 
+ban giám đốc
+biệt thự
 bắc kinh
 bến xe
 bệnh viện
+chung cư
+căn tin
 công ty
+cổ đông
+cục cảnh sát
+giảng đường
 hoàng hà
 hoàng đế
+hội đồng
 khách sạn
+ký túc xá
 nam phương
 nhà hàng
+nhà vệ sinh
 nhật nguyệt
 nông thôn
+phòng bệnh
+phòng bếp
+phòng cấp cứu
+phòng khám
+phòng khách
+phòng ngủ
+phòng phẫu thuật
+phòng tắm
+quán bar
 quân đội
 quận huyện
-sân bay
+siêu thị
 sơn hải
 thiên địa
 thành phố
 thôn trang
+thư phòng
 thượng hải
 thị trấn
 thị xã
 trung nguyên
+trung tâm thương mại
 trường học
+tập đoàn
+y viện
 đại lâu
+đồn cảnh sát

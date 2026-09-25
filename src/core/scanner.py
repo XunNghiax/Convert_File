@@ -49,7 +49,12 @@ class NovelScanner:
         "thành phố", "thị trấn", "thị xã", "quận huyện", "trường học", "bệnh viện",
         "công ty", "đại lâu", "khách sạn", "nhà hàng", "sân bay", "bến xe", "quân đội",
         "thôn trang", "nông thôn", "sơn hải", "thiên địa", "nhật nguyệt", "nam phương",
-        "bắc kinh", "thượng hải", "trung nguyên", "hoàng hà", "hoàng đế"
+        "bắc kinh", "thượng hải", "trung nguyên", "hoàng hà", "hoàng đế",
+        "tập đoàn", "biệt thự", "chung cư", "phòng khám", "cục cảnh sát", "đồn cảnh sát",
+        "quán bar", "siêu thị", "trung tâm thương mại", "y viện", "phòng bệnh",
+        "phòng cấp cứu", "phòng phẫu thuật", "ký túc xá", "giảng đường", "căn tin",
+        "nhà vệ sinh", "phòng tắm", "phòng khách", "phòng ngủ", "phòng bếp",
+        "thư phòng", "ban giám đốc", "cổ đông", "hội đồng"
     }
 
     # Các động từ thường đi liền sau tên riêng (tránh bắt nhầm "Phi cười", "Phi chậm")
@@ -108,6 +113,8 @@ class NovelScanner:
     COMMON_PRONOUNS_AND_STARTS = DEFAULT_PRONOUNS_AND_STARTS
     COMMON_TRAILING_STOPWORDS = DEFAULT_TRAILING_STOPWORDS
 
+    _V_UPPER = "A-ZÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ"
+    _V_LOWER = "a-zàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ"
 
     # Danh sách Họ phổ biến trong truyện tiếng Trung / Việt (chữ thường để đối chiếu)
     VIET_CHINESE_SURNAMES = {
@@ -132,10 +139,17 @@ class NovelScanner:
     }
 
     # Hậu tố danh xưng thân tộc/vai vế thường đi sau tên riêng
-    HONORIFIC_SUFFIXES = {"tỷ", "ca", "muội", "đệ", "bác", "thúc", "tẩu", "sư", "lão", "bá"}
+    HONORIFIC_SUFFIXES = {
+        "tỷ", "ca", "muội", "đệ", "bác", "thúc", "tẩu", "sư", "lão", "bá",
+        "tổng", "đổng", "viện trưởng", "cục trưởng", "sở trưởng", "hiệu trưởng",
+        "thiếu", "gia", "phu nhân", "mẫu", "tôn", "thần", "đế", "vương"
+    }
 
     # Tiền tố chức danh / danh xưng thường đi trước tên
-    HONORIFIC_PREFIXES = {"bác sĩ", "chủ nhiệm", "quản lí", "quản lý", "trưởng phòng", "giáo sư", "y tá", "lão sư", "phu nhân", "tiểu thư"}
+    HONORIFIC_PREFIXES = {
+        "bác sĩ", "chủ nhiệm", "quản lí", "quản lý", "trưởng phòng", "giáo sư", "y tá", "lão sư", "phu nhân", "tiểu thư",
+        "tiểu", "lão", "đại", "a", "tổng giám đốc", "giám đốc", "đổng sự trưởng", "thị trưởng", "bí thư", "cảnh sát", "cảnh quan", "đội trưởng", "luật sư"
+    }
 
     # Danh sách các từ khóa lỗi dịch máy / convert thô thường gặp
     ABNORMAL_KEYWORDS = [
@@ -148,7 +162,14 @@ class NovelScanner:
         "mô phạm trượng phu", "bất tranh khí", "dĩ nhiên cũng làm là", "đợi ảnh thị kịch",
         "lấy gã bác sĩ", "đương gia hoa đán", "thành thục mỹ phụ", "tiêu thụ bộ quản lí",
         "nghàng an ninh", "đệ đệ", "muội muội", "thê tử", "nữ nhi", "ba ba", "ma ma",
-        "đại quản lí", "phó quản lý", "chocolate mỹ nữ"
+        "đại quản lí", "phó quản lý", "chocolate mỹ nữ",
+        # Extended Urban & Web Novel MT Keywords:
+        "tính lãnh đạm", "kéo đen", "nhục ti", "hắc ti", "bạch ti", "màu da tất chân",
+        "phú nhị đại", "tinh nhị đại", "quan nhị đại", "tiểu tam", "khuê mật", "cẩu huyết",
+        "tóc húi cua", "điện quang hỏa thạch", "ngưu bức", "trang bức", "sa điêu", "đỉnh lưu",
+        "tiểu thịt tươi", "lên hot search", "hot search", "tọa kỵ", "thượng phô", "hạ phô",
+        "tắm rửa một cái", "trảo phách", "không có ý tứ", "có ý tứ", "đánh xe",
+        "ngồi xổm phòng giam", "chụp đùi", "đầu đầy hắc tuyến", "hắc tuyến"
     ]
 
     # Bản dịch gợi ý nhanh cho các lỗi dịch máy điển hình
@@ -179,7 +200,42 @@ class NovelScanner:
         "đương gia hoa đán": "ngôi sao trụ cột",
         "thành thục mỹ phụ": "mỹ phụ chín chắn",
         "tiêu thụ bộ quản lí": "trưởng phòng kinh doanh",
-        "nghàng an ninh": "ngành an ninh"
+        "nghàng an ninh": "ngành an ninh",
+        "đại quản lí": "giám đốc",
+        "phó quản lý": "phó giám đốc",
+        "tính lãnh đạm": "lãnh cảm",
+        "kéo đen": "chặn / block",
+        "nhục ti": "quần tất màu da",
+        "hắc ti": "quần tất đen",
+        "bạch ti": "quần tất trắng",
+        "màu da tất chân": "quần tất màu da",
+        "phú nhị đại": "con nhà giàu / thiếu gia",
+        "quan nhị đại": "con ông cháu cha",
+        "tinh nhị đại": "con của sao",
+        "tiểu tam": "kẻ thứ ba",
+        "khuê mật": "bạn thân",
+        "cẩu huyết": "máu chó / kịch tính",
+        "tóc húi cua": "tóc đinh",
+        "điện quang hỏa thạch": "chớp nhoáng",
+        "ngưu bức": "lợi hại / trâu bò",
+        "trang bức": "ra vẻ / làm màu",
+        "sa điêu": "ngu ngốc / hài hước",
+        "tiểu thịt tươi": "mỹ nam / sao nam trẻ",
+        "đánh xe": "gọi taxi",
+        "ngồi xổm phòng giam": "ngồi tù",
+        "chụp đùi": "vỗ đùi",
+        "hắc tuyến": "cạn lời",
+        "đầu đầy hắc tuyến": "vạch đen đầy đầu / cạn lời",
+        "không có ý tứ": "ngại quá / xin lỗi",
+        "có ý tứ": "thú vị",
+        "thượng phô": "giường tầng trên",
+        "hạ phô": "giường tầng dưới",
+        "tắm rửa một cái": "tắm rửa",
+        "tọa kỵ": "thú cưỡi",
+        "trảo phách": "chụp bắt / bắt lấy",
+        "đỉnh lưu": "ngôi sao hàng đầu",
+        "hot search": "tìm kiếm nóng / top thịnh hành",
+        "lên hot search": "lên top thịnh hành"
     }
 
     @classmethod
@@ -298,9 +354,10 @@ class NovelScanner:
             r'\b(đang\s+ở\s+[a-zà-ỹ]+(?:\s+[a-zà-ỹ]+){1,2})\b',
             re.IGNORECASE
         )
+        word_proper = rf"[{self._V_UPPER}][{self._V_LOWER}]*"
         self._prefix_patterns = [
-            (prefix, re.compile(re.escape(prefix) + r'\s+([A-ZÀ-Ỹ][a-zà-ỹ]+(?:\s+[a-zà-ỹA-ZÀ-Ỹ]+)?)', re.UNICODE))
-            for prefix in self.HONORIFIC_PREFIXES
+            (prefix, re.compile(rf"\b(?i:{re.escape(prefix)})\s+({word_proper}(?:\s+{word_proper})?)", re.UNICODE))
+            for prefix in sorted(self.HONORIFIC_PREFIXES, key=len, reverse=True)
         ]
 
     def _get_contexts(self, text: str, phrase: str, max_contexts: int = 2) -> List[str]:
@@ -505,15 +562,29 @@ class NovelScanner:
 
         for i in range(n - 1):
             first_w = words[i]
-            second_w = words[i+1]
-            if second_w.lower() in self.HONORIFIC_SUFFIXES:
-                if first_w[0].isupper() and first_w.lower() not in self.pronouns_and_starts:
-                    name_phrase = f"{first_w} {second_w.lower()}"
+            matched_suffix = None
+            if i + 2 < n:
+                candidate_suffix_2 = f"{words[i+1]} {words[i+2]}".lower()
+                if candidate_suffix_2 in self.HONORIFIC_SUFFIXES:
+                    matched_suffix = candidate_suffix_2
+
+            if not matched_suffix:
+                candidate_suffix_1 = words[i+1].lower()
+                if candidate_suffix_1 in self.HONORIFIC_SUFFIXES:
+                    matched_suffix = candidate_suffix_1
+
+            if matched_suffix:
+                if (
+                    first_w[0].isupper()
+                    and first_w.lower() not in self.pronouns_and_starts
+                    and first_w.lower() not in self.non_person_words
+                ):
+                    name_phrase = f"{first_w} {matched_suffix}"
                     if name_phrase.lower() in self.blacklist or name_phrase in self.blacklist:
                         continue
                     noun_counts[name_phrase] += 1
                     if name_phrase not in suggested_map:
-                        suggested_map[name_phrase] = f"{first_w.capitalize()} {second_w.lower()}"
+                        suggested_map[name_phrase] = f"{first_w.capitalize()} {matched_suffix}"
                     if len(noun_contexts[name_phrase]) < 2:
                         ctx = line_str[:160]
                         if ctx not in noun_contexts[name_phrase]:
@@ -525,7 +596,12 @@ class NovelScanner:
                 if full_match.lower() in self.blacklist or full_match in self.blacklist:
                     continue
                 name_part = m.group(1).strip()
-                if name_part.lower() not in self.COMMON_START_WORDS and name_part.lower() not in self.blacklist:
+                if (
+                    name_part.lower() not in self.COMMON_START_WORDS
+                    and name_part.lower() not in self.blacklist
+                    and name_part.lower() not in self.trailing_stopwords
+                    and name_part.lower() not in self.non_person_words
+                ):
                     noun_counts[full_match] += 1
                     if full_match not in suggested_map:
                         suggested_map[full_match] = full_match

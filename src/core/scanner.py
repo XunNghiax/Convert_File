@@ -114,28 +114,8 @@ class NovelScanner:
     COMMON_PRONOUNS_AND_STARTS = DEFAULT_PRONOUNS_AND_STARTS
     COMMON_TRAILING_STOPWORDS = DEFAULT_TRAILING_STOPWORDS
 
-    # Các danh từ thường đứng trước 'của' trong cấu trúc sở hữu thuận (tránh nhận nhầm là sở hữu ngược)
-    COMMON_POSSESSIVE_NOUNS: Set[str] = {
-        # Bộ phận cơ thể
-        "tay", "bàn tay", "chân", "bàn chân", "mắt", "ánh mắt", "đôi mắt", "mặt", "gương mặt", "khuôn mặt",
-        "mũi", "miệng", "môi", "tai", "đầu", "tóc", "mái tóc", "vai", "bờ vai", "lưng", "ngực", "bụng",
-        "thân", "thân thể", "thể xác", "xương", "thịt", "máu", "da", "làn da", "hơi thở", "nụ cười",
-        "thủ", "mông", "háng", "nách", "cổ", "gáy", "eo", "đùi",
-        # Đại từ nhân xưng, thân tộc, quan hệ
-        "người", "người yêu", "bạn", "bạn thân", "bạn bè", "cha", "mẹ", "ba", "má", "bố", "anh", "chị", "em",
-        "con", "cháu", "ông", "bà", "vợ", "chồng", "phu thê", "đối thủ", "kẻ thù", "đồng đội", "sư phụ",
-        "đồ đệ", "thầy", "trò", "huynh đệ", "tỷ muội",
-        # Đồ vật, tài sản, địa điểm, từ chỉ loại
-        "áo", "quần", "váy", "giày", "dép", "nón", "mũ", "túi", "ví", "tiền", "bạc", "nhà", "xe", "phòng",
-        "cửa", "bàn", "ghế", "sách", "vở", "bút", "kiếm", "đao", "vũ khí", "bảo vật", "đồ", "vật",
-        "bức", "cuốn", "quyển", "chiếc", "cây", "tấm", "lá", "viên", "hạt", "bông", "mảnh", "tranh", "ảnh",
-        "bức tranh", "bức ảnh",
-        # Khái niệm trừu tượng, tâm lý, lời nói
-        "lời", "tiếng", "giọng", "giọng nói", "câu", "ý", "ý nghĩ", "suy nghĩ", "tâm", "lòng", "tâm tư",
-        "tình cảm", "tình yêu", "nỗi đau", "niềm vui", "kế hoạch", "ý định", "quyết định", "hành động",
-        "kết quả", "công lao", "tội lỗi", "sai lầm", "bí mật", "cuộc sống", "số phận", "vận mệnh",
-        "tương lai", "quá khứ", "chuyện", "việc"
-    }
+    # Các danh từ thường đứng trước 'của' trong cấu trúc sở hữu thuận (tham chiếu nguồn tập trung từ GrammarCorrector)
+    COMMON_POSSESSIVE_NOUNS: Set[str] = GrammarCorrector.COMMON_POSSESSIVE_NOUNS
 
 
     _V_UPPER = "A-ZÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ"
@@ -662,10 +642,19 @@ class NovelScanner:
             if first_noun_word in GrammarCorrector.NON_NOUN_WORDS:
                 continue
 
-            if len(noun_words) > 1 and noun_words[1].lower() in GrammarCorrector.NON_NOUN_WORDS:
-                actual_noun = noun_words[0]
-            else:
-                actual_noun = noun_part.strip()
+            valid_len = len(noun_words)
+            for i in range(1, len(noun_words)):
+                if noun_words[i].lower() in GrammarCorrector.NON_NOUN_WORDS:
+                    valid_len = i
+                    break
+
+            if valid_len == 3:
+                two_words = f"{noun_words[0]} {noun_words[1]}".lower()
+                three_words = f"{noun_words[0]} {noun_words[1]} {noun_words[2]}".lower()
+                if two_words in self.COMMON_POSSESSIVE_NOUNS and three_words not in self.COMMON_POSSESSIVE_NOUNS:
+                    valid_len = 2
+
+            actual_noun = " ".join(noun_words[:valid_len])
 
             # Guard clause: Tránh đảo nhầm khi trước 'của' đã có danh từ (sở hữu thuận)
             before_text = line_str[:m.start()].rstrip()

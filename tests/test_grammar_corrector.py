@@ -48,4 +48,41 @@ def test_fix_reverse_possession_final_particles_guard():
     assert count == 0
     assert fixed == text
 
+@pytest.mark.parametrize("sentence", [
+    "Ánh mắt của hắn nhìn nàng tha thiết.",
+    "Bàn tay của hắn run rẩy.",
+    "Thanh kiếm của hắn chém xuống.",
+    "Công ty của hắn làm ăn phát đạt.",
+    "Súng của hắn hết đạn.",
+])
+def test_forward_possession_with_predicates_untouched(sentence):
+    """Đảm bảo cấu trúc sở hữu thuận có vị ngữ tuyệt đối không bị đảo ngữ."""
+    fixed, count = GrammarCorrector.fix_reverse_possession(sentence)
+    assert count == 0
+    assert fixed == sentence
 
+def test_fix_reverse_possession_single_letter_name_prefix():
+    """Hỗ trợ tên có tiền tố hoặc chữ cái đơn như A Tinh, A Cường."""
+    text = "Trong của A Tinh ánh mắt."
+    fixed, count = GrammarCorrector.fix_reverse_possession(text)
+    assert count == 1
+    assert fixed == "Trong ánh mắt của A Tinh."
+
+def test_fix_reverse_possession_multi_word_noun_phrase():
+    """Hỗ trợ cụm danh từ 1-3 từ như 'vị hôn thê'."""
+    text = "Nàng là của hắn vị hôn thê."
+    fixed, count = GrammarCorrector.fix_reverse_possession(text)
+    assert count == 1
+    assert fixed == "Nàng là vị hôn thê của hắn."
+
+def test_fix_reverse_possession_expanded_non_noun_words():
+    """Các phó từ, hư từ mới như 'chẳng', 'vừa mới', 'lại' không bị nhận nhầm thành danh từ."""
+    cases = [
+        "Của hắn chẳng có ai hay.",
+        "Của hắn vừa mới tới.",
+        "Của hắn lại đi rồi.",
+    ]
+    for text in cases:
+        fixed, count = GrammarCorrector.fix_reverse_possession(text)
+        assert count == 0
+        assert fixed == text

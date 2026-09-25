@@ -144,21 +144,10 @@ class ReplacerEngine:
              open(output_path, "w", encoding="utf-8", errors="replace") as fout:
 
             buffer = []
-            for line in fin:
-                buffer.append(line)
-                if len(buffer) >= buffer_lines:
-                    chunk_text = "".join(buffer)
-                    converted_chunk, stats, grammar_count = self.replace_text(
-                        chunk_text, apply_grammar_fixes=apply_grammar_fixes
-                    )
-                    fout.write(converted_chunk)
-                    for k, v in stats.items():
-                        total_stats[k] = total_stats.get(k, 0) + v
-                    if grammar_count > 0:
-                        total_stats["__grammar_fixes__"] = total_stats.get("__grammar_fixes__", 0) + grammar_count
-                    buffer.clear()
 
-            if buffer:
+            def _flush_buffer() -> None:
+                if not buffer:
+                    return
                 chunk_text = "".join(buffer)
                 converted_chunk, stats, grammar_count = self.replace_text(
                     chunk_text, apply_grammar_fixes=apply_grammar_fixes
@@ -169,5 +158,12 @@ class ReplacerEngine:
                 if grammar_count > 0:
                     total_stats["__grammar_fixes__"] = total_stats.get("__grammar_fixes__", 0) + grammar_count
                 buffer.clear()
+
+            for line in fin:
+                buffer.append(line)
+                if len(buffer) >= buffer_lines:
+                    _flush_buffer()
+
+            _flush_buffer()
 
         return total_stats

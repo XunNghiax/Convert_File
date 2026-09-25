@@ -3,8 +3,9 @@ import pandas as pd
 from pathlib import Path
 from src.config import Config
 from src.core.dict_manager import DictManager, CommonTerm, CharacterTerm
-from src.core.scanner import NovelScanner
+from src.core.scanner import NovelScanner, ScannedCandidate
 from src.core.ai_assistant import AIAssistant
+from src.core.scan_exporter import ScanExporter
 
 def render_tab_scan(dict_manager: DictManager, config: Config):
     st.header("🔍 Quét & Lọc Từ Mới Tự Động")
@@ -39,7 +40,7 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
     st.subheader("⚙️ Tùy chọn quét")
     c1, c2, c3 = st.columns(3)
     with c1:
-        scan_mode = st.radio("Phạm vi quét mẫu:", ["Quét mẫu (50,000 ký tự đầu)", "Quét sâu (500,000 ký tự đầu)"])
+        scan_mode = st.radio("Phạm vi quét mẫu:", ["Quét mẫu (50,000 ký tự đầu)", "Quét sâu (500,000 ký tự đầu)", "Quét toàn bộ văn bản"])
     with c2:
         min_freq = st.number_input("Tần suất xuất hiện tối thiểu:", min_value=1, max_value=50, value=2)
     with c3:
@@ -48,7 +49,12 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
         novel_tag_input = st.text_input("Gán Tag truyện cho nhân vật:", value=target_novel_tag)
 
     if st.button("🚀 Bắt đầu Quét & Phân tích", type="primary"):
-        text_to_scan = raw_text[:50000] if "50,000" in scan_mode else raw_text[:500000]
+        if "50,000" in scan_mode:
+            text_to_scan = raw_text[:50000]
+        elif "500,000" in scan_mode:
+            text_to_scan = raw_text[:500000]
+        else:
+            text_to_scan = raw_text
         
         with st.spinner("Đang quét tìm tên riêng và cụm từ bất thường..."):
             # Lấy danh sách từ đã có để loại trừ
@@ -75,6 +81,7 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
                     batch = candidates[i:i+30]
                     ai_results = ai.analyze_batch(batch)
                     for c, r in zip(batch, ai_results):
+                        c.suggested_target = r.suggested_translation
                         results.append({
                             "selected": True,
                             "source": c.phrase,
@@ -86,21 +93,53 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
                         })
             else:
                 for c in candidates:
+                    target_val = c.suggested_target if c.suggested_target else c.phrase
                     results.append({
                         "selected": True,
                         "source": c.phrase,
-                        "target": c.phrase,
+                        "target": target_val,
                         "is_character": (c.candidate_type == "Tên nhân vật"),
                         "category": c.candidate_type,
                         "count": c.count,
                         "context": c.sample_contexts[0] if c.sample_contexts else ""
                     })
 
+            # Tự động xuất kết quả vào thư mục scanned/
+            safe_novel_name = novel_tag_input or target_novel_tag
+            json_path, txt_path = ScanExporter.auto_export_scanned(candidates, safe_novel_name, config.SCANNED_DIR)
+
             st.session_state["scan_results"] = results
             st.session_state["scan_novel_tag"] = novel_tag_input
+            st.session_state["scan_json_path"] = str(json_path)
+            st.session_state["scan_txt_path"] = str(txt_path)
+            st.success(f"💾 **Đã tự động lưu kết quả quét vào thư mục scanned/:** `{json_path.name}` và `{txt_path.name}`")
+
+    # Hiển thị nút tải file nếu đã có kết quả scan
+    if "scan_json_path" in st.session_state and Path(st.session_state["scan_json_path"]).exists():
+        st.divider()
+        st.subheader("📥 Tải về kết quả quét")
+        col_dl1, col_dl2 = st.columns(2)
+        with col_dl1:
+            with open(st.session_state["scan_json_path"], "r", encoding="utf-8") as f:
+                st.download_button(
+                    label=f"📥 Tải `{Path(st.session_state['scan_json_path']).name}` (JSON)",
+                    data=f.read(),
+                    file_name=Path(st.session_state["scan_json_path"]).name,
+                    mime="application/json"
+                )
+        with col_dl2:
+            if "scan_txt_path" in st.session_state and Path(st.session_state["scan_txt_path"]).exists():
+                with open(st.session_state["scan_txt_path"], "r", encoding="utf-8") as f:
+                    st.download_button(
+                        label=f"📥 Tải `{Path(st.session_state['scan_txt_path']).name}` (TXT Prompt AI)",
+                        data=f.read(),
+                        file_name=Path(st.session_state["scan_txt_path"]).name,
+                        mime="text/plain"
+                    )
 
     # Hiển thị bảng kết quả để người dùng duyệt
     if "scan_results" in st.session_state and st.session_state["scan_results"]:
+        st.divider()
         st.subheader("📋 Bảng duyệt từ ứng viên")
         st.write("Đánh dấu chọn các từ bạn muốn lưu, chỉnh sửa bản dịch đề xuất trực tiếp trên bảng:")
         df_results = pd.DataFrame(st.session_state["scan_results"])

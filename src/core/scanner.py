@@ -111,13 +111,24 @@ class NovelScanner:
 
     # Danh sách Họ phổ biến trong truyện tiếng Trung / Việt (chữ thường để đối chiếu)
     VIET_CHINESE_SURNAMES = {
+        # Các họ gốc đã cung cấp
         "nguyễn", "trần", "lê", "phạm", "hoàng", "huỳnh", "phan", "vũ", "võ", "đặng",
         "bùi", "đỗ", "hồ", "ngô", "dương", "lý", "liễu", "chu", "khưu", "hạ", "mai",
         "trương", "long", "tiêu", "lâm", "tần", "tạ", "cố", "thẩm", "giang", "bạch",
         "phương", "diệp", "tô", "tiết", "tống", "hàn", "lưu", "triệu", "vương", "tôn",
         "châu", "đới", "phùng", "lục", "tiền", "quách", "khương", "ân", "thường", "mạnh",
         "kim", "doãn", "nghiêm", "thôi", "hứa", "gia cát", "tư mã", "âu dương", "mộ dung", "lỗ",
-        "điền"
+        "điền",
+        
+        # Các họ đơn Trung Quốc bổ sung
+        "mã", "la", "tào", "ngụy", "đường", "thạch", "hùng", "nhậm", "lương", "hồng", 
+        "đoàn", "trình", "kiều", "bàng", "đinh", "tưởng", "phó", "mao", "bành", "dư", 
+        "khang", "chúc", "kỷ", "chung", "sử", "vạn", "ôn", "biện", "sầm", "lôi", "du", 
+        "cung", "thang", "nguyên", "nhạc", "địch", "lư", "bồ", "niếp", "phù", "dữu",
+        
+        # Các họ kép (phức danh) Trung Quốc bổ sung
+        "đông phương", "tây môn", "nam cung", "bắc minh", "công tôn", "hoàng phủ", 
+        "thượng quan", "lệnh hồ", "độc cô", "tư đồ", "hạ hầu", "uất trì"
     }
 
     # Hậu tố danh xưng thân tộc/vai vế thường đi sau tên riêng

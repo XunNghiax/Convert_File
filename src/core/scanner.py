@@ -1,4 +1,5 @@
 import re
+import unicodedata
 from collections import Counter
 from typing import List, Set, Optional, Dict
 from pydantic import BaseModel
@@ -35,6 +36,14 @@ class NovelScanner:
         "chính văn", "chương", "tiết", "tập", "hồi", "nhìn", "nghe", "thấy",
         "vài cái", "một cái", "vài người", "hai người", "mọi người", "trên bờ",
         "nhưng là", "tỷ tỷ", "muội muội", "ca ca", "đệ đệ", "bá phụ", "bá mẫu", "cha mẹ"
+    }
+
+    # Các từ chỉ địa danh, tổ chức, phi nhân vật (tránh nhận nhầm tên người)
+    COMMON_NON_PERSON_WORDS = {
+        "thành phố", "thị trấn", "thị xã", "quận huyện", "trường học", "bệnh viện",
+        "công ty", "đại lâu", "khách sạn", "nhà hàng", "sân bay", "bến xe", "quân đội",
+        "thôn trang", "nông thôn", "sơn hải", "thiên địa", "nhật nguyệt", "nam phương",
+        "bắc kinh", "thượng hải", "trung nguyên", "hoàng hà", "hoàng đế"
     }
 
     # Các động từ thường đi liền sau tên riêng (tránh bắt nhầm "Phi cười", "Phi chậm")
@@ -131,6 +140,7 @@ class NovelScanner:
         return contexts
 
     def extract_proper_nouns(self, text: str, min_count: int = 2) -> List[ScannedCandidate]:
+        text = unicodedata.normalize('NFC', text)
         counts: Counter = Counter()
         suggested_map: Dict[str, str] = {}
         lines = text.splitlines()
@@ -150,7 +160,11 @@ class NovelScanner:
                     phrase = " ".join(ngram)
                     phrase_lower = phrase.lower()
 
-                    if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases:
+                    if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases or phrase_lower in self.COMMON_NON_PERSON_WORDS:
+                        continue
+
+                    # Nếu chứa bất kỳ từ phi nhân vật / địa danh nào -> bỏ qua
+                    if any(np_w in phrase_lower for np_w in self.COMMON_NON_PERSON_WORDS):
                         continue
 
                     # Nếu là cụm 2 từ mà từ thứ hai là động từ thường theo sau tên -> bỏ qua
@@ -219,16 +233,20 @@ class NovelScanner:
 
         results = []
         for phrase, count in sorted(filtered_counts.items(), key=lambda x: x[1], reverse=True):
+            contexts = self._get_contexts(text, phrase)
+            if not contexts:
+                continue
             results.append(ScannedCandidate(
                 phrase=phrase,
                 count=count,
                 candidate_type="Tên nhân vật",
-                sample_contexts=self._get_contexts(text, phrase),
+                sample_contexts=contexts,
                 suggested_target=suggested_map.get(phrase, title_case_vietnamese(phrase))
             ))
         return results
 
     def extract_abnormal_patterns(self, text: str, min_count: int = 2) -> List[ScannedCandidate]:
+        text = unicodedata.normalize('NFC', text)
         results_map: Dict[str, ScannedCandidate] = {}
 
         # 1. Quét theo danh sách từ khóa lỗi dịch máy ABNORMAL_KEYWORDS
@@ -237,12 +255,15 @@ class NovelScanner:
             matches = pattern.findall(text)
             count = len(matches)
             if count >= min_count and pattern_str.lower() not in self.existing_words:
+                contexts = self._get_contexts(text, pattern_str)
+                if not contexts:
+                    continue
                 target_suggested = self.DEFAULT_TRANSLATION_MAP.get(pattern_str.lower(), pattern_str)
                 results_map[pattern_str.lower()] = ScannedCandidate(
                     phrase=pattern_str,
                     count=count,
                     candidate_type="Lỗi dịch máy",
-                    sample_contexts=self._get_contexts(text, pattern_str),
+                    sample_contexts=contexts,
                     suggested_target=target_suggested
                 )
 
@@ -260,6 +281,9 @@ class NovelScanner:
         for phrase, count in pos_counts.items():
             phrase_clean = phrase.lower()
             if count >= min_count and phrase_clean not in self.existing_words:
+                contexts = self._get_contexts(text, phrase)
+                if not contexts:
+                    continue
                 words = phrase_clean.split()
                 # Gợi ý đảo vị trí: "của hắn chị dâu" -> "chị dâu của hắn"
                 pronoun = words[1]
@@ -269,7 +293,7 @@ class NovelScanner:
                     phrase=phrase_clean,
                     count=count,
                     candidate_type="Cấu trúc Hán",
-                    sample_contexts=self._get_contexts(text, phrase),
+                    sample_contexts=contexts,
                     suggested_target=suggested
                 )
 
@@ -281,11 +305,14 @@ class NovelScanner:
             # Đếm số lần
             c_matches = len(re.findall(re.escape(full_match), text, re.IGNORECASE))
             if c_matches >= min_count and phrase_clean not in self.existing_words:
+                contexts = self._get_contexts(text, full_match)
+                if not contexts:
+                    continue
                 results_map[phrase_clean] = ScannedCandidate(
                     phrase=phrase_clean,
                     count=c_matches,
                     candidate_type="Cấu trúc Hán",
-                    sample_contexts=self._get_contexts(text, full_match),
+                    sample_contexts=contexts,
                     suggested_target=phrase_clean.replace("một cái", "một").replace("đứa nhỏ", "đứa trẻ")
                 )
 
@@ -303,12 +330,15 @@ class NovelScanner:
         for phrase, count in aspect_counts.items():
             phrase_clean = phrase.lower()
             if count >= min_count and phrase_clean not in self.existing_words:
+                contexts = self._get_contexts(text, phrase)
+                if not contexts:
+                    continue
                 suggested = phrase_clean.replace("đang ở ", "đang ")
                 results_map[phrase_clean] = ScannedCandidate(
                     phrase=phrase_clean,
                     count=count,
                     candidate_type="Cấu trúc Hán",
-                    sample_contexts=self._get_contexts(text, phrase),
+                    sample_contexts=contexts,
                     suggested_target=suggested
                 )
 
@@ -317,6 +347,8 @@ class NovelScanner:
         return sorted_results
 
     def scan_text(self, text: str, min_count: int = 2) -> List[ScannedCandidate]:
+        text = unicodedata.normalize('NFC', text)
         nouns = self.extract_proper_nouns(text, min_count=min_count)
         abnormals = self.extract_abnormal_patterns(text, min_count=min_count)
         return nouns + abnormals
+

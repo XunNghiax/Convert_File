@@ -131,7 +131,7 @@ def run_scan_cli(
             save_interval_chunks=5,
             on_save_checkpoint=on_checkpoint,
             export_partition=True,
-            partition_size=50
+            partition_size=500
         )
 
     scanner_elapsed = time.time() - scanner_start
@@ -170,9 +170,9 @@ def run_scan_cli(
 
     # 4. Xuất kết quả hoàn chỉnh vào thư mục scanned/
     log("INFO", f"Đang lưu trữ kết quả hoàn chỉnh vào thư mục: {config.SCANNED_DIR}...")
-    part_files, master_json = ScanExporter.export_partitioned(candidates, novel_tag, config.SCANNED_DIR, part_size=50)
+    part_files, master_json = ScanExporter.export_partitioned(candidates, novel_tag, config.SCANNED_DIR, part_size=500)
     log("SUCCESS", f"File JSON cấu trúc: {master_json}")
-    log("SUCCESS", f"Đã chia thành {len(part_files)} file review trong scanned/ (50 từ/file)")
+    log("SUCCESS", f"Đã chia thành {len(part_files)} file review trong scanned/ (500 từ/file)")
 
 
     # 6. In bảng tóm tắt Top kết quả ra màn hình CLI

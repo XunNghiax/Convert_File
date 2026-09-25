@@ -261,5 +261,38 @@ def test_scanner_excludes_honorific_names_in_existing_words():
     assert "hảo tỷ" not in phrases
 
 
+def test_extract_context_snippet_centers_phrase():
+    long_line = (
+        "Đoạn mở đầu rất dài dòng văn tự miêu tả quang cảnh xung quanh khu rừng vắng vẻ và tĩnh mịch, "
+        "tiếng chim hót líu lo trên những tán cây xanh mướt trải dài suốt dọc đường đi. "
+        "Bất thình lình, Long Kiếm Phi xuất hiện từ trong bóng tối và rút kiếm ra. "
+        "Kẻ địch hoảng sợ bỏ chạy tán loạn khắp mọi nơi trong sự kinh hoàng khôn xiết."
+    )
+    snippet = NovelScanner.extract_context_snippet(long_line, "Long Kiếm Phi", target_len=240)
+    assert "Long Kiếm Phi" in snippet
+    assert snippet.startswith("... ") or snippet.startswith("Bất thình lình")
+    assert len(snippet) <= 260
+
+
+def test_scan_text_context_contains_deep_phrase():
+    # Câu thực tế từ tiểu thuyết người dùng báo cáo (Trương Mẫn mẫn nằm sau ký tự 160)
+    text = (
+        'Thái thiệu phân gắt gao quấn chặt lấy Long Kiếm Phi hông của thân, kiều thở hổn hển ưm rù rì nói, '
+        '"Ta đều nói cho ngươi biết tốt lắm, có Triệu Nhã chỉ Lâm Thanh Hà, Trương Mẫn mẫn, Khâu Thục trinh, '
+        'Chung Sở hồng, Chu Huệ mẫn, đều là những đại mỹ nhân Hồng Kông danh tiếng bậc nhất lúc bấy giờ, '
+        'ngươi muốn gặp ai trước?"'
+    )
+    scanner = NovelScanner()
+    candidates = scanner.scan_text(text, min_count=1)
+    cand_map = {c.phrase: c for c in candidates}
+
+    assert "Trương Mẫn mẫn" in cand_map
+    c = cand_map["Trương Mẫn mẫn"]
+    assert len(c.sample_contexts) >= 1
+    # Ngữ cảnh bắt buộc phải chứa cụm từ được quét, không bị cắt cụt như trước
+    assert "Trương Mẫn mẫn" in c.sample_contexts[0]
+
+
+
 
 

@@ -362,19 +362,77 @@ class NovelScanner:
             for prefix in sorted(self.HONORIFIC_PREFIXES, key=len, reverse=True)
         ]
 
+    @classmethod
+    def extract_context_snippet(cls, line_str: str, phrase: str, target_len: int = 240) -> str:
+        """
+        Trích xuất ngữ cảnh xung quanh cụm từ mục tiêu một cách thông minh:
+        - Luôn đảm bảo cụm từ mục tiêu nằm ở trung tâm của đoạn trích (không bị cắt cụt).
+        - Căn chỉnh tự nhiên theo ranh giới câu (dấu chấm, chấm hỏi, chấm than, dấu ngoặc kép) hoặc ranh giới từ.
+        - Độ dài mục tiêu ~240 ký tự giúp AI và người dùng có đầy đủ thông tin ngữ cảnh để phân tích.
+        """
+        line_clean = " ".join(line_str.strip().split())
+        if not line_clean:
+            return ""
+
+        pos = line_clean.lower().find(phrase.lower())
+        if pos == -1:
+            return line_clean[:target_len].strip()
+
+        if len(line_clean) <= target_len:
+            return line_clean
+
+        phrase_len = len(phrase)
+        margin = max(30, (target_len - phrase_len) // 2)
+        left = max(0, pos - margin)
+        right = min(len(line_clean), pos + phrase_len + margin)
+
+        if left == 0:
+            right = min(len(line_clean), target_len)
+        elif right == len(line_clean):
+            left = max(0, len(line_clean) - target_len)
+
+        # Căn chỉnh lề trái theo ranh giới câu hoặc từ
+        if left > 0:
+            sent_bound = -1
+            for punct in ('. ', '! ', '? ', '." ', '!" ', '?" ', '.” ', '!” ', '?” '):
+                p_idx = line_clean.rfind(punct, max(0, left - 40), pos)
+                if p_idx != -1 and p_idx > sent_bound:
+                    sent_bound = p_idx + len(punct)
+            if sent_bound != -1 and (pos - sent_bound) <= (target_len - phrase_len):
+                left = sent_bound
+            else:
+                space_idx = line_clean.find(' ', left)
+                if space_idx != -1 and space_idx <= pos:
+                    left = space_idx + 1
+
+        # Căn chỉnh lề phải theo ranh giới câu hoặc từ
+        if right < len(line_clean):
+            sent_bound = -1
+            for punct in ('. ', '! ', '? ', '."', '!"', '?"', '.”', '!”', '?”'):
+                p_idx = line_clean.find(punct, pos + phrase_len, min(len(line_clean), right + 40))
+                if p_idx != -1 and (sent_bound == -1 or p_idx < sent_bound):
+                    sent_bound = p_idx + (1 if punct in ('. ', '! ', '? ') else len(punct))
+            if sent_bound != -1 and (sent_bound - left) <= target_len + 50:
+                right = sent_bound
+            else:
+                space_idx = line_clean.rfind(' ', pos + phrase_len, right)
+                if space_idx != -1:
+                    right = space_idx
+
+        prefix = "... " if left > 0 else ""
+        suffix = " ..." if right < len(line_clean) else ""
+        return f"{prefix}{line_clean[left:right].strip()}{suffix}"
+
     def _get_contexts(self, text: str, phrase: str, max_contexts: int = 2) -> List[str]:
         contexts = []
-        # Trích xuất nguyên câu hoàn chỉnh chứa phrase
-        escaped_phrase = re.escape(phrase)
-        pattern = re.compile(r'([^.!?\n\r]*?' + escaped_phrase + r'[^.!?\n\r]*)', re.IGNORECASE)
-        for match in pattern.finditer(text):
-            ctx = match.group(0).strip()
-            # Làm sạch ký tự thụt lề
-            ctx = re.sub(r'[\t\s]+', ' ', ctx)
-            if ctx and ctx not in contexts:
-                contexts.append(ctx[:160])
-            if len(contexts) >= max_contexts:
-                break
+        for line in text.splitlines():
+            line_str = line.strip()
+            if phrase.lower() in line_str.lower():
+                ctx = self.extract_context_snippet(line_str, phrase)
+                if ctx and ctx not in contexts:
+                    contexts.append(ctx)
+                if len(contexts) >= max_contexts:
+                    break
         return contexts
 
     def extract_proper_nouns(self, text: str, min_count: int = 2) -> List[ScannedCandidate]:
@@ -532,8 +590,8 @@ class NovelScanner:
                     if phrase not in suggested_map:
                         suggested_map[phrase] = phrase
                     if len(noun_contexts[phrase]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in noun_contexts[phrase]:
+                        ctx = self.extract_context_snippet(line_str, phrase)
+                        if ctx and ctx not in noun_contexts[phrase]:
                             noun_contexts[phrase].append(ctx)
 
                 # Trường hợp 1B: Họ viết hoa, âm sau viết thường (Liễu Ngọc như, Chu Ngọc mị, Khưu ngọc trinh)
@@ -544,8 +602,8 @@ class NovelScanner:
                     if phrase not in suggested_map:
                         suggested_map[phrase] = title_case_vietnamese(phrase)
                     if len(noun_contexts[phrase]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in noun_contexts[phrase]:
+                        ctx = self.extract_context_snippet(line_str, phrase)
+                        if ctx and ctx not in noun_contexts[phrase]:
                             noun_contexts[phrase].append(ctx)
 
                 # Trường hợp 1C: Tên nửa Tây nửa Việt (Gavin phong) hoặc họ + tên thường (Lỗ quân)
@@ -558,8 +616,8 @@ class NovelScanner:
                         if phrase not in suggested_map:
                             suggested_map[phrase] = title_case_vietnamese(phrase)
                         if len(noun_contexts[phrase]) < 2:
-                            ctx = line_str[:160]
-                            if ctx not in noun_contexts[phrase]:
+                            ctx = self.extract_context_snippet(line_str, phrase)
+                            if ctx and ctx not in noun_contexts[phrase]:
                                 noun_contexts[phrase].append(ctx)
 
         for i in range(n - 1):
@@ -591,8 +649,8 @@ class NovelScanner:
                     if name_phrase not in suggested_map:
                         suggested_map[name_phrase] = f"{first_w.capitalize()} {matched_suffix}"
                     if len(noun_contexts[name_phrase]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in noun_contexts[name_phrase]:
+                        ctx = self.extract_context_snippet(line_str, name_phrase)
+                        if ctx and ctx not in noun_contexts[name_phrase]:
                             noun_contexts[name_phrase].append(ctx)
 
         for prefix, p_pattern in self._prefix_patterns:
@@ -614,8 +672,8 @@ class NovelScanner:
                     if full_match not in suggested_map:
                         suggested_map[full_match] = full_match
                     if len(noun_contexts[full_match]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in noun_contexts[full_match]:
+                        ctx = self.extract_context_snippet(line_str, full_match)
+                        if ctx and ctx not in noun_contexts[full_match]:
                             noun_contexts[full_match].append(ctx)
 
         # 2. Quét lỗi dịch máy & Cấu trúc Hán
@@ -630,8 +688,8 @@ class NovelScanner:
                     abnormal_type_map[kw.lower()] = "Lỗi dịch máy"
                     abnormal_target_map[kw.lower()] = self.DEFAULT_TRANSLATION_MAP.get(kw.lower(), kw)
                     if len(abnormal_contexts[kw.lower()]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in abnormal_contexts[kw.lower()]:
+                        ctx = self.extract_context_snippet(line_str, kw)
+                        if ctx and ctx not in abnormal_contexts[kw.lower()]:
                             abnormal_contexts[kw.lower()].append(ctx)
 
         PRONOUN_OWNERS = {"hắn", "nàng", "y", "thị", "ta", "ngươi", "bọn họ", "chúng nó"}
@@ -691,8 +749,8 @@ class NovelScanner:
             abnormal_type_map[phrase] = "Cấu trúc sở hữu ngược"
             abnormal_target_map[phrase] = suggested
             if len(abnormal_contexts[phrase]) < 2:
-                ctx = line_str[:160]
-                if ctx not in abnormal_contexts[phrase]:
+                ctx = self.extract_context_snippet(line_str, phrase)
+                if ctx and ctx not in abnormal_contexts[phrase]:
                     abnormal_contexts[phrase].append(ctx)
 
         for m in self._quantifier_pattern.finditer(line_str):
@@ -703,8 +761,8 @@ class NovelScanner:
                 abnormal_type_map[p_clean] = "Cấu trúc Hán"
                 abnormal_target_map[p_clean] = p_clean.replace("một cái", "một").replace("đứa nhỏ", "đứa trẻ")
                 if len(abnormal_contexts[p_clean]) < 2:
-                    ctx = line_str[:160]
-                    if ctx not in abnormal_contexts[p_clean]:
+                    ctx = self.extract_context_snippet(line_str, full_match)
+                    if ctx and ctx not in abnormal_contexts[p_clean]:
                         abnormal_contexts[p_clean].append(ctx)
 
         for m in self._aspect_pattern.finditer(line_str):
@@ -717,8 +775,8 @@ class NovelScanner:
                     abnormal_type_map[p_clean] = "Cấu trúc Hán"
                     abnormal_target_map[p_clean] = p_clean.replace("đang ở ", "đang ")
                     if len(abnormal_contexts[p_clean]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in abnormal_contexts[p_clean]:
+                        ctx = self.extract_context_snippet(line_str, full_match)
+                        if ctx and ctx not in abnormal_contexts[p_clean]:
                             abnormal_contexts[p_clean].append(ctx)
 
     def _build_candidates(

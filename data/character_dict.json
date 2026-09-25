@@ -68,7 +68,7 @@
   {
     "id": "ch-12",
     "source": "Tạ quốc",
-    "target": "Tạ Quốc Hoa",
+    "target": "Tạ Quốc",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -80,7 +80,7 @@
   {
     "id": "ch-14",
     "source": "Dương ngọc",
-    "target": "Dương Ngọc Nhàn",
+    "target": "Dương Ngọc",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -104,7 +104,7 @@
   {
     "id": "ch-18",
     "source": "Chu Ngọc",
-    "target": "Chu Ngọc Mị",
+    "target": "Chu Ngọc",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -152,7 +152,7 @@
   {
     "id": "ch-26",
     "source": "Trương Tử",
-    "target": "Trương Tử Kiến",
+    "target": "Trương Tử",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -182,13 +182,13 @@
   {
     "id": "ch-31",
     "source": "Trung Hoa",
-    "target": "Đại Trung Hoa",
+    "target": "Trung Hoa",
     "novel_tag": "Thiếu Long"
   },
   {
     "id": "ch-32",
     "source": "Long đại",
-    "target": "Long Đại Ca",
+    "target": "Long Đại",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -200,7 +200,7 @@
   {
     "id": "ch-34",
     "source": "Tạ thúc",
-    "target": "Tạ Thúc Thúc",
+    "target": "Tạ Thúc",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -236,7 +236,7 @@
   {
     "id": "ch-40",
     "source": "Vũ bang",
-    "target": "Huyền Vũ Bang",
+    "target": "Vũ Bang",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -290,7 +290,7 @@
   {
     "id": "ch-49",
     "source": "Long bang",
-    "target": "Vân Long Bang",
+    "target": "Long Bang",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -368,7 +368,7 @@
   {
     "id": "ch-62",
     "source": "Triệu thúc",
-    "target": "Triệu Thúc Thúc",
+    "target": "Triệu Thúc",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -452,7 +452,7 @@
   {
     "id": "ch-76",
     "source": "Tứ Hải",
-    "target": "Tứ Hải Bang",
+    "target": "Tứ Hải",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -536,7 +536,7 @@
   {
     "id": "ch-90",
     "source": "Phó tổng",
-    "target": "Phó Tổng Giám Đốc",
+    "target": "Phó Tổng",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -584,7 +584,7 @@
   {
     "id": "ch-98",
     "source": "Tốt Long",
-    "target": "Hảo Long Kiếm Phi",
+    "target": "Tốt Long",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -866,7 +866,7 @@
   {
     "id": "ch-145",
     "source": "Đại Từ Đại",
-    "target": "Đại Từ Đại Bi",
+    "target": "Đại Từ Đại",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -884,13 +884,13 @@
   {
     "id": "ch-148",
     "source": "Long thúc",
-    "target": "Long Thúc Thúc",
+    "target": "Long Thúc",
     "novel_tag": "Thiếu Long"
   },
   {
     "id": "ch-149",
     "source": "Vương gia",
-    "target": "Vương Gia Hỉ",
+    "target": "Vương Gia",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -908,7 +908,7 @@
   {
     "id": "ch-152",
     "source": "Mạnh bác",
-    "target": "Bác Sĩ Mạnh",
+    "target": "Mạnh Bác",
     "novel_tag": "Thiếu Long"
   },
   {
@@ -1136,7 +1136,7 @@
   {
     "id": "ch-190",
     "source": "Phó chủ",
-    "target": "Phó Chủ Tịch",
+    "target": "Phó Chủ",
     "novel_tag": "Thiếu Long"
   },
   {

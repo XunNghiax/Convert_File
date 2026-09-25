@@ -236,6 +236,14 @@ class DictManager:
                 deduped_common.append(t)
 
         # Deduplicate character_dict
+        all_char_sources = {c.source.lower() for c in char_terms}
+        conflicts_fixed = 0
+        for c in char_terms:
+            resolved_tgt, was_conflict = self.resolve_expansion_conflict(c.source, c.target, all_char_sources)
+            if was_conflict:
+                c.target = resolved_tgt
+                conflicts_fixed += 1
+
         deduped_chars: List[CharacterTerm] = []
         seen_chars: Dict[Tuple[str, str], int] = {}
         for c in char_terms:
@@ -259,6 +267,7 @@ class DictManager:
             "character_before": char_before,
             "character_after": len(deduped_chars),
             "character_deduped": char_before - len(deduped_chars),
+            "conflicts_fixed": conflicts_fixed,
         }
 
     @staticmethod

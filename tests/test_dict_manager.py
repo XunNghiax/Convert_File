@@ -219,4 +219,27 @@ def test_import_records_with_conflict_and_deduplication(tmp_path):
     assert char_map["Tạ quốc vĩ"] == "Tạ Quốc Vĩ"
 
 
+def test_standardize_dictionaries_cleans_expansion_conflicts(tmp_path):
+    import json
+    common_file = tmp_path / "common.json"
+    char_file = tmp_path / "char.json"
+    common_file.write_text("[]", encoding="utf-8")
+    char_file.write_text(json.dumps([
+        {"id": "ch-1", "source": "Tạ quốc", "target": "Tạ Quốc Hoa", "novel_tag": "Thiếu Long"},
+        {"id": "ch-2", "source": "Tạ quốc hoa", "target": "Tạ Quốc Hoa", "novel_tag": "Thiếu Long"},
+        {"id": "ch-3", "source": "Dương ngọc", "target": "Dương Ngọc Nhàn", "novel_tag": "Thiếu Long"},
+        {"id": "ch-4", "source": "Dương ngọc nhàn", "target": "Dương Ngọc Nhàn", "novel_tag": "Thiếu Long"}
+    ], ensure_ascii=False), encoding="utf-8")
+
+    mgr = DictManager(common_file, char_file)
+    stats = mgr.standardize_dictionaries()
+
+    assert stats["conflicts_fixed"] == 2
+    chars = mgr.load_character_dict()
+    char_map = {c.source: c.target for c in chars}
+    assert char_map["Tạ quốc"] == "Tạ Quốc"
+    assert char_map["Dương ngọc"] == "Dương Ngọc"
+
+
+
 

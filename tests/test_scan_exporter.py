@@ -42,3 +42,19 @@ def test_export_scanned_files(tmp_path):
     assert "Liễu Ngọc như" in txt_content
     assert "hoàn toàn ăn mày" in txt_content
     assert "DANH SÁCH TỪ SCAN" in txt_content
+
+def test_export_partitioned(tmp_path):
+    candidates = [
+        ScannedCandidate(phrase=f"Tên {i}", suggested_target=f"Tên {i}", count=5, candidate_type="Tên nhân vật", sample_contexts=[f"Ngữ cảnh {i}"])
+        for i in range(1, 13)
+    ]
+    scanned_dir = tmp_path / "scanned"
+    part_files, master_json = ScanExporter.export_partitioned(candidates, "novel", scanned_dir, part_size=5)
+
+    assert len(part_files) == 3 # 12 items / 5 = 3 parts (5, 5, 2)
+    assert master_json.name == "novel_candidates.json"
+    assert part_files[0].name == "novel_part1_review.txt"
+    assert part_files[1].name == "novel_part2_review.txt"
+    assert part_files[2].name == "novel_part3_review.txt"
+    for pf in part_files:
+        assert pf.exists()

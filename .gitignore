@@ -5,3 +5,5 @@ __pycache__/
 output/
 txt/
 .pytest_cache/
+scanned/*
+!scanned/.gitkeep

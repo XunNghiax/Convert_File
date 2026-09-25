@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import List, Set, Optional, Dict, Tuple, Callable
 from pydantic import BaseModel
 from src.config import Config
+from src.core.grammar_corrector import GrammarCorrector
 
 def title_case_vietnamese(text: str) -> str:
 
@@ -14,7 +15,7 @@ def title_case_vietnamese(text: str) -> str:
 class ScannedCandidate(BaseModel):
     phrase: str
     count: int
-    candidate_type: str  # "Tên nhân vật", "Lỗi dịch máy", "Cấu trúc Hán", "Từ bất thường"
+    candidate_type: str  # "Tên nhân vật", "Lỗi dịch máy", "Cấu trúc Hán", "Cấu trúc sở hữu ngược", "Từ bất thường"
     sample_contexts: List[str] = []
     suggested_target: str = ""
 
@@ -112,6 +113,30 @@ class NovelScanner:
     COMMON_NON_PERSON_WORDS = DEFAULT_NON_PERSON
     COMMON_PRONOUNS_AND_STARTS = DEFAULT_PRONOUNS_AND_STARTS
     COMMON_TRAILING_STOPWORDS = DEFAULT_TRAILING_STOPWORDS
+
+    # Các danh từ thường đứng trước 'của' trong cấu trúc sở hữu thuận (tránh nhận nhầm là sở hữu ngược)
+    COMMON_POSSESSIVE_NOUNS: Set[str] = {
+        # Bộ phận cơ thể
+        "tay", "bàn tay", "chân", "bàn chân", "mắt", "ánh mắt", "đôi mắt", "mặt", "gương mặt", "khuôn mặt",
+        "mũi", "miệng", "môi", "tai", "đầu", "tóc", "mái tóc", "vai", "bờ vai", "lưng", "ngực", "bụng",
+        "thân", "thân thể", "thể xác", "xương", "thịt", "máu", "da", "làn da", "hơi thở", "nụ cười",
+        "thủ", "mông", "háng", "nách", "cổ", "gáy", "eo", "đùi",
+        # Đại từ nhân xưng, thân tộc, quan hệ
+        "người", "người yêu", "bạn", "bạn thân", "bạn bè", "cha", "mẹ", "ba", "má", "bố", "anh", "chị", "em",
+        "con", "cháu", "ông", "bà", "vợ", "chồng", "phu thê", "đối thủ", "kẻ thù", "đồng đội", "sư phụ",
+        "đồ đệ", "thầy", "trò", "huynh đệ", "tỷ muội",
+        # Đồ vật, tài sản, địa điểm, từ chỉ loại
+        "áo", "quần", "váy", "giày", "dép", "nón", "mũ", "túi", "ví", "tiền", "bạc", "nhà", "xe", "phòng",
+        "cửa", "bàn", "ghế", "sách", "vở", "bút", "kiếm", "đao", "vũ khí", "bảo vật", "đồ", "vật",
+        "bức", "cuốn", "quyển", "chiếc", "cây", "tấm", "lá", "viên", "hạt", "bông", "mảnh", "tranh", "ảnh",
+        "bức tranh", "bức ảnh",
+        # Khái niệm trừu tượng, tâm lý, lời nói
+        "lời", "tiếng", "giọng", "giọng nói", "câu", "ý", "ý nghĩ", "suy nghĩ", "tâm", "lòng", "tâm tư",
+        "tình cảm", "tình yêu", "nỗi đau", "niềm vui", "kế hoạch", "ý định", "quyết định", "hành động",
+        "kết quả", "công lao", "tội lỗi", "sai lầm", "bí mật", "cuộc sống", "số phận", "vận mệnh",
+        "tương lai", "quá khứ", "chuyện", "việc"
+    }
+
 
     _V_UPPER = "A-ZÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ"
     _V_LOWER = "a-zàáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ"
@@ -342,10 +367,7 @@ class NovelScanner:
         self.load_filters(self.filters_dir)
 
 
-        self._possessive_pattern = re.compile(
-            r'\b(của\s+(?:hắn|nàng|ngươi|ta)\s+([a-zà-ỹA-ZÀ-Ỹ]+(?:\s+[a-zà-ỹA-ZÀ-Ỹ]+)?))\b',
-            re.IGNORECASE
-        )
+        self._possessive_pattern = GrammarCorrector.REVERSE_POSSESSION_PATTERN
         self._quantifier_pattern = re.compile(
             r'\b(một\s+cái\s+[a-zà-ỹ0-9\-]+(?:\s+[a-zà-ỹ0-9\-]+){1,3}\s+đứa\s+nhỏ)\b',
             re.IGNORECASE
@@ -626,21 +648,57 @@ class NovelScanner:
                         if ctx not in abnormal_contexts[kw.lower()]:
                             abnormal_contexts[kw.lower()].append(ctx)
 
-        for m in self._possessive_pattern.finditer(line_str):
-            full_match = m.group(1).strip()
-            w_split = full_match.lower().split()
-            if len(w_split) >= 3 and w_split[2] not in {"là", "có", "sẽ", "được", "bị", "mà", "đến"}:
-                p_clean = full_match.lower()
-                if p_clean not in self.existing_words and p_clean not in self.blacklist:
-                    abnormal_counts[p_clean] += 1
-                    abnormal_type_map[p_clean] = "Cấu trúc Hán"
-                    pronoun = w_split[1]
-                    noun_part = " ".join(w_split[2:])
-                    abnormal_target_map[p_clean] = f"{noun_part} của {pronoun}"
-                    if len(abnormal_contexts[p_clean]) < 2:
-                        ctx = line_str[:160]
-                        if ctx not in abnormal_contexts[p_clean]:
-                            abnormal_contexts[p_clean].append(ctx)
+        PRONOUN_OWNERS = {"hắn", "nàng", "y", "thị", "ta", "ngươi", "bọn họ", "chúng nó"}
+        for m in GrammarCorrector.REVERSE_POSSESSION_PATTERN.finditer(line_str):
+            cua_part = m.group(1)      # 'của' hoặc 'Của'
+            owner = m.group(2)         # 'hắn', 'Lệ Na', etc.
+            noun_part = m.group(3)     # cụm từ sau chủ thể
+
+            noun_words = noun_part.strip().split()
+            if not noun_words:
+                continue
+
+            first_noun_word = noun_words[0].lower()
+            if first_noun_word in GrammarCorrector.NON_NOUN_WORDS:
+                continue
+
+            if len(noun_words) > 1 and noun_words[1].lower() in GrammarCorrector.NON_NOUN_WORDS:
+                actual_noun = noun_words[0]
+            else:
+                actual_noun = noun_part.strip()
+
+            # Guard clause: Tránh đảo nhầm khi trước 'của' đã có danh từ (sở hữu thuận)
+            before_text = line_str[:m.start()].rstrip()
+            if before_text:
+                last_char = before_text[-1]
+                if last_char not in {',', '.', '!', '?', ';', ':', '"', "'", '“', '”', '‘', '’', '—', '–', '-', '(', ')', '[', ']', '{', '}', '…'}:
+                    prev_words = re.findall(r'[^\W\d_]+', before_text)
+                    if prev_words:
+                        prev_word = prev_words[-1].lower()
+                        prev_2words = f"{prev_words[-2]} {prev_words[-1]}".lower() if len(prev_words) >= 2 else ""
+                        if prev_word in self.COMMON_POSSESSIVE_NOUNS or prev_2words in self.COMMON_POSSESSIVE_NOUNS:
+                            continue
+                        if prev_word in self.non_person_words or prev_2words in self.non_person_words:
+                            continue
+
+            owner_clean = owner.lower() if owner.lower() in PRONOUN_OWNERS else owner
+            phrase = f"{cua_part.lower()} {owner_clean} {actual_noun}"
+            phrase_lower = phrase.lower()
+
+            if phrase_lower in self.existing_words or phrase_lower in self.blacklist or phrase in self.blacklist:
+                continue
+
+            suggested, fix_count = GrammarCorrector.fix_reverse_possession(phrase)
+            if fix_count == 0:
+                continue
+
+            abnormal_counts[phrase] += 1
+            abnormal_type_map[phrase] = "Cấu trúc sở hữu ngược"
+            abnormal_target_map[phrase] = suggested
+            if len(abnormal_contexts[phrase]) < 2:
+                ctx = line_str[:160]
+                if ctx not in abnormal_contexts[phrase]:
+                    abnormal_contexts[phrase].append(ctx)
 
         for m in self._quantifier_pattern.finditer(line_str):
             full_match = m.group(1).strip()

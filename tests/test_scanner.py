@@ -240,4 +240,16 @@ def test_extended_urban_novel_vocabulary():
     assert any("nhục ti" in p for p in phrases)
 
 
+def test_scanner_detects_reverse_possession():
+    text = "Hắn gắt gao giữ chặt lấy của nàng bàn tay, không chịu buông."
+    scanner = NovelScanner()
+    candidates = scanner.scan_text(text, min_count=1)
+    rev_cands = [c for c in candidates if c.candidate_type == "Cấu trúc sở hữu ngược"]
+    
+    assert len(rev_cands) >= 1
+    assert rev_cands[0].phrase == "của nàng bàn tay"
+    assert rev_cands[0].suggested_target == "bàn tay của nàng"
+
+
+
 

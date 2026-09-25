@@ -3,26 +3,59 @@
 # Mỗi dòng một từ/cụm từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
 
 ban giám đốc
-biệt thự
+bạch hổ
 bắc kinh
+bến tàu
 bến xe
 bệnh viện
-chung cư
+bệnh xá
+bí cảnh
+biệt thự
+câu lạc bộ
 căn tin
-công ty
+cấm địa
+chung cư
+chu tước
 cổ đông
+công hội
+công ty
 cục cảnh sát
+cục dân chính
+giang hồ
+gia tộc
 giảng đường
-hoàng hà
+hạp cốc
+hoàng cung
 hoàng đế
+hoàng hà
+hoàng tuyền
+học cung
+học viện
 hội đồng
+hồng hoang
+hỗn độn
+hậu cung
+huyền vũ
+khách điếm
 khách sạn
+kiếm tông
 ký túc xá
+liên minh
+linh khí
+linh thú
+ma giới
+ma thú
+môn phái
 nam phương
+ngân hàng
+nha môn
+nhà ga
 nhà hàng
 nhà vệ sinh
 nhật nguyệt
 nông thôn
+pháp bảo
+phân cục
 phòng bệnh
 phòng bếp
 phòng cấp cứu
@@ -31,22 +64,53 @@ phòng khách
 phòng ngủ
 phòng phẫu thuật
 phòng tắm
+phủ đệ
 quán bar
+quán cà phê
 quân đội
 quận huyện
+sân bay
 siêu thị
 sơn hải
-thiên địa
+sơn mạch
+sở cảnh sát
+tàng kinh các
+tập đoàn
+thái âm
+thái dương
+thanh long
 thành phố
+thánh địa
+thần giới
+thế giới
+thiên địa
+thiên hạ
 thôn trang
-thư phòng
+thương hội
+thượng giới
 thượng hải
+thư phòng
 thị trấn
 thị xã
+tiên giới
+tinh không
+tông môn
+trạm xá
+triều đình
 trung nguyên
 trung tâm thương mại
 trường học
-tập đoàn
+vũ trụ
+vương phủ
+võ đài
 y viện
+yêu giới
+yêu thú
+đại lục
 đại lâu
+đan dược
+đấu giá hành
+đấu trường
+địa phủ
 đồn cảnh sát
+động phủ

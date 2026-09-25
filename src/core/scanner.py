@@ -33,7 +33,14 @@ class NovelScanner:
         "đúng vậy", "quả nhiên", "bỗng nhiên", "một lát sau", "trong chốc lát",
         "thanh niên", "thiếu nữ", "đứa nhỏ", "cô gái", "bác sĩ", "y tá",
         "chính văn", "chương", "tiết", "tập", "hồi", "nhìn", "nghe", "thấy",
-        "vài cái", "một cái", "vài người", "hai người", "mọi người", "trên bờ"
+        "vài cái", "một cái", "vài người", "hai người", "mọi người", "trên bờ",
+        "nhưng là", "tỷ tỷ", "muội muội", "ca ca", "đệ đệ", "bá phụ", "bá mẫu", "cha mẹ"
+    }
+
+    # Các động từ thường đi liền sau tên riêng (tránh bắt nhầm "Phi cười", "Phi chậm")
+    COMMON_VERBS_FOLLOWING = {
+        "cười", "nói", "hỏi", "đáp", "nghĩ", "nhìn", "thấy", "chậm", "chạy",
+        "đến", "đi", "ngồi", "đứng", "nằm", "quay", "bước", "nhảy", "kêu", "la", "hét"
     }
 
     # Danh sách Họ phổ biến trong truyện tiếng Trung / Việt (chữ thường để đối chiếu)
@@ -99,6 +106,14 @@ class NovelScanner:
 
     def __init__(self, existing_words: Optional[Set[str]] = None):
         self.existing_words = {w.lower() for w in (existing_words or set())}
+        # Tự động loại trừ các cụm con của các từ đã có trong từ điển (vd: có "long kiếm phi" -> loại "long kiếm", "kiếm phi")
+        self.existing_subphrases = set()
+        for w in self.existing_words:
+            sub = w.split()
+            if len(sub) >= 3:
+                for l in range(2, len(sub)):
+                    for i in range(len(sub) - l + 1):
+                        self.existing_subphrases.add(" ".join(sub[i:i+l]))
 
     def _get_contexts(self, text: str, phrase: str, max_contexts: int = 2) -> List[str]:
         contexts = []
@@ -135,7 +150,11 @@ class NovelScanner:
                     phrase = " ".join(ngram)
                     phrase_lower = phrase.lower()
 
-                    if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words:
+                    if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases:
+                        continue
+
+                    # Nếu là cụm 2 từ mà từ thứ hai là động từ thường theo sau tên -> bỏ qua
+                    if length == 2 and ngram[1].lower() in self.COMMON_VERBS_FOLLOWING:
                         continue
 
                     first_word_lower = ngram[0].lower()

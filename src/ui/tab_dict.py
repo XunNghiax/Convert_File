@@ -4,7 +4,37 @@ from src.core.dict_manager import DictManager, CommonTerm, CharacterTerm
 
 def render_tab_dict(dict_manager: DictManager):
     st.header("📖 Quản lý Từ Điển")
-    
+
+    with st.expander("⚙️ Công cụ Chuẩn hóa & Nạp từ file Scan đã biên tập", expanded=False):
+        c1, c2 = st.columns([1, 1])
+        with c1:
+            st.markdown("##### ✨ Chuẩn hóa toàn bộ từ điển")
+            st.caption("Khử trùng lặp từ, chuyển dấu tổ hợp NFD sang NFC, đánh lại số thứ tự ID tuần tự co-1..N và ch-1..N.")
+            if st.button("✨ Thực hiện Chuẩn hóa ngay", key="btn_standardize"):
+                stats = dict_manager.standardize_dictionaries()
+                st.success(f"Đã chuẩn hóa thành công! Common: {stats['common_after']} từ (khử {stats['common_deduped']}), Characters: {stats['character_after']} từ (khử {stats['character_deduped']}).")
+                st.rerun()
+
+        with c2:
+            st.markdown("##### 📥 Nạp từ file Scan (.json / .txt)")
+            uploaded_scan = st.file_uploader("Chọn file scan đã biên tập:", type=["json", "txt"], key="upload_scan_file")
+            novel_tag_input = st.text_input("Tag truyện cho nhân vật:", value="Chung", key="scan_import_tag")
+            if uploaded_scan and st.button("🚀 Nạp vào từ điển", key="btn_import_scan"):
+                import tempfile
+                with tempfile.NamedTemporaryFile(delete=False, suffix=Path(uploaded_scan.name).suffix) as tmp:
+                    tmp.write(uploaded_scan.getvalue())
+                    tmp_path = Path(tmp.name)
+                try:
+                    records = dict_manager.parse_scanned_file(tmp_path)
+                    res = dict_manager.import_records(records, default_novel_tag=novel_tag_input)
+                    st.success(f"Nạp thành công {res['total_records']} mục! Nhân vật: +{res['chars_added']} mới, ~{res['chars_updated']} cập nhật. Từ phổ biến: +{res['common_added']} mới, ~{res['common_updated']} cập nhật.")
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Lỗi khi nạp file: {e}")
+                finally:
+                    if tmp_path.exists():
+                        tmp_path.unlink()
+
     subtab1, subtab2 = st.tabs(["Từ điển Từ phổ biến (Global)", "Từ điển Tên nhân vật (Characters)"])
     
     # ---------------- TAB 1: TỪ PHỔ BIẾN ----------------

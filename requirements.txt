@@ -1,12 +1,8 @@
-# Core & Testing
 pytest>=8.0.0
 pydantic>=2.0.0
 python-dotenv>=1.0.0
-
-# User Interface
 streamlit>=1.35.0
 pandas>=2.0.0
-
-# AI Providers (Gemini, OpenAI, DeepSeek, Ollama)
 google-genai>=0.1.1
 openai>=1.30.0
+colorama>=0.4.6

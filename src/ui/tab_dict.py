@@ -44,7 +44,7 @@ def render_tab_dict(dict_manager: DictManager):
         df_common = pd.DataFrame([t.model_dump() for t in common_terms])
         
         if df_common.empty:
-            df_common = pd.DataFrame(columns=["id", "source", "target", "category", "notes"])
+            df_common = pd.DataFrame(columns=["id", "source", "target", "category"])
 
         # Bộ lọc tìm kiếm
         search_common = st.text_input("🔍 Tìm kiếm từ phổ biến:", key="search_common")
@@ -66,8 +66,7 @@ def render_tab_dict(dict_manager: DictManager):
                 "id": st.column_config.TextColumn("ID", disabled=True),
                 "source": st.column_config.TextColumn("Từ gốc (Bản thô)", required=True),
                 "target": st.column_config.TextColumn("Từ thay thế chuẩn", required=True),
-                "category": st.column_config.SelectboxColumn("Phân loại", options=["Lỗi dịch máy", "Xưng hô", "Cụm từ Hán Việt", "Thuật ngữ", "Chung"]),
-                "notes": st.column_config.TextColumn("Ghi chú")
+                "category": st.column_config.SelectboxColumn("Phân loại", options=["Lỗi dịch máy", "Xưng hô", "Cụm từ Hán Việt", "Thuật ngữ", "Chung"])
             }
         )
 
@@ -81,8 +80,7 @@ def render_tab_dict(dict_manager: DictManager):
                             id=f"co-{idx}",
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
-                            category=str(row.get("category", "Chung")),
-                            notes=str(row.get("notes", "")) if pd.notna(row.get("notes")) else ""
+                            category=str(row.get("category", "Chung"))
                         ))
                 dict_manager.save_common_dict(updated_terms)
                 st.success("Đã lưu từ điển từ phổ biến thành công!")
@@ -95,7 +93,7 @@ def render_tab_dict(dict_manager: DictManager):
         df_char = pd.DataFrame([t.model_dump() for t in char_terms])
         
         if df_char.empty:
-            df_char = pd.DataFrame(columns=["id", "source", "target", "novel_tag", "gender_role"])
+            df_char = pd.DataFrame(columns=["id", "source", "target", "novel_tag"])
 
         # Bộ lọc Tag truyện
         available_tags = ["Tất cả"] + sorted(list(df_char["novel_tag"].dropna().unique()))
@@ -115,8 +113,7 @@ def render_tab_dict(dict_manager: DictManager):
                 "id": st.column_config.TextColumn("ID", disabled=True),
                 "source": st.column_config.TextColumn("Tên gốc (Thô)", required=True),
                 "target": st.column_config.TextColumn("Tên chuẩn hóa", required=True),
-                "novel_tag": st.column_config.TextColumn("Tag truyện", required=True),
-                "gender_role": st.column_config.TextColumn("Giới tính / Vai vế")
+                "novel_tag": st.column_config.TextColumn("Tag truyện", required=True)
             }
         )
 
@@ -130,8 +127,7 @@ def render_tab_dict(dict_manager: DictManager):
                             id=f"ch-{idx}",
                             source=str(row.get("source")).strip(),
                             target=str(row.get("target")).strip() if pd.notna(row.get("target")) else "",
-                            novel_tag=str(row.get("novel_tag", "Chung")).strip(),
-                            gender_role=str(row.get("gender_role", "")) if pd.notna(row.get("gender_role")) else ""
+                            novel_tag=str(row.get("novel_tag", "Chung")).strip()
                         ))
                 dict_manager.save_character_dict(updated_chars)
                 st.success("Đã lưu từ điển tên nhân vật thành công!")

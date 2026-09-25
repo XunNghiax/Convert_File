@@ -66,14 +66,13 @@ def test_upsert_character_term(temp_dict_manager):
     # Target should be automatically Title Cased
     assert term1.target == "Như Tỷ"
 
-    # Upsert with updated role or target
-    term2, status2 = temp_dict_manager.upsert_character_term("như tỷ", "Liễu Ngọc Như", novel_tag="Thiếu Long", gender_role="nữ")
+    # Upsert with updated target
+    term2, status2 = temp_dict_manager.upsert_character_term("như tỷ", "Liễu Ngọc Như", novel_tag="Thiếu Long")
     assert status2 == "updated"
     assert term2.target == "Liễu Ngọc Như"
-    assert term2.gender_role == "nữ"
 
     # Upsert identical -> skipped
-    term3, status3 = temp_dict_manager.upsert_character_term("như tỷ", "Liễu Ngọc Như", novel_tag="Thiếu Long", gender_role="nữ")
+    term3, status3 = temp_dict_manager.upsert_character_term("như tỷ", "Liễu Ngọc Như", novel_tag="Thiếu Long")
     assert status3 == "skipped"
 
 def test_standardize_dictionaries(tmp_path):
@@ -84,13 +83,13 @@ def test_standardize_dictionaries(tmp_path):
     # Create raw data with NFD decomposed chars, mixed IDs, and duplicate source
     nfd_source = unicodedata.normalize('NFD', "thành thục mỹ phụ")
     common_data = [
-        {"id": "random-99", "source": nfd_source, "target": "mỹ phụ chín chắn", "category": "Cụm từ Hán Việt", "notes": ""},
-        {"id": "foo", "source": "thành thục mỹ phụ", "target": "mỹ phụ thành thục", "category": "Cụm từ Hán Việt", "notes": ""},
-        {"id": "bar", "source": "ba ba", "target": "bố", "category": "Xưng hô", "notes": ""}
+        {"id": "random-99", "source": nfd_source, "target": "mỹ phụ chín chắn", "category": "Cụm từ Hán Việt"},
+        {"id": "foo", "source": "thành thục mỹ phụ", "target": "mỹ phụ thành thục", "category": "Cụm từ Hán Việt"},
+        {"id": "bar", "source": "ba ba", "target": "bố", "category": "Xưng hô"}
     ]
     char_data = [
-        {"id": "xyz", "source": "long kiếm phi", "target": "long kiếm phi", "novel_tag": "Thiếu Long", "gender_role": "nam"},
-        {"id": "abc", "source": "Long Kiếm Phi", "target": "Long Kiếm Phi", "novel_tag": "Thiếu Long", "gender_role": "nam chính"}
+        {"id": "xyz", "source": "long kiếm phi", "target": "long kiếm phi", "novel_tag": "Thiếu Long"},
+        {"id": "abc", "source": "Long Kiếm Phi", "target": "Long Kiếm Phi", "novel_tag": "Thiếu Long"}
     ]
     import json
     common_path.write_text(json.dumps(common_data), encoding="utf-8")

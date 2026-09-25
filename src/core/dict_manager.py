@@ -11,13 +11,11 @@ class CommonTerm(BaseModel):
     source: str
     target: str
     category: str = "Chung"
-    notes: str = ""
 
     def normalize(self) -> "CommonTerm":
         self.source = unicodedata.normalize('NFC', self.source.strip())
         self.target = unicodedata.normalize('NFC', self.target.strip())
         self.category = unicodedata.normalize('NFC', self.category.strip()) or "Chung"
-        self.notes = unicodedata.normalize('NFC', self.notes.strip())
         return self
 
 class CharacterTerm(BaseModel):
@@ -25,14 +23,12 @@ class CharacterTerm(BaseModel):
     source: str
     target: str
     novel_tag: str = "Chung"
-    gender_role: str = ""
 
     def normalize(self) -> "CharacterTerm":
         self.source = unicodedata.normalize('NFC', self.source.strip())
         tgt = unicodedata.normalize('NFC', self.target.strip())
         self.target = title_case_vietnamese(tgt) if tgt else title_case_vietnamese(self.source)
         self.novel_tag = unicodedata.normalize('NFC', self.novel_tag.strip()) or "Chung"
-        self.gender_role = unicodedata.normalize('NFC', self.gender_role.strip())
         return self
 
 class DictManager:
@@ -57,7 +53,14 @@ class DictManager:
             curr_id = str(item.get("id", ""))
             if not curr_id.startswith("co-"):
                 item["id"] = f"co-{idx}"
-            t = CommonTerm(**item).normalize()
+            # Loại bỏ các trường thừa không còn dùng như notes
+            cleaned_item = {
+                "id": item["id"],
+                "source": item.get("source", ""),
+                "target": item.get("target", ""),
+                "category": item.get("category", "Chung")
+            }
+            t = CommonTerm(**cleaned_item).normalize()
             terms.append(t)
         return terms
 
@@ -77,7 +80,14 @@ class DictManager:
             curr_id = str(item.get("id", ""))
             if not curr_id.startswith("ch-"):
                 item["id"] = f"ch-{idx}"
-            c = CharacterTerm(**item).normalize()
+            # Loại bỏ các trường thừa không còn dùng như gender_role
+            cleaned_item = {
+                "id": item["id"],
+                "source": item.get("source", ""),
+                "target": item.get("target", ""),
+                "novel_tag": item.get("novel_tag", "Chung")
+            }
+            c = CharacterTerm(**cleaned_item).normalize()
             chars.append(c)
         return chars
 
@@ -89,24 +99,26 @@ class DictManager:
         data = [t.model_dump() for t in terms]
         self.character_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    def add_common_term(self, source: str, target: str, category: str = "Chung", notes: str = "") -> CommonTerm:
+    def add_common_term(self, source: str, target: str, category: str = "Chung") -> CommonTerm:
         source_clean = unicodedata.normalize('NFC', source.strip())
         target_clean = unicodedata.normalize('NFC', target.strip())
+        category_clean = unicodedata.normalize('NFC', category.strip()) or "Chung"
         terms = self.load_common_dict()
         if any(t.source.lower() == source_clean.lower() for t in terms):
             raise ValueError(f"Term '{source_clean}' already exists in common dictionary.")
-        new_term = CommonTerm(id=f"co-{len(terms) + 1}", source=source_clean, target=target_clean, category=category, notes=notes).normalize()
+        new_term = CommonTerm(id=f"co-{len(terms) + 1}", source=source_clean, target=target_clean, category=category_clean).normalize()
         terms.append(new_term)
         self.save_common_dict(terms)
         return new_term
 
-    def add_character_term(self, source: str, target: str, novel_tag: str = "Chung", gender_role: str = "") -> CharacterTerm:
+    def add_character_term(self, source: str, target: str, novel_tag: str = "Chung") -> CharacterTerm:
         source_clean = unicodedata.normalize('NFC', source.strip())
         target_clean = unicodedata.normalize('NFC', target.strip())
+        tag_clean = unicodedata.normalize('NFC', novel_tag.strip()) or "Chung"
         chars = self.load_character_dict()
-        if any(c.source.lower() == source_clean.lower() and c.novel_tag == novel_tag for c in chars):
-            raise ValueError(f"Character '{source_clean}' already exists in '{novel_tag}' dictionary.")
-        new_char = CharacterTerm(id=f"ch-{len(chars) + 1}", source=source_clean, target=target_clean, novel_tag=novel_tag, gender_role=gender_role).normalize()
+        if any(c.source.lower() == source_clean.lower() and c.novel_tag == tag_clean for c in chars):
+            raise ValueError(f"Character '{source_clean}' already exists in '{tag_clean}' dictionary.")
+        new_char = CharacterTerm(id=f"ch-{len(chars) + 1}", source=source_clean, target=target_clean, novel_tag=tag_clean).normalize()
         chars.append(new_char)
         self.save_character_dict(chars)
         return new_char
@@ -115,13 +127,11 @@ class DictManager:
         self,
         source: str,
         target: str,
-        category: str = "Chung",
-        notes: str = ""
+        category: str = "Chung"
     ) -> Tuple[CommonTerm, str]:
         source_clean = unicodedata.normalize('NFC', source.strip())
         target_clean = unicodedata.normalize('NFC', target.strip()) or source_clean
         category_clean = unicodedata.normalize('NFC', category.strip()) or "Chung"
-        notes_clean = unicodedata.normalize('NFC', notes.strip())
 
         terms = self.load_common_dict()
         existing = next((t for t in terms if t.source.lower() == source_clean.lower()), None)
@@ -134,9 +144,6 @@ class DictManager:
             if category_clean != "Chung" and existing.category != category_clean:
                 existing.category = category_clean
                 updated = True
-            if notes_clean and not existing.notes:
-                existing.notes = notes_clean
-                updated = True
 
             if updated:
                 self.save_common_dict(terms)
@@ -147,8 +154,7 @@ class DictManager:
                 id=f"co-{len(terms) + 1}",
                 source=source_clean,
                 target=target_clean,
-                category=category_clean,
-                notes=notes_clean
+                category=category_clean
             ).normalize()
             terms.append(new_term)
             self.save_common_dict(terms)
@@ -158,14 +164,12 @@ class DictManager:
         self,
         source: str,
         target: str,
-        novel_tag: str = "Chung",
-        gender_role: str = ""
+        novel_tag: str = "Chung"
     ) -> Tuple[CharacterTerm, str]:
         source_clean = unicodedata.normalize('NFC', source.strip())
         raw_target = unicodedata.normalize('NFC', target.strip()) or source_clean
         target_clean = title_case_vietnamese(raw_target)
         tag_clean = unicodedata.normalize('NFC', novel_tag.strip()) or "Chung"
-        gender_clean = unicodedata.normalize('NFC', gender_role.strip())
 
         chars = self.load_character_dict()
         existing = next((
@@ -183,9 +187,6 @@ class DictManager:
             if tag_clean != "Chung" and existing.novel_tag == "Chung":
                 existing.novel_tag = tag_clean
                 updated = True
-            if gender_clean and not existing.gender_role:
-                existing.gender_role = gender_clean
-                updated = True
 
             if updated:
                 self.save_character_dict(chars)
@@ -196,8 +197,7 @@ class DictManager:
                 id=f"ch-{len(chars) + 1}",
                 source=source_clean,
                 target=target_clean,
-                novel_tag=tag_clean,
-                gender_role=gender_clean
+                novel_tag=tag_clean
             ).normalize()
             chars.append(new_char)
             self.save_character_dict(chars)
@@ -205,7 +205,9 @@ class DictManager:
 
     def standardize_dictionaries(self) -> Dict[str, Any]:
         """
-        Chuẩn hóa toàn bộ từ điển:
+        Chuẩn hóa toàn bộ từ điển theo cấu trúc tinh gọn:
+        - Common: {id, source, target, category}
+        - Character: {id, source, target, novel_tag}
         - Chuẩn hóa Unicode NFC mọi trường chuỗi.
         - Khử trùng lặp (deduplicate) case-insensitive.
         - Viết hoa chuẩn Title Case cho tên nhân vật.
@@ -227,8 +229,6 @@ class DictManager:
                 idx = seen_common[key]
                 if t.category != "Chung" and deduped_common[idx].category == "Chung":
                     deduped_common[idx].category = t.category
-                if t.notes and not deduped_common[idx].notes:
-                    deduped_common[idx].notes = t.notes
                 if t.target and deduped_common[idx].target == deduped_common[idx].source:
                     deduped_common[idx].target = t.target
             else:
@@ -243,8 +243,6 @@ class DictManager:
             key = (c.source.lower(), c.novel_tag.lower())
             if key in seen_chars:
                 idx = seen_chars[key]
-                if c.gender_role and not deduped_chars[idx].gender_role:
-                    deduped_chars[idx].gender_role = c.gender_role
                 if c.target and deduped_chars[idx].target == deduped_chars[idx].source:
                     deduped_chars[idx].target = c.target
             else:
@@ -328,8 +326,8 @@ class DictManager:
     def import_records(self, records: List[dict], default_novel_tag: str = "Chung") -> Dict[str, Any]:
         """
         Nạp một danh sách các bản ghi (từ file scan đã biên tập) vào từ điển phù hợp:
-        - Tên nhân vật -> character_dict.json
-        - Từ phổ biến / dịch thô -> common_dict.json
+        - Tên nhân vật -> character_dict.json ({id, source, target, novel_tag})
+        - Từ phổ biến / dịch thô -> common_dict.json ({id, source, target, category})
         """
         common_terms = self.load_common_dict()
         char_terms = self.load_character_dict()
@@ -361,16 +359,11 @@ class DictManager:
             # Phân loại: Tên nhân vật hay Từ phổ biến
             is_char = rec.get("is_character", None)
             if is_char is None:
-                is_char = (
-                    cat_clean.lower() in ["tên nhân vật", "nhân vật", "character", "tên riêng"]
-                    or bool(rec.get("gender_role") or rec.get("role"))
-                )
+                is_char = cat_clean.lower() in ["tên nhân vật", "nhân vật", "character", "tên riêng"]
 
             if is_char:
                 novel_tag = rec.get("novel_tag") or default_novel_tag or "Chung"
                 novel_tag = unicodedata.normalize('NFC', str(novel_tag)).strip()
-                gender_role = rec.get("gender_role") or rec.get("role") or ""
-                gender_role = unicodedata.normalize('NFC', str(gender_role)).strip()
                 target_clean = title_case_vietnamese(target)
 
                 # Tìm kiếm đã tồn tại
@@ -389,9 +382,6 @@ class DictManager:
                     if novel_tag != "Chung" and existing.novel_tag == "Chung":
                         existing.novel_tag = novel_tag
                         updated = True
-                    if gender_role and not existing.gender_role:
-                        existing.gender_role = gender_role
-                        updated = True
 
                     if updated:
                         chars_updated += 1
@@ -404,16 +394,13 @@ class DictManager:
                         id=f"ch-{len(char_terms) + 1}",
                         source=source,
                         target=target_clean,
-                        novel_tag=novel_tag,
-                        gender_role=gender_role
+                        novel_tag=novel_tag
                     )
                     char_terms.append(new_char)
                     chars_added += 1
                     actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": novel_tag, "status": "new"})
             else:
                 category = cat_clean or "Lỗi dịch máy"
-                notes = rec.get("notes") or rec.get("context") or ""
-                notes = unicodedata.normalize('NFC', str(notes)).strip()
 
                 existing = next((t for t in common_terms if t.source.lower() == source.lower()), None)
                 if existing:
@@ -423,9 +410,6 @@ class DictManager:
                         updated = True
                     if category != "Chung" and existing.category != category:
                         existing.category = category
-                        updated = True
-                    if notes and not existing.notes:
-                        existing.notes = notes
                         updated = True
 
                     if updated:
@@ -439,8 +423,7 @@ class DictManager:
                         id=f"co-{len(common_terms) + 1}",
                         source=source,
                         target=target,
-                        category=category,
-                        notes=notes
+                        category=category
                     )
                     common_terms.append(new_term)
                     common_added += 1

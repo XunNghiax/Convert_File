@@ -29,7 +29,7 @@ def import_dictionary():
                 name_clean = " ".join([w.capitalize() for w in name.split()])
                 role = ", ".join(parts[1:]) if len(parts) > 1 else ""
                 try:
-                    dict_mgr.add_character_term(source=name, target=name_clean, novel_tag="Thiếu Long", gender_role=role[:50])
+                    dict_mgr.add_character_term(source=name, target=name_clean, novel_tag="Thiếu Long")
                     count += 1
                 except ValueError:
                     pass

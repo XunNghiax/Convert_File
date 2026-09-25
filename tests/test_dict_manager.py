@@ -241,5 +241,48 @@ def test_standardize_dictionaries_cleans_expansion_conflicts(tmp_path):
     assert char_map["Dương ngọc"] == "Dương Ngọc"
 
 
+def test_end_to_end_absence_of_double_word_replacement(tmp_path):
+    from src.core.replacer import ReplacerEngine
+    common_file = tmp_path / "common.json"
+    char_file = tmp_path / "char.json"
+    common_file.write_text("[]", encoding="utf-8")
+    char_file.write_text("[]", encoding="utf-8")
+
+    mgr = DictManager(common_file, char_file)
+
+    # Giả lập import lô từ có xung đột mở rộng (như ví dụ người dùng nêu)
+    incoming_records = [
+        {"source": "Tạ quốc", "target": "Tạ Quốc Hoa", "is_character": True, "novel_tag": "Thiếu Long"},
+        {"source": "Tạ quốc hoa", "target": "Tạ Quốc Hoa", "is_character": True, "novel_tag": "Thiếu Long"},
+        {"source": "Tạ quốc vĩ", "target": "Tạ Quốc Vĩ", "is_character": True, "novel_tag": "Thiếu Long"},
+    ]
+    res = mgr.import_records(incoming_records, default_novel_tag="Thiếu Long", auto_resolve_conflicts=True)
+    assert res["conflicts_resolved"] == 1
+
+    # Nạp từ điển đã chuẩn hóa vào ReplacerEngine
+    chars = mgr.load_character_dict()
+    char_map = {c.source: c.target for c in chars}
+    replacer = ReplacerEngine(character_mappings=char_map)
+
+    raw_novel_text = (
+        "Hôm nay Tạ quốc hoa bước vào phòng khách. "
+        "Phía sau hắn là Tạ quốc vĩ đang cười nói vui vẻ. "
+        "Đột nhiên Tạ quốc dừng lại và quay đầu nhìn."
+    )
+    converted, stats, _ = replacer.replace_text(raw_novel_text)
+
+    # Kiểm tra các thay thế chuẩn
+    assert "Tạ Quốc Hoa bước vào phòng khách" in converted
+    assert "Tạ Quốc Vĩ đang cười nói vui vẻ" in converted
+    assert "Tạ Quốc dừng lại" in converted
+
+    # Tuyệt đối KHÔNG được có hiện tượng lặp từ ("Hoa hoa" hay "Hoa vĩ")
+    assert "Hoa hoa" not in converted
+    assert "Hoa vĩ" not in converted
+    assert "Tạ Quốc Hoa hoa" not in converted
+    assert "Tạ Quốc Hoa vĩ" not in converted
+
+
+
 
 

@@ -346,7 +346,7 @@ class DictManager:
         source_lower = source_clean.lower()
         prefix_with_space = f"{source_lower} "
         is_subphrase = any(
-            s != source_lower and (s.startswith(prefix_with_space) or f" {source_lower} " in f" {s} ")
+            s.lower() != source_lower and (s.lower().startswith(prefix_with_space) or f" {source_lower} " in f" {s.lower()} ")
             for s in all_known_sources
         )
 
@@ -355,7 +355,12 @@ class DictManager:
 
         return target_clean, False
 
-    def import_records(self, records: List[dict], default_novel_tag: str = "Chung") -> Dict[str, Any]:
+    def import_records(
+        self,
+        records: List[dict],
+        default_novel_tag: str = "Chung",
+        auto_resolve_conflicts: bool = True
+    ) -> Dict[str, Any]:
         """
         Nạp một danh sách các bản ghi (từ file scan đã biên tập) vào từ điển phù hợp:
         - Tên nhân vật -> character_dict.json ({id, source, target, novel_tag})
@@ -364,9 +369,21 @@ class DictManager:
         common_terms = self.load_common_dict()
         char_terms = self.load_character_dict()
 
+        all_known_sources: Set[str] = {
+            unicodedata.normalize('NFC', c.source.strip().lower()) for c in char_terms
+        }.union({
+            unicodedata.normalize('NFC', t.source.strip().lower()) for t in common_terms
+        })
+        for r in records:
+            if isinstance(r, dict):
+                s = r.get("source") or r.get("phrase") or r.get("from") or ""
+                if s:
+                    all_known_sources.add(unicodedata.normalize('NFC', str(s).strip().lower()))
+
         chars_added = 0
         chars_updated = 0
         chars_skipped = 0
+        conflicts_resolved = 0
 
         common_added = 0
         common_updated = 0
@@ -422,6 +439,15 @@ class DictManager:
                         chars_skipped += 1
                         actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": existing.novel_tag, "status": "skipped"})
                 else:
+                    was_conflict = False
+                    if auto_resolve_conflicts:
+                        resolved_target, was_conflict = self.resolve_expansion_conflict(
+                            source, target_clean, all_known_sources
+                        )
+                        if was_conflict:
+                            target_clean = resolved_target
+                            conflicts_resolved += 1
+
                     new_char = CharacterTerm(
                         id=f"ch-{len(char_terms) + 1}",
                         source=source,
@@ -430,7 +456,14 @@ class DictManager:
                     )
                     char_terms.append(new_char)
                     chars_added += 1
-                    actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": novel_tag, "status": "new"})
+                    status_str = "normalized_expansion" if was_conflict else "new"
+                    actions.append({
+                        "type": "character",
+                        "source": source,
+                        "target": target_clean,
+                        "novel_tag": novel_tag,
+                        "status": status_str
+                    })
             else:
                 category = cat_clean or "Lỗi dịch máy"
 
@@ -475,5 +508,6 @@ class DictManager:
             "common_updated": common_updated,
             "common_skipped": common_skipped,
             "common_total_after": len(common_terms),
+            "conflicts_resolved": conflicts_resolved,
             "actions": actions
         }

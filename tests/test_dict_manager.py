@@ -187,3 +187,36 @@ def test_resolve_expansion_conflict():
     assert resolved == "Tiểu Mỹ Nhân Hoa"
 
 
+def test_import_records_with_conflict_and_deduplication(tmp_path):
+    import json
+    common_file = tmp_path / "common.json"
+    char_file = tmp_path / "char.json"
+    common_file.write_text("[]", encoding="utf-8")
+    char_file.write_text(json.dumps([
+        {"id": "ch-1", "source": "Tạ quốc hoa", "target": "Tạ Quốc Hoa", "novel_tag": "Thiếu Long"}
+    ], ensure_ascii=False), encoding="utf-8")
+
+    mgr = DictManager(common_file, char_file)
+
+    records = [
+        # Mục 1: Trùng lặp chính xác đã có sẵn -> phải skipped
+        {"source": "Tạ quốc hoa", "target": "Tạ Quốc Hoa", "is_character": True, "novel_tag": "Thiếu Long"},
+        # Mục 2: Xung đột mở rộng ("Tạ quốc" 2 từ -> "Tạ Quốc Hoa" 3 từ) -> phải tự động nắn về "Tạ Quốc"
+        {"source": "Tạ quốc", "target": "Tạ Quốc Hoa", "is_character": True, "novel_tag": "Thiếu Long"},
+        # Mục 3: Nhân vật mới chuẩn
+        {"source": "Tạ quốc vĩ", "target": "Tạ Quốc Vĩ", "is_character": True, "novel_tag": "Thiếu Long"}
+    ]
+
+    res = mgr.import_records(records, default_novel_tag="Thiếu Long", auto_resolve_conflicts=True)
+    assert res["chars_skipped"] == 1
+    assert res["conflicts_resolved"] == 1
+    assert res["chars_added"] == 2
+
+    saved_chars = mgr.load_character_dict()
+    char_map = {c.source: c.target for c in saved_chars}
+    assert char_map["Tạ quốc"] == "Tạ Quốc" # Đã được nắn 1-1, không còn "Tạ Quốc Hoa"
+    assert char_map["Tạ quốc hoa"] == "Tạ Quốc Hoa"
+    assert char_map["Tạ quốc vĩ"] == "Tạ Quốc Vĩ"
+
+
+

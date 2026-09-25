@@ -1,3 +1,4 @@
+from pathlib import Path
 import streamlit as st
 import pandas as pd
 from src.core.dict_manager import DictManager, CommonTerm, CharacterTerm
@@ -12,7 +13,8 @@ def render_tab_dict(dict_manager: DictManager):
             st.caption("Khử trùng lặp từ, chuyển dấu tổ hợp NFD sang NFC, đánh lại số thứ tự ID tuần tự co-1..N và ch-1..N.")
             if st.button("✨ Thực hiện Chuẩn hóa ngay", key="btn_standardize"):
                 stats = dict_manager.standardize_dictionaries()
-                st.success(f"Đã chuẩn hóa thành công! Common: {stats['common_after']} từ (khử {stats['common_deduped']}), Characters: {stats['character_after']} từ (khử {stats['character_deduped']}).")
+                extra_msg = f", Đã khắc phục {stats.get('conflicts_fixed', 0)} mục xung đột mở rộng" if stats.get('conflicts_fixed', 0) > 0 else ""
+                st.success(f"Đã chuẩn hóa thành công! Common: {stats['common_after']} từ (khử {stats['common_deduped']}), Characters: {stats['character_after']} từ (khử {stats['character_deduped']}){extra_msg}.")
                 st.rerun()
 
         with c2:

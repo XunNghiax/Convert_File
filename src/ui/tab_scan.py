@@ -205,27 +205,29 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
         )
 
         if st.button("➕ Thêm các từ đã chọn vào Từ Điển", type="primary"):
-            added_common = 0
-            added_char = 0
             novel_tag = st.session_state.get("scan_novel_tag", "Chung")
-
+            selected_records = []
             for _, row in edited_df.iterrows():
                 if row.get("selected") and row.get("source") and row.get("target"):
-                    src = str(row["source"]).strip()
-                    tgt = str(row["target"]).strip()
-                    if row.get("is_character"):
-                        try:
-                            dict_manager.add_character_term(source=src, target=tgt, novel_tag=novel_tag)
-                            added_char += 1
-                        except ValueError:
-                            pass
-                    else:
-                        try:
-                            dict_manager.add_common_term(source=src, target=tgt, category=str(row.get("category", "Chung")))
-                            added_common += 1
-                        except ValueError:
-                            pass
+                    selected_records.append({
+                        "source": str(row["source"]).strip(),
+                        "target": str(row["target"]).strip(),
+                        "is_character": bool(row.get("is_character", False)),
+                        "category": str(row.get("category", "Chung")),
+                        "novel_tag": novel_tag
+                    })
 
-            st.success(f"🎉 Đã thêm thành công: **{added_char}** tên nhân vật và **{added_common}** từ phổ biến vào từ điển!")
+            res = dict_manager.import_records(selected_records, default_novel_tag=novel_tag)
+            msg_parts = [
+                f"🎉 **Đã xử lý {res['total_records']} mục:**",
+                f"+ Thêm mới: **{res['chars_added']}** nhân vật, **{res['common_added']}** từ phổ biến",
+                f"+ Cập nhật: **{res['chars_updated']}** nhân vật, **{res['common_updated']}** từ phổ biến",
+                f"+ Bỏ qua trùng: **{res['chars_skipped'] + res['common_skipped']}** mục"
+            ]
+            if res.get("conflicts_resolved", 0) > 0:
+                msg_parts.append(f"+ Tự động chuẩn hóa 1-1 chống xung đột lặp từ: **{res['conflicts_resolved']}** mục")
+
+            st.success(" | ".join(msg_parts))
             st.session_state["scan_results"] = []
             st.rerun()
+

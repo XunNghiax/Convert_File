@@ -13,6 +13,7 @@ class Config:
     
     COMMON_DICT_PATH: Path = DATA_DIR / "common_dict.json"
     CHARACTER_DICT_PATH: Path = DATA_DIR / "character_dict.json"
+    DEFAULT_IMPORT_PATH: Path = BASE_DIR / "import.txt"
     
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")

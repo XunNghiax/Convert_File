@@ -63,10 +63,10 @@ Tổng số mục: {len(candidates)} mục
 
 --- HƯỚNG DẪN PROMPT GỬI CHO AI ---
 Bạn là một biên tập viên dịch thuật chuyên nghiệp.
-Nhiệm vụ của bạn là đọc danh sách bên dưới, kiểm tra trường "target":
+Nhiệm vụ của bạn là đọc danh sách bên dưới, dựa theo trường Context và source để sinh ra target
 1. Nếu là Tên nhân vật: Chuẩn hóa Title Case tiếng Việt hoặc Hán Việt mượt mà.
 2. Nếu là Lỗi dịch máy / Cụm từ thô: Thay thế bằng từ tiếng Việt tự nhiên, phù hợp với ngữ cảnh trong "context".
-3. Giữ nguyên cấu trúc JSON và trả về danh sách đã chỉnh sửa.
+3. Giữ nguyên cấu trúc JSON và trả về danh sách đã chỉnh sửa trong code block.
 
 --- DỮ LIỆU CẦN XỬ LÝ ---
 """

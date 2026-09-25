@@ -60,10 +60,12 @@ def print_banner():
 def infer_novel_tag(file_path: Path) -> str:
     """Tự động suy đoán tag truyện từ tên file."""
     stem = file_path.stem
+    if stem.lower() in ("import", "default", "data"):
+        return "Thiếu Long"
     for suffix in ["_candidates", "_review", "_scan", "_edited"]:
         if stem.endswith(suffix):
             stem = stem[:-len(suffix)]
-    return stem or "Chung"
+    return stem or "Thiếu Long"
 
 def run_import(file_path: Path, novel_tag: str = "", dry_run: bool = False) -> int:
     config = Config()
@@ -163,29 +165,41 @@ def run_standardize_only():
 def interactive_wizard():
     print_banner()
     config = Config()
+    default_file = getattr(config, "DEFAULT_IMPORT_PATH", BASE_DIR / "import.txt")
+    has_default = default_file.exists()
 
     print("📋 CHỌN CHỨC NĂNG:")
-    print("   [1] Chọn file scan từ thư mục 'scanned/'")
-    print("   [2] Nhập đường dẫn file scan tùy ý (kéo thả hoặc dán path)")
-    print("   [3] Chỉ chuẩn hóa lại từ điển hiện tại (NFC, khử trùng, đánh lại ID)")
-    
-    choice = input("👉 Lựa chọn [1/2/3] [Mặc định: 1]: ").strip()
-    if choice not in ("1", "2", "3"):
-        choice = "1"
+    if has_default:
+        print(f"   [1] Nạp file mặc định '{default_file.name}' (Khuyên dùng)")
+        print("   [2] Chọn file scan từ thư mục 'scanned/'")
+        print("   [3] Nhập đường dẫn file scan tùy ý (kéo thả hoặc dán path)")
+        print("   [4] Chỉ chuẩn hóa lại từ điển hiện tại (NFC, khử trùng, đánh lại ID)")
+        default_choice = "1"
+    else:
+        print("   [1] Chọn file scan từ thư mục 'scanned/'")
+        print("   [2] Nhập đường dẫn file scan tùy ý (kéo thả hoặc dán path)")
+        print("   [3] Chỉ chuẩn hóa lại từ điển hiện tại (NFC, khử trùng, đánh lại ID)")
+        default_choice = "1"
 
-    if choice == "3":
+    choice = input(f"👉 Lựa chọn [{'1/2/3/4' if has_default else '1/2/3'}] [Mặc định: {default_choice}]: ").strip()
+    if not choice:
+        choice = default_choice
+
+    if (has_default and choice == "4") or (not has_default and choice == "3"):
         run_standardize_only()
         input("\nNhấn Enter để kết thúc...")
         return
 
     target_file = None
-    if choice == "1":
+    if has_default and choice == "1":
+        target_file = default_file
+    elif (has_default and choice == "2") or (not has_default and choice == "1"):
         scanned_files = list(config.SCANNED_DIR.glob("*.*"))
         # Lọc các file json và txt
         valid_files = [f for f in scanned_files if f.suffix.lower() in [".json", ".txt"]]
         if not valid_files:
             print(f"\n{Fore.YELLOW if HAS_COLOR else ''}⚠️ Thư mục 'scanned/' chưa có file nào. Chuyển sang chế độ nhập đường dẫn file...{Style.RESET_ALL if HAS_COLOR else ''}")
-            choice = "2"
+            target_file = None
         else:
             print(f"\n📂 CÁC FILE TRONG THƯ MỤC 'scanned/':")
             for idx, f in enumerate(valid_files, start=1):
@@ -195,17 +209,20 @@ def interactive_wizard():
             if file_choice.isdigit() and 1 <= int(file_choice) <= len(valid_files):
                 target_file = valid_files[int(file_choice) - 1]
             else:
-                # Tìm theo tên
                 found = next((f for f in valid_files if file_choice.lower() in f.name.lower()), None)
                 if found:
                     target_file = found
 
     if not target_file:
         print("\n📂 NHẬP ĐƯỜNG DẪN FILE:")
-        print("   (Kéo thả file vào cửa sổ terminal hoặc dán đường dẫn)")
+        prompt_hint = f" [Mặc định: {default_file.name}]" if has_default else ""
+        print(f"   (Kéo thả file vào cửa sổ terminal hoặc dán đường dẫn{prompt_hint})")
         while True:
-            raw_path = input("👉 Đường dẫn file: ").strip()
+            raw_path = input(f"👉 Đường dẫn file{prompt_hint}: ").strip()
             clean_path = raw_path.strip("\"'")
+            if not clean_path and has_default:
+                target_file = default_file
+                break
             if clean_path:
                 tf = Path(clean_path)
                 if not tf.is_absolute():
@@ -250,7 +267,7 @@ def main():
         return
 
     parser = argparse.ArgumentParser(description="Novel Translation Refiner - Scan Import & Dictionary Sync")
-    parser.add_argument("--file", "-f", type=str, default="", help="Đường dẫn đến file scan cần nạp (.json hoặc .txt)")
+    parser.add_argument("--file", "-f", type=str, default="import.txt", help="Đường dẫn đến file scan cần nạp (mặc định: import.txt)")
     parser.add_argument("--tag", "-t", type=str, default="", help="Tag truyện cho nhân vật (mặc định: suy đoán theo tên file)")
     parser.add_argument("--standardize-only", action="store_true", help="Chỉ chuẩn hóa từ điển hiện tại (NFC, khử trùng, đánh lại ID)")
     parser.add_argument("--dry-run", "-d", action="store_true", help="Chỉ xem trước các mục, không lưu vào file từ điển")
@@ -262,13 +279,13 @@ def main():
     if args.standardize_only:
         sys.exit(run_standardize_only())
 
-    if not args.file:
-        log("ERROR", "Vui lòng chỉ định đường dẫn file bằng tham số --file (-f) hoặc chạy không tham số để mở wizard.")
-        sys.exit(1)
-
     file_path = Path(args.file)
     if not file_path.is_absolute():
         file_path = BASE_DIR / file_path
+
+    if not file_path.exists():
+        log("ERROR", f"Không tìm thấy file: {file_path}")
+        sys.exit(1)
 
     code = run_import(file_path, novel_tag=args.tag, dry_run=args.dry_run)
     sys.exit(code)

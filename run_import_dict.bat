@@ -8,10 +8,18 @@ echo       NOVEL TRANSLATION REFINER - KHOI CHAY DONG BO TU DIEN
 echo ========================================================================
 echo.
 
-if exist venv\Scripts\python.exe (
-    venv\Scripts\python.exe scripts\import_scanned_dict.py %*
+set "PYTHON_EXE=python"
+if exist venv\Scripts\python.exe set "PYTHON_EXE=venv\Scripts\python.exe"
+
+if "%~1"=="" (
+    rem Mac dinh khong truyen tham so: Khoi chay Wizard voi lua chon 1 la import.txt
+    %PYTHON_EXE% scripts\import_scanned_dict.py
+) else if exist "%~1" (
+    rem Keo tha file hoac truyen truc tiep duong dan file vao batch
+    %PYTHON_EXE% scripts\import_scanned_dict.py --file "%~1"
 ) else (
-    python scripts\import_scanned_dict.py %*
+    rem Truyen cac tham so dong lenh CLI (vi du: --dry-run, --tag ...)
+    %PYTHON_EXE% scripts\import_scanned_dict.py %*
 )
 
 if %ERRORLEVEL% NEQ 0 (

@@ -13,3 +13,13 @@ def test_config_paths_exist():
     assert config.SCANNED_DIR.name == "scanned"
     assert config.SCANNED_DIR.exists()
     assert config.DEFAULT_IMPORT_PATH.name == "import.txt"
+
+def test_filter_paths():
+    config = Config()
+    assert config.FILTERS_DIR.name == "filters"
+    assert config.BLACKLIST_FILTER_PATH.name == "blacklist.txt"
+    assert config.PRONOUNS_FILTER_PATH.name == "pronouns.txt"
+    assert config.TRAILING_STOPWORDS_FILTER_PATH.name == "trailing_stopwords.txt"
+    assert config.NON_PERSON_FILTER_PATH.name == "non_person.txt"
+    assert config.FILTERS_DIR.exists()
+

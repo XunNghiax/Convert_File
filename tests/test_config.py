@@ -12,7 +12,7 @@ def test_config_paths_exist():
     assert config.OUTPUT_DIR.exists()
     assert config.SCANNED_DIR.name == "scanned"
     assert config.SCANNED_DIR.exists()
-    assert config.DEFAULT_IMPORT_PATH.name == "import.txt"
+    assert config.DEFAULT_IMPORT_PATH.name == "import.json"
 
 def test_filter_paths():
     config = Config()

@@ -165,7 +165,7 @@ def run_standardize_only():
 def interactive_wizard():
     print_banner()
     config = Config()
-    default_file = getattr(config, "DEFAULT_IMPORT_PATH", BASE_DIR / "import.txt")
+    default_file = getattr(config, "DEFAULT_IMPORT_PATH", BASE_DIR / "import.json")
     has_default = default_file.exists()
 
     print("📋 CHỌN CHỨC NĂNG:")
@@ -267,7 +267,7 @@ def main():
         return
 
     parser = argparse.ArgumentParser(description="Novel Translation Refiner - Scan Import & Dictionary Sync")
-    parser.add_argument("--file", "-f", type=str, default="import.txt", help="Đường dẫn đến file scan cần nạp (mặc định: import.txt)")
+    parser.add_argument("--file", "-f", type=str, default="import.json", help="Đường dẫn đến file scan cần nạp (mặc định: import.json)")
     parser.add_argument("--tag", "-t", type=str, default="", help="Tag truyện cho nhân vật (mặc định: suy đoán theo tên file)")
     parser.add_argument("--standardize-only", action="store_true", help="Chỉ chuẩn hóa từ điển hiện tại (NFC, khử trùng, đánh lại ID)")
     parser.add_argument("--dry-run", "-d", action="store_true", help="Chỉ xem trước các mục, không lưu vào file từ điển")

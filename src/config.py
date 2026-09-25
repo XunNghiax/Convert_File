@@ -14,7 +14,7 @@ class Config:
     
     COMMON_DICT_PATH: Path = DATA_DIR / "common_dict.json"
     CHARACTER_DICT_PATH: Path = DATA_DIR / "character_dict.json"
-    DEFAULT_IMPORT_PATH: Path = BASE_DIR / "import.txt"
+    DEFAULT_IMPORT_PATH: Path = BASE_DIR / "import.json"
 
     BLACKLIST_FILTER_PATH: Path = FILTERS_DIR / "blacklist.txt"
     PRONOUNS_FILTER_PATH: Path = FILTERS_DIR / "pronouns.txt"

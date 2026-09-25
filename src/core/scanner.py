@@ -582,7 +582,10 @@ class NovelScanner:
                     and first_w.lower() not in self.non_person_words
                 ):
                     name_phrase = f"{first_w} {matched_suffix}"
-                    if name_phrase.lower() in self.blacklist or name_phrase in self.blacklist:
+                    name_phrase_lower = name_phrase.lower()
+                    if name_phrase_lower in self.blacklist or name_phrase in self.blacklist:
+                        continue
+                    if name_phrase_lower in self.existing_words or name_phrase_lower in self.existing_subphrases:
                         continue
                     noun_counts[name_phrase] += 1
                     if name_phrase not in suggested_map:
@@ -595,7 +598,10 @@ class NovelScanner:
         for prefix, p_pattern in self._prefix_patterns:
             for m in p_pattern.finditer(line_str):
                 full_match = m.group(0).strip()
-                if full_match.lower() in self.blacklist or full_match in self.blacklist:
+                full_match_lower = full_match.lower()
+                if full_match_lower in self.blacklist or full_match in self.blacklist:
+                    continue
+                if full_match_lower in self.existing_words or full_match_lower in self.existing_subphrases:
                     continue
                 name_part = m.group(1).strip()
                 if (
@@ -740,7 +746,10 @@ class NovelScanner:
 
         nouns = []
         for phrase, count in sorted(filtered_counts.items(), key=lambda x: x[1], reverse=True):
-            if phrase.lower() in self.blacklist or phrase in self.blacklist:
+            phrase_lower = phrase.lower()
+            if phrase_lower in self.blacklist or phrase in self.blacklist:
+                continue
+            if phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases:
                 continue
             ctxs = noun_contexts.get(phrase, [])
             nouns.append(ScannedCandidate(
@@ -754,7 +763,10 @@ class NovelScanner:
         abnormals = []
         for phrase_clean, count in sorted(abnormal_counts.items(), key=lambda x: x[1], reverse=True):
             if count >= min_count:
-                if phrase_clean.lower() in self.blacklist or phrase_clean in self.blacklist:
+                phrase_clean_lower = phrase_clean.lower()
+                if phrase_clean_lower in self.blacklist or phrase_clean in self.blacklist:
+                    continue
+                if phrase_clean_lower in self.existing_words:
                     continue
                 ctxs = abnormal_contexts.get(phrase_clean, [])
                 abnormals.append(ScannedCandidate(

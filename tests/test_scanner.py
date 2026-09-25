@@ -251,5 +251,15 @@ def test_scanner_detects_reverse_possession():
     assert rev_cands[0].suggested_target == "bàn tay của nàng"
 
 
+def test_scanner_excludes_honorific_names_in_existing_words():
+    text = "Liễu Ngọc như cười nói: 'Tỷ tỷ đều già đi.' Hảo tỷ vội vàng an ủi."
+    existing = {"tỷ tỷ", "hảo tỷ"}
+    scanner = NovelScanner(existing_words=existing)
+    candidates = scanner.scan_text(text, min_count=1)
+    phrases = {c.phrase.lower() for c in candidates}
+    assert "tỷ tỷ" not in phrases
+    assert "hảo tỷ" not in phrases
+
+
 
 

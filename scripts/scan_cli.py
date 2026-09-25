@@ -64,8 +64,7 @@ def run_scan_cli(
     novel_tag: str = "",
     use_ai: bool = False,
     provider: str = "gemini"
-):
-    print_banner()
+) -> int:
     config = Config()
     dict_mgr = DictManager(config.COMMON_DICT_PATH, config.CHARACTER_DICT_PATH)
 
@@ -75,6 +74,7 @@ def run_scan_cli(
 
     file_size_mb = file_path.stat().st_size / (1024 * 1024)
     log("INFO", f"Tệp mục tiêu: {file_path.name} ({file_size_mb:.2f} MB)")
+    log("INFO", f"Đường dẫn: {file_path}")
     if not novel_tag:
         novel_tag = file_path.stem[:25]
     log("INFO", f"Tag truyện: '{novel_tag}' | Tần suất tối thiểu: {min_count}")
@@ -156,7 +156,98 @@ def run_scan_cli(
     log("SUCCESS", f"Hoàn tất toàn bộ quy trình scan trong {total_time:.2f} giây!\n")
     return 0
 
+def interactive_wizard():
+    print_banner()
+    config = Config()
+
+    # 1. Nhập đường dẫn file
+    print("📂 BƯỚC 1: CHỌN FILE TRUYỆN")
+    print("   Bạn có thể copy đường dẫn file, dán vào đây hoặc kéo thả file vào cửa sổ terminal.")
+    while True:
+        raw_input = input("👉 Nhập đường dẫn file [Mặc định: exam.txt]: ").strip()
+        # Loại bỏ dấu ngoặc kép hoặc nháy đơn do copy-paste từ Windows
+        cleaned_path = raw_input.strip("\"'")
+        if not cleaned_path:
+            cleaned_path = "exam.txt"
+
+        target_file = Path(cleaned_path)
+        if not target_file.is_absolute():
+            target_file = BASE_DIR / target_file
+
+        if target_file.exists() and target_file.is_file():
+            break
+        print(f"{Fore.RED if HAS_COLOR else ''}❌ Không tìm thấy file tại '{target_file}'. Vui lòng nhập lại!{Style.RESET_ALL if HAS_COLOR else ''}")
+
+    print(f"{Fore.GREEN if HAS_COLOR else ''}✔ Đã chọn file: {target_file.name}{Style.RESET_ALL if HAS_COLOR else ''}\n")
+
+    # 2. Chọn chế độ quét
+    print("⚙️ BƯỚC 2: CHỌN CHẾ ĐỘ QUÉT")
+    print("   [1] Quét toàn bộ file (Heuristic - Tốc độ cao, không tốn token)")
+    print("   [2] Quét mẫu 50.000 ký tự đầu (Thử nghiệm nhanh)")
+    print("   [3] Quét sâu 500.000 ký tự đầu")
+    print("   [4] Quét kết hợp AI (Gemini/OpenAI phân tích ngữ cảnh & gợi ý)")
+    mode_choice = input("👉 Chọn chế độ [1/2/3/4] [Mặc định: 1]: ").strip()
+    if mode_choice not in ("1", "2", "3", "4"):
+        mode_choice = "1"
+
+    sample_size = 0
+    use_ai = False
+    provider = "gemini"
+
+    if mode_choice == "2":
+        sample_size = 50000
+    elif mode_choice == "3":
+        sample_size = 500000
+    elif mode_choice == "4":
+        use_ai = True
+        ai_choice = input("👉 Chọn AI Provider [1: Gemini (Mặc định), 2: OpenAI]: ").strip()
+        provider = "openai" if ai_choice == "2" else "gemini"
+
+    # 3. Tần suất tối thiểu
+    print("\n🔢 BƯỚC 3: TẦN SUẤT XUẤT HIỆN TỐI THIỂU")
+    freq_input = input("👉 Nhập tần suất tối thiểu (>= 1) [Mặc định: 2]: ").strip()
+    min_count = int(freq_input) if freq_input.isdigit() and int(freq_input) > 0 else 2
+
+    # 4. Tag truyện
+    default_tag = target_file.stem[:25]
+    print(f"\n🏷️ BƯỚC 4: TAG BỘ TRUYỆN")
+    tag_input = input(f"👉 Tag truyện cho nhân vật [Mặc định: '{default_tag}']: ").strip()
+    novel_tag = tag_input if tag_input else default_tag
+
+    print("\n" + "="*80)
+    print("BẮT ĐẦU XỬ LÝ SCAN...")
+    print("="*80)
+
+    exit_code = run_scan_cli(
+        file_path=target_file,
+        min_count=min_count,
+        sample_size=sample_size,
+        novel_tag=novel_tag,
+        use_ai=use_ai,
+        provider=provider
+    )
+
+    if exit_code == 0:
+        open_folder = input("📂 Bạn có muốn mở thư mục 'scanned/' để xem file kết quả ngay không? (y/n) [Mặc định: y]: ").strip().lower()
+        if open_folder in ("", "y", "yes"):
+            try:
+                if sys.platform == "win32":
+                    os.startfile(str(config.SCANNED_DIR))
+                else:
+                    import subprocess
+                    subprocess.run(["xdg-open", str(config.SCANNED_DIR)])
+            except Exception as e:
+                print(f"Không thể mở thư mục tự động: {e}")
+
+    input("\nNhấn Enter để kết thúc...")
+
 def main():
+    if len(sys.argv) == 1:
+        # Nếu chạy không có tham số: Vào chế độ tương tác Wizard
+        interactive_wizard()
+        return
+
+    # Nếu có tham số truyền vào: Chạy theo CLI arguments
     parser = argparse.ArgumentParser(description="Novel Translation Refiner - CLI Realtime Scanner")
     parser.add_argument("--file", "-f", type=str, default="exam.txt", help="Đường dẫn đến file truyện cần scan (mặc định: exam.txt)")
     parser.add_argument("--min-count", "-m", type=int, default=2, help="Tần suất xuất hiện tối thiểu (mặc định: 2)")
@@ -166,6 +257,7 @@ def main():
     parser.add_argument("--provider", "-p", type=str, default="gemini", choices=["gemini", "openai"], help="Nhà cung cấp AI (mặc định: gemini)")
 
     args = parser.parse_args()
+    print_banner()
     
     file_path = Path(args.file)
     if not file_path.is_absolute():

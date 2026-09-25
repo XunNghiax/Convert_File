@@ -101,7 +101,7 @@ Hãy tuân thủ các quy tắc sau:
         candidates: List[ScannedCandidate],
         novel_name: str,
         scanned_dir: Path,
-        part_size: int = 100
+        part_size: int = 500
     ) -> Tuple[List[Path], Path]:
         """
         Chia nhỏ danh sách kết quả thành nhiều file review (mỗi file part_size mục, mặc định 100)

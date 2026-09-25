@@ -628,5 +628,113 @@
     "source": "của nàng đút vào",
     "target": "đôi môi đút vào của nàng",
     "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-106",
+    "source": "của hắn lưng hùm vai",
+    "target": "lưng hùm vai gấu của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-107",
+    "source": "của hắn ý",
+    "target": "ý của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-108",
+    "source": "của hắn quái vật lớn",
+    "target": "cự vật của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-109",
+    "source": "của hắn tay",
+    "target": "bàn tay của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-110",
+    "source": "của hắn thật lớn cứng",
+    "target": "cự vật cương cứng của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-111",
+    "source": "của hắn phía",
+    "target": "phía dưới của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-112",
+    "source": "của hắn cường tráng cơ",
+    "target": "cơ ngực cường tráng của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-113",
+    "source": "của ngươi nữ bí thư",
+    "target": "nữ bí thư xinh đẹp của anh",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-114",
+    "source": "của nàng khi",
+    "target": "bộ ngực của nàng khi",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-115",
+    "source": "của hắn sắc thủ vuốt",
+    "target": "bàn tay dê xồm của hắn vuốt ve",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-116",
+    "source": "của ngươi nữ tiểu thư",
+    "target": "nữ thư ký xinh đẹp của anh",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-117",
+    "source": "của hắn mỗi một cái",
+    "target": "mỗi nhịp điệu của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-118",
+    "source": "của hắn tách",
+    "target": "nụ hôn của hắn tách ra",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-119",
+    "source": "của hắn cứng rắn cơ",
+    "target": "cự vật cương cứng của hắn",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-120",
+    "source": "của ngươi cậu",
+    "target": "cậu của em",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-121",
+    "source": "hắc ti",
+    "target": "quần tất đen",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-122",
+    "source": "của ngươi dì",
+    "target": "dì của cháu",
+    "category": "Cấu trúc sở hữu ngược"
+  },
+  {
+    "id": "co-123",
+    "source": "màu da tất chân",
+    "target": "quần tất màu da",
+    "category": "Lỗi dịch máy"
   }
 ]

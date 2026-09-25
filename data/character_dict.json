@@ -1,3349 +1,2042 @@
 [
   {
-    "id": "ch-001",
-    "source": "Trương Tử Kiến",
-    "target": "Trương Tử Kiến",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, 30 tuổi."
-  },
-  {
-    "id": "ch-002",
-    "source": "Lâm Ngọc Chi",
-    "target": "Lâm Ngọc Chi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 28 tuổi, thiếu phụ xinh đẹp."
-  },
-  {
-    "id": "ch-003",
-    "source": "Lâm Thi Âm",
-    "target": "Lâm Thi Âm",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 46 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-004",
-    "source": "Tần Xảo Xảo",
-    "target": "Tần Xảo Xảo",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 34 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-005",
-    "source": "Kim Tử Phi",
-    "target": "Kim Tử Phi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 23 tuổi, thiếu nữ xinh đẹp."
-  },
-  {
-    "id": "ch-006",
-    "source": "Kim Tuệ Mẫn",
-    "target": "Kim Tuệ Mẫn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-007",
-    "source": "Mã Kiến Thiết",
-    "target": "Mã Kiến Thiết",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, 38 tuổi."
-  },
-  {
-    "id": "ch-008",
-    "source": "Tô Nguyên Xuân",
-    "target": "Tô Nguyên Xuân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 35 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-009",
-    "source": "Mã Lỵ Lỵ",
-    "target": "Mã Lỵ Lỵ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 16 tuổi, thanh thuần thiếu nữ."
-  },
-  {
-    "id": "ch-010",
-    "source": "Mã Như Lan",
-    "target": "Mã Như Lan",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 40 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-011",
-    "source": "Đường Văn Hưng",
-    "target": "Đường Văn Hưng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, 26 tuổi."
-  },
-  {
-    "id": "ch-012",
-    "source": "Tô Tích Xuân",
-    "target": "Tô Tích Xuân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 26 tuổi, thiếu phụ xinh đẹp."
-  },
-  {
-    "id": "ch-013",
-    "source": "Đường văn thanh",
-    "target": "Đường Văn Thanh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 19 tuổi, thiếu nữ xinh đẹp."
-  },
-  {
-    "id": "ch-014",
-    "source": "Hứa tiểu trúc",
-    "target": "Hứa Tiểu Trúc",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nữ, 44 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-015",
-    "source": "Ung nhân thiên hoàng",
-    "target": "Ung Nhân Thiên Hoàng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "40 tuổi."
-  },
-  {
-    "id": "ch-016",
-    "source": "Thực hạnh tiểu bách hợp",
-    "target": "Thực Nhân Tiểu Bách Hợp",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "hoàng hậu, 38 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-017",
-    "source": "Tiểu Lâm Huệ Mỹ",
-    "target": "Tiểu Lâm Huệ Mỹ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "Mỹ phi, 28 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-018",
-    "source": "Rượu tỉnh Ưu Hương",
-    "target": "Tửu Tỉnh Ưu Hương",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "hương phi, 22 tuổi, thiếu phụ xinh đẹp."
-  },
-  {
-    "id": "ch-019",
-    "source": "Vinh tử",
-    "target": "Vinh Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "18 tuổi, thanh thuần thiếu nữ."
-  },
-  {
-    "id": "ch-020",
-    "source": "Thu tiểu cung văn nhân thân vương",
-    "target": "Thu Tiểu Cung Văn Nhân Thân Vương",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "36 tuổi."
-  },
-  {
-    "id": "ch-021",
-    "source": "Cạn thương vũ mỹ",
-    "target": "Thiển Thương Vũ Mỹ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "Vương phi, 34 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-022",
-    "source": "Linh Mộc ma nại mỹ",
-    "target": "Linh Mộc Ma Nại Mỹ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "Vương quý phi, 26 tuổi, thiếu phụ xinh đẹp."
-  },
-  {
-    "id": "ch-023",
-    "source": "Thu tiểu cung du nhân thân vương",
-    "target": "Thu Tiểu Cung Du Nhân Thân Vương",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "trăm ngày tuổi."
-  },
-  {
-    "id": "ch-024",
-    "source": "Thuần tử",
-    "target": "Thuần Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "16 tuổi, thanh thuần thiếu nữ."
-  },
-  {
-    "id": "ch-025",
-    "source": "Tiểu Điền mẫn nhã tử",
-    "target": "Tiểu Điền Mẫn Nhã Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-026",
-    "source": "Thực tử",
-    "target": "Thực Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "38 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-027",
-    "source": "Giai tử",
-    "target": "Giai Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "30 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-028",
-    "source": "Đông lâu nhĩ thịnh dày",
-    "target": "Đông Cửu Nhĩ Thịnh Hậu",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "Thủ tướng, 48 tuổi."
-  },
-  {
-    "id": "ch-029",
-    "source": "Xuyên nguyên dương tử",
-    "target": "Xuyên Nguyên Dương Tử",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "Thủ tướng phu nhân, 36 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-030",
-    "source": "Ma nguyên Thái Lang",
-    "target": "Ma Sinh Thái Lang",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "ngoại tướng, 44 tuổi."
-  },
-  {
-    "id": "ch-031",
-    "source": "Cung trạch mỹ huệ",
-    "target": "Cung Trạch Mỹ Huệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "ngoại tướng phu nhân, 32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-032",
-    "source": "Long Kiếm Phi",
-    "target": "Long Kiếm Phi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "24 tuổi, anh tuấn phong lưu tiêu sái lỗi lạc."
-  },
-  {
-    "id": "ch-033",
-    "source": "Liễu Ngọc như",
-    "target": "Liễu Ngọc Như",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "30 tuổi, giáo sư, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-034",
-    "source": "Chu Ngọc mị",
-    "target": "Chu Ngọc Mị",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "31 tuổi, y tá, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-035",
-    "source": "Khưu ngọc trinh",
-    "target": "Khưu Ngọc Trinh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-036",
-    "source": "Hạ ngọc hà",
-    "target": "Hạ Ngọc Hà",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "28 tuổi, mỹ nữ."
-  },
-  {
-    "id": "ch-037",
-    "source": "Mai ngọc huyên",
-    "target": "Mai Ngọc Huyên",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "36 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-038",
-    "source": "Trịnh tú nga",
-    "target": "Trịnh Tú Nga",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "40 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-039",
-    "source": "Mạnh huệ san",
-    "target": "Mạnh Huệ San",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "40 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-040",
-    "source": "Tô hà",
-    "target": "Tô Hà",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "33 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-041",
-    "source": "Dương ngọc nhàn",
-    "target": "Dương Ngọc Nhàn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "40 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-042",
-    "source": "Dương ngọc khanh",
-    "target": "Dương Ngọc Khanh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "38 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-043",
-    "source": "Dương ngọc thục",
-    "target": "Dương Ngọc Thục",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "35 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-044",
-    "source": "Dương ngọc nhã",
-    "target": "Dương Ngọc Nhã",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-045",
-    "source": "Nguyễn ngọc sai",
-    "target": "Nguyễn Ngọc Thoa",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "38 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-046",
-    "source": "Diệp Ngọc Thiến",
-    "target": "Diệp Ngọc Thiến",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "26 tuổi, mỹ nữ."
-  },
-  {
-    "id": "ch-047",
-    "source": "Tiết ngọc di",
-    "target": "Tiết Ngọc Di",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-048",
-    "source": "Tiền ngọc văn",
-    "target": "Tiền Ngọc Văn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "22 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-049",
-    "source": "Tiền tuyết văn",
-    "target": "Tiền Tuyết Văn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "19 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-050",
-    "source": "Chung thục huệ",
-    "target": "Chung Thục Huệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "33 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-051",
-    "source": "Lương hiểu tịnh",
-    "target": "Lương Hiểu Tịnh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "22 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-052",
-    "source": "Râu rậm cẩn",
-    "target": "Hồ Cẩn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-053",
-    "source": "Lâm Uyển Bích",
-    "target": "Lâm Uyển Bích",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-054",
-    "source": "Lâm nhã thơ",
-    "target": "Lâm Nhã Thi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "19 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-055",
-    "source": "Tạ quốc hoa",
-    "target": "Tạ Quốc Hoa",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, tổng giám đốc."
-  },
-  {
-    "id": "ch-056",
-    "source": "Thẩm quân như",
-    "target": "Thẩm Quân Như",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "44 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-057",
-    "source": "Tạ quốc vĩ",
-    "target": "Tạ Quốc Vĩ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, thúc thúc."
-  },
-  {
-    "id": "ch-058",
-    "source": "Điền tú hồng",
-    "target": "Điền Tú Hồng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "36 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-059",
-    "source": "Tạ áng mây",
-    "target": "Tạ Thải Vân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "46 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-060",
-    "source": "Tạ làm vân",
-    "target": "Tạ Vi Vân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-061",
-    "source": "Tạ mỹ phượng",
-    "target": "Tạ Mỹ Phượng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, mỹ mạo thiếu phụ."
-  },
-  {
-    "id": "ch-062",
-    "source": "Thẩm bóng hình xinh đẹp",
-    "target": "Thẩm Thiến Ảnh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "39 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-063",
-    "source": "Lưu tuệ đẹp",
-    "target": "Lưu Tuệ Lệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-064",
-    "source": "Hoa lan",
-    "target": "Hoa Lan",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "18 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-065",
-    "source": "Thu cúc",
-    "target": "Thu Cúc",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "16 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-066",
-    "source": "Lâm bằng tường",
-    "target": "Lâm Bằng Tường",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "53 tuổi."
-  },
-  {
-    "id": "ch-067",
-    "source": "Hứa tiểu điệp",
-    "target": "Hứa Tiểu Điệp",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "48 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-068",
-    "source": "Lâm tử hùng",
-    "target": "Lâm Tử Hùng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "28 tuổi."
-  },
-  {
-    "id": "ch-069",
-    "source": "Diệp như hổ",
-    "target": "Diệp Như Hổ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "50 tuổi."
-  },
-  {
-    "id": "ch-070",
-    "source": "Tần khả cầm",
-    "target": "Tần Khả Cầm",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "47 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-071",
-    "source": "Giả Thương Hải",
-    "target": "Giả Thương Hải",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "52 tuổi."
-  },
-  {
-    "id": "ch-072",
-    "source": "Âu Dương phi phi",
-    "target": "Âu Dương Phi Phi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "46 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-073",
-    "source": "Ngô nguyệt kiều",
-    "target": "Ngô Nguyệt Kiều",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "38 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-074",
-    "source": "Giả Thương Giang",
-    "target": "Giả Thương Giang",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "44 tuổi."
-  },
-  {
-    "id": "ch-075",
-    "source": "Tô tuyết nghi",
-    "target": "Tô Tuyết Nghi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-076",
-    "source": "Gavin phong",
-    "target": "Giả Văn Phong",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "26 tuổi."
-  },
-  {
-    "id": "ch-077",
-    "source": "Tô Liên Xuân",
-    "target": "Tô Liên Xuân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "26 tuổi, mỹ mạo thiếu phụ."
-  },
-  {
-    "id": "ch-078",
-    "source": "Dương mưa doanh",
-    "target": "Dương Vũ Doanh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "mỹ mạo thiếu phụ."
-  },
-  {
-    "id": "ch-079",
-    "source": "Gavin đẹp",
-    "target": "Giả Văn Lệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, mỹ mạo thiếu phụ."
-  },
-  {
-    "id": "ch-080",
-    "source": "Gavin tĩnh",
-    "target": "Giả Văn Tĩnh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "16 tuổi, cô gái xinh đẹp."
-  },
-  {
-    "id": "ch-081",
-    "source": "La quân",
-    "target": "La Quân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam, tổng giám đốc."
-  },
-  {
-    "id": "ch-082",
-    "source": "Viên Minh Minh",
-    "target": "Viên Minh Minh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "32 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-083",
-    "source": "La mẫn",
-    "target": "La Mẫn",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "40 tuổi, u oán mỹ phụ."
-  },
-  {
-    "id": "ch-084",
-    "source": "Vương đại vĩ",
-    "target": "Vương Đại Vĩ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-085",
-    "source": "Vương Tuyết đình",
-    "target": "Vương Tuyết Đình",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "17 tuổi."
-  },
-  {
-    "id": "ch-086",
-    "source": "Đào hồng",
-    "target": "Đào Hồng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-087",
-    "source": "Mạnh lệ",
-    "target": "Mạnh Lệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "20 tuổi."
-  },
-  {
-    "id": "ch-088",
-    "source": "Đào vân",
-    "target": "Đào Vân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "36 tuổi, xinh đẹp thiếu phụ."
-  },
-  {
-    "id": "ch-089",
-    "source": "Nhan lệ kỳ",
-    "target": "Nhan Lệ Kỳ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "25 tuổi, sườn xám mỹ nữ."
-  },
-  {
-    "id": "ch-090",
-    "source": "Thái Trân Trân",
-    "target": "Thái Trân Trân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "24 tuổi, sườn xám mỹ nữ."
-  },
-  {
-    "id": "ch-091",
-    "source": "Thái Liên Liên",
-    "target": "Thái Liên Liên",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "21 tuổi, sườn xám mỹ nữ."
-  },
-  {
-    "id": "ch-092",
-    "source": "Thái y y",
-    "target": "Thái Y Y",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "18 tuổi, sườn xám mỹ nữ."
-  },
-  {
-    "id": "ch-093",
-    "source": "Y yên tĩnh",
-    "target": "Y Ninh Tĩnh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "38 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-094",
-    "source": "Lô Trùng Khánh",
-    "target": "Lô Trùng Khánh",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-095",
-    "source": "Ôn hồng",
-    "target": "Ôn Hồng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "36 tuổi, phong tao mỹ phụ."
-  },
-  {
-    "id": "ch-096",
-    "source": "Trương lấy đạt",
-    "target": "Trương Trí Đạt",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-097",
-    "source": "Phương mỹ dung",
-    "target": "Phương Mỹ Dung",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "44 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-098",
-    "source": "Chu văn hưng",
-    "target": "Chu Văn Hưng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-099",
-    "source": "Chu phương băng",
-    "target": "Chu Phương Băng",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "22 tuổi."
-  },
-  {
-    "id": "ch-100",
-    "source": "Lưu nhã lỵ",
-    "target": "Lưu Nhã Lệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "42 tuổi, thành thục mỹ phụ."
-  },
-  {
-    "id": "ch-101",
-    "source": "Tôn mưa phỉ",
-    "target": "Tôn Vũ Phỉ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "20 tuổi."
-  },
-  {
-    "id": "ch-102",
-    "source": "Lộ tụ ngọc",
-    "target": "Lộ Tụ Ngọc",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "trứ danh học giả."
-  },
-  {
-    "id": "ch-103",
-    "source": "Đường gia lệ",
-    "target": "Đường Gia Lệ",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "22 tuổi, mỹ nữ."
-  },
-  {
-    "id": "ch-104",
-    "source": "Lỗ quân",
-    "target": "Lỗ Quân",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-105",
-    "source": "Như tỷ",
-    "target": "Như Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-106",
-    "source": "Tỷ tỷ",
-    "target": "Tỷ Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-107",
-    "source": "Trinh tỷ",
-    "target": "Trinh Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-108",
-    "source": "Tốt đệ",
-    "target": "Đệ Đệ Ngoan",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-109",
-    "source": "Hảo tỷ",
-    "target": "Hảo Tỷ Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-110",
-    "source": "Nhã tỷ",
-    "target": "Nhã Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-111",
-    "source": "Vĩ ca",
-    "target": "Vĩ Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-112",
-    "source": "Mị tỷ",
-    "target": "Mị Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-113",
-    "source": "Nguyễn tỷ",
-    "target": "Nguyễn Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-114",
-    "source": "giáo sư đại học",
-    "target": "Giáo Sư Đại Học",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-115",
-    "source": "y tá đồng phục",
-    "target": "Đồng Phục Y Tá",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-116",
-    "source": "Xuân muội",
-    "target": "Em Gái Tô Nguyên Xuân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-117",
-    "source": "Mạnh bác",
-    "target": "Bác Sĩ Mạnh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-118",
-    "source": "Phi bác",
-    "target": "Bác Của Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-119",
-    "source": "Tam tỷ",
-    "target": "Tam Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-120",
-    "source": "Đại tỷ",
-    "target": "Đại Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-121",
-    "source": "Cao Bồi",
-    "target": "Long Kiếm Phi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
-  },
-  {
-    "id": "ch-122",
+    "id": "ch-1",
     "source": "Kiếm Phi",
     "target": "Kiếm Phi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
+    "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-123",
-    "source": "Phi Nhi",
-    "target": "Phi Nhi",
-    "novel_tag": "Thiếu Long",
-    "gender_role": "nam."
+    "id": "ch-2",
+    "source": "Long Kiếm Phi",
+    "target": "Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-124",
+    "id": "ch-3",
     "source": "Lệ Na",
     "target": "Lệ Na",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-125",
+    "id": "ch-4",
+    "source": "Khưu ngọc trinh",
+    "target": "Khưu Ngọc Trinh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-5",
+    "source": "Mai ngọc huyên",
+    "target": "Mai Ngọc Huyên",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-6",
     "source": "Long ca",
     "target": "Long Ca",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-126",
-    "source": "Mai tỷ",
-    "target": "Mai Tỷ",
+    "id": "ch-7",
+    "source": "Nguyễn ngọc sai",
+    "target": "Nguyễn Ngọc Sai",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-127",
-    "source": "Huyền Vũ",
-    "target": "Huyền Vũ",
+    "id": "ch-8",
+    "source": "Uyển Bích",
+    "target": "Uyển Bích",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-128",
-    "source": "Trung Quốc",
-    "target": "Trung Quốc",
+    "id": "ch-9",
+    "source": "Lâm Uyển Bích",
+    "target": "Lâm Uyển Bích",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-129",
-    "source": "Trương Tử Cường",
-    "target": "Trương Tử Cường",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-130",
-    "source": "Vũ bang",
-    "target": "Vũ Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-131",
-    "source": "Nguyễn tổng",
-    "target": "Nguyễn Tổng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-132",
-    "source": "Trung Hoa",
-    "target": "Trung Hoa",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-133",
-    "source": "Vân Long",
-    "target": "Vân Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-134",
-    "source": "Long đại",
-    "target": "Long Đại",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-135",
-    "source": "Long đại ca",
-    "target": "Long Đại Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-136",
-    "source": "Tạ thúc",
-    "target": "Tạ Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-137",
-    "source": "Long ca ca",
-    "target": "Long Ca Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-138",
-    "source": "Thẩm thẩm",
-    "target": "Thẩm Thẩm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-139",
-    "source": "Long bang",
-    "target": "Long Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-140",
-    "source": "Mai tổng",
-    "target": "Mai Tổng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-141",
-    "source": "Chu vệ đông",
-    "target": "Chu Vệ Đông",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-142",
-    "source": "Nhật Bản",
-    "target": "Nhật Bản",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-143",
-    "source": "Phương thành",
-    "target": "Phương Thành",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-144",
-    "source": "Đài Loan",
-    "target": "Đài Loan",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-145",
-    "source": "Chu kinh lý",
-    "target": "Chu Kinh Lý",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-146",
-    "source": "Tạ tổng",
-    "target": "Tạ Tổng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-147",
-    "source": "Tạ thúc thúc",
-    "target": "Tạ Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-148",
-    "source": "Triệu thúc",
-    "target": "Triệu Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-149",
-    "source": "Tôn quản lý",
-    "target": "Tôn Quản Lý",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-150",
-    "source": "Hảo muội",
-    "target": "Hảo Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-151",
-    "source": "Nhạc thúc",
-    "target": "Nhạc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-152",
-    "source": "Hồ thị",
-    "target": "Hồ Thị",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-153",
-    "source": "Hà tỷ",
-    "target": "Hà Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-154",
-    "source": "Long huynh đệ",
-    "target": "Long Huynh Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-155",
-    "source": "Tiền cá cùng",
-    "target": "Tiền Ngư Đồng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-156",
-    "source": "Trương Lương",
-    "target": "Trương Lương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-157",
-    "source": "Như Yên",
-    "target": "Như Yên",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-158",
-    "source": "Tứ Hải",
-    "target": "Tứ Hải",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-159",
-    "source": "Văn Hưng Mã Kiến",
-    "target": "Văn Hưng, Mã Kiến",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-160",
-    "source": "Tứ Hải Bang",
-    "target": "Tứ Hải Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-161",
-    "source": "Hàn thúc",
-    "target": "Hàn Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-162",
-    "source": "Tiểu Lệ",
-    "target": "Tiểu Lệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-163",
-    "source": "Tạ gia",
-    "target": "Tạ Gia",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-164",
-    "source": "Dì Lâm",
-    "target": "Dì Lâm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-165",
-    "source": "Trương Tử Mạnh",
-    "target": "Trương Tử Mạnh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-166",
-    "source": "Nguyễn mai",
-    "target": "Nguyễn Mai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-167",
-    "source": "Lưu Bang",
-    "target": "Lưu Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-168",
-    "source": "Đại ca",
-    "target": "Đại Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-169",
-    "source": "Trương tổng",
-    "target": "Trương Tổng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-170",
-    "source": "Hồ thị hậu",
-    "target": "Hồ Thị Hậu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-171",
-    "source": "Trầm thúc",
-    "target": "Trầm Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-172",
-    "source": "Hàn Tuyết",
-    "target": "Hàn Tuyết",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-173",
-    "source": "Hàn Quốc",
-    "target": "Hàn Quốc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-174",
-    "source": "Mạnh đệ",
-    "target": "Mạnh Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-175",
-    "source": "Triệu thúc thúc",
-    "target": "Triệu Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-176",
-    "source": "Long tiên sinh",
-    "target": "Long Tiên Sinh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-177",
-    "source": "Đông Phương",
-    "target": "Đông Phương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-178",
-    "source": "Nam Kinh",
-    "target": "Nam Kinh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-179",
-    "source": "Tốt Long",
-    "target": "hảo Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-180",
-    "source": "Khanh tỷ",
-    "target": "Khanh Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-181",
-    "source": "Chung tỷ",
-    "target": "Chung Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-182",
-    "source": "Hàn cung",
-    "target": "Hàn Cung",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-183",
-    "source": "Vũ công",
-    "target": "Vũ Công",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-184",
-    "source": "Hồng Hà",
-    "target": "Hồng Hà",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-185",
-    "source": "A A",
-    "target": "a a",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-186",
-    "source": "Trương Tử Cường",
-    "target": "Trương Tử Cường",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-187",
-    "source": "Tử Cường Trương Tử",
-    "target": "Tử Cường, Trương Tử",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-188",
-    "source": "Long Kiếm Phi Long",
-    "target": "Long Kiếm Phi, Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-189",
-    "source": "Kiếm Phi Long Kiếm",
-    "target": "Kiếm Phi, Long Kiếm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-190",
-    "source": "Phi Long Kiếm Phi",
-    "target": "Phi, Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-191",
-    "source": "Tốt Long Kiếm Phi",
-    "target": "Tốt Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-192",
-    "source": "Hàn cung chính",
-    "target": "Hàn Cung Chính",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-193",
-    "source": "Thẩm thẩm điền",
-    "target": "Thẩm Thẩm Điền",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-194",
-    "source": "Chư Cát Lượng",
-    "target": "Chư Cát Lượng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-195",
-    "source": "Thiếu Long",
-    "target": "Thiếu Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-196",
-    "source": "Tiểu Long",
-    "target": "Tiểu Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-197",
-    "source": "Thiên Đạo",
-    "target": "Thiên Đạo",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-198",
-    "source": "Nhật Bổn",
-    "target": "Nhật Bản",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-199",
-    "source": "Trịnh tỷ",
-    "target": "Trịnh Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-200",
-    "source": "Mạnh đạt",
-    "target": "Mạnh Đạt",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-201",
-    "source": "Long nhi",
-    "target": "Long Nhi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-202",
-    "source": "Tốt bác",
-    "target": "Hảo Bá",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-203",
-    "source": "Tú Tú",
-    "target": "Tú Tú",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-204",
-    "source": "Dương như tuyết",
-    "target": "Dương Như Tuyết",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-205",
-    "source": "Nguyễn mai hai",
-    "target": "Nguyễn Mai Hai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-206",
-    "source": "Đại Trung Hoa",
-    "target": "Đại Trung Hoa",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-207",
-    "source": "Long ca ngươi",
-    "target": "Long Ca Ngươi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-208",
-    "source": "Hàn thúc thúc",
-    "target": "Hàn Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-209",
-    "source": "Thiên Tiên",
-    "target": "Thiên Tiên",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-210",
-    "source": "Tốt Lệ Na",
-    "target": "Lệ Na",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-211",
-    "source": "Mai tỷ tỷ",
-    "target": "Mai Tỷ Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-212",
-    "source": "Nhị thúc",
-    "target": "Nhị Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-213",
-    "source": "Yên muội",
-    "target": "Yên Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-214",
-    "source": "Tô Châu",
-    "target": "Tô Châu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-215",
-    "source": "Như Vân",
-    "target": "Như Vân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-216",
-    "source": "Đài Bắc",
-    "target": "Đài Bắc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-217",
-    "source": "Na muội",
-    "target": "Na Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-218",
-    "source": "Mễ Lan",
-    "target": "Milan",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-219",
-    "source": "Lão Âu",
-    "target": "Lão Âu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-220",
-    "source": "Ba Tư",
-    "target": "Ba Tư",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-221",
-    "source": "Long Kiếm Phi Ngươi",
-    "target": "Long Kiếm Phi Ngươi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-222",
-    "source": "Thấy Long Kiếm Phi",
-    "target": "Thấy Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-223",
-    "source": "Mà Long Kiếm Phi",
-    "target": "Mà Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-224",
-    "source": "Trương nghe thấy",
-    "target": "Trương Nghe Thấy",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-225",
-    "source": "Nguyễn tỷ ngươi",
-    "target": "Nguyễn Tỷ Ngươi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-226",
-    "source": "Nguyễn mai Khưu",
-    "target": "Nguyễn Mai, Khưu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-227",
-    "source": "Ủy Nội Thụy Tạp",
-    "target": "Venezuela",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-228",
-    "source": "Phan chủ nhiệm",
-    "target": "Phan Chủ Nhiệm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-229",
-    "source": "Long bang đà",
-    "target": "Long Bang Đà",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-230",
-    "source": "Mai tỷ cùng",
-    "target": "Mai Tỷ Cùng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-231",
-    "source": "Hồ thị thấy",
-    "target": "Hồ Thị Thấy",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-232",
-    "source": "Lục tông vũ",
-    "target": "Lục Tông Vũ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-233",
-    "source": "Mạnh đệ đệ",
-    "target": "Mạnh Đệ Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-234",
-    "source": "Vũ bang đà",
-    "target": "Vũ Bang Đà",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-235",
-    "source": "An Lộc Sơn",
-    "target": "An Lộc Sơn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-236",
-    "source": "Ba Tư Đằng",
-    "target": "Van Basten",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-237",
-    "source": "Long thúc",
-    "target": "Long Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-238",
-    "source": "Thất Tịch",
-    "target": "Thất Tịch",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-239",
-    "source": "Lục thúc",
-    "target": "Lục Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-240",
-    "source": "Linh Tê",
-    "target": "Linh Tê",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-241",
-    "source": "Sơn Tây",
-    "target": "Sơn Tây",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-242",
-    "source": "Tốt lão",
-    "target": "Hảo Lão",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-243",
-    "source": "Ưm Một",
-    "target": "Ưm Một",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-244",
-    "source": "Hảo ca",
-    "target": "Hảo Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-245",
-    "source": "A Long",
-    "target": "A Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-246",
-    "source": "Ân A",
-    "target": "Ân A",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-247",
-    "source": "Kiến Thiết Đường Văn",
-    "target": "Kiến Thiết, Đường Văn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-248",
-    "source": "Thiết Đường Văn Hưng",
-    "target": "Thiết, Đường Văn Hưng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-249",
-    "source": "Đương Long Kiếm Phi",
-    "target": "Đương Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-250",
-    "source": "Mã Kiến Thiết Đường",
-    "target": "Mã Kiến Thiết, Đường",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-251",
-    "source": "Chết Long Kiếm Phi",
-    "target": "Chết Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-252",
-    "source": "Long Kiếm Phi Như",
-    "target": "Long Kiếm Phi Như",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-253",
-    "source": "Phương chủ nhiệm",
-    "target": "Phương Chủ Nhiệm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-254",
-    "source": "Dương chủ nhiệm",
-    "target": "Dương Chủ Nhiệm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-255",
-    "source": "Long bang chúng",
-    "target": "Long Bang Chúng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-256",
-    "source": "Long trên người",
-    "target": "Long Trên Người",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-257",
-    "source": "A Long Kiếm Phi",
-    "target": "A Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-258",
-    "source": "Châu sườn xám",
-    "target": "Tô Châu Sườn Xám",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-259",
-    "source": "Khưu quản lí",
-    "target": "Khưu Quản Lí",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-260",
-    "source": "Tô Châu sườn",
-    "target": "Tô Châu Sườn Xám",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-261",
-    "source": "Tiếng Eskimo",
-    "target": "Tiếng Eskimo",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-262",
-    "source": "Mai tỷ Trịnh",
-    "target": "Mai Tỷ, Trịnh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-263",
-    "source": "Tạ gia huynh",
-    "target": "Tạ Gia Huynh Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-264",
-    "source": "Ngũ Đài Sơn",
-    "target": "Ngũ Đài Sơn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-265",
-    "source": "Triều Tiên",
-    "target": "Triều Tiên",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-266",
-    "source": "Trương gia",
-    "target": "Trương Gia",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-267",
-    "source": "Điềm Điềm",
-    "target": "Điềm Điềm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-268",
-    "source": "Muội muội",
-    "target": "Muội Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-269",
-    "source": "Tiêm Tiêm",
-    "target": "Tiêm Tiêm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-270",
-    "source": "Thúc thúc",
-    "target": "Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-271",
-    "source": "Lăng Vân",
-    "target": "Lăng Vân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-272",
-    "source": "Hồng tẩu",
-    "target": "Hồng Tẩu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-273",
-    "source": "Xuân Tô",
-    "target": "Xuân, Tô",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-274",
-    "source": "Hạ thôn",
-    "target": "Hạ Thôn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-275",
-    "source": "Tiểu đệ",
-    "target": "Tiểu Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-276",
-    "source": "Tây Môn",
-    "target": "Tây Môn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-277",
-    "source": "Tốt tẩu",
-    "target": "Hảo Tẩu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-278",
-    "source": "Cố tình",
-    "target": "Cố Tình",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-279",
-    "source": "Hạng Võ",
-    "target": "Hạng Võ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-280",
-    "source": "Tắc Hạ",
-    "target": "Tắc Hạ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-281",
-    "source": "Mã Lạp",
-    "target": "Maradona",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-282",
-    "source": "Tốt Hà",
-    "target": "Tốt Hà",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-283",
-    "source": "Xảo tỷ",
-    "target": "Xảo Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-284",
-    "source": "Ân Ân",
-    "target": "Ân Ân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-285",
-    "source": "An đệ",
-    "target": "An Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-286",
-    "source": "Mộ tỷ",
-    "target": "Mộ Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-287",
-    "source": "Kiến Thiết Tô Nguyên",
-    "target": "Kiến Thiết, Tô Nguyên",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-288",
-    "source": "Thiết Tô Nguyên Xuân",
-    "target": "Thiết, Tô Nguyên Xuân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-289",
-    "source": "Nguyên Xuân Tô Tích",
-    "target": "Nguyên Xuân, Tô Tích",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-290",
-    "source": "Việt Vương Câu Tiễn",
-    "target": "Việt Vương Câu Tiễn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-291",
-    "source": "Thất Tinh Liên Châu",
-    "target": "Thất Tinh Liên Châu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-292",
-    "source": "Nay Trương Tử Cường",
-    "target": "Nay Trương Tử Cường",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-293",
-    "source": "Nhìn Long Kiếm Phi",
-    "target": "Nhìn Long Kiếm Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-294",
-    "source": "Vương ngạnh thượng",
-    "target": "Vương Ngạnh Thượng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-295",
-    "source": "Lan Tam Kiếm Khách",
-    "target": "Hà Lan Tam Kiếm Khách",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-296",
-    "source": "Tô Nguyên Xuân Tô",
-    "target": "Tô Nguyên Xuân, Tô",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-297",
-    "source": "Xuân Tô Tích Xuân",
-    "target": "Xuân, Tô Tích Xuân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-298",
-    "source": "Hàn Quốc Thái Cực",
-    "target": "Hàn Quốc Thái Cực",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-299",
-    "source": "Trương Lương cùng",
-    "target": "Trương Lương Cùng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-300",
-    "source": "Mã Kiến Thiết Tô",
-    "target": "Mã Kiến Thiết, Tô",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-301",
-    "source": "Nguyễn tổng tính",
-    "target": "Nguyễn Tổng Tính",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-302",
-    "source": "Nguyễn tổng phải",
-    "target": "Nguyễn Tổng Phải",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-303",
-    "source": "Trương Lương nói",
-    "target": "Trương Lương Nói",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-304",
-    "source": "Nguyễn tổng còn",
-    "target": "Nguyễn Tổng Còn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-305",
-    "source": "Nguyễn tổng nói",
-    "target": "Nguyễn Tổng Nói",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-306",
-    "source": "Taylor Hongkong",
-    "target": "Taylor, Hong Kong",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-307",
-    "source": "Hải Đông Phương",
-    "target": "Hải Đông Phương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-308",
-    "source": "Long Kiếm Phi A",
-    "target": "Long Kiếm Phi A",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-309",
-    "source": "Phương văn hinh",
-    "target": "Phương Văn Hinh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-310",
-    "source": "Văn Thiên Tường",
-    "target": "Văn Thiên Tường",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-311",
-    "source": "Thẩm thẩm đương",
-    "target": "Thẩm Thẩm Đương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-312",
-    "source": "Thẩm thẩm ngươi",
-    "target": "Thẩm Thẩm Ngươi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-313",
-    "source": "Hà Lan Tam Kiếm",
-    "target": "Hà Lan Tam Kiếm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-314",
-    "source": "Long truyền kỳ",
-    "target": "Long Truyền Kỳ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-315",
-    "source": "Long phong lưu",
-    "target": "Long Phong Lưu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-316",
-    "source": "Dương tập đoàn",
-    "target": "Dương Tập Đoàn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-317",
-    "source": "Dương phu nhân",
-    "target": "Dương Phu Nhân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-318",
-    "source": "Nguyễn tổng về",
-    "target": "Nguyễn Tổng Về",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-319",
-    "source": "Long thúc thúc",
-    "target": "Long Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-320",
-    "source": "Trình Giảo Kim",
-    "target": "Trình Giảo Kim",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-321",
-    "source": "Mạnh đạt trung",
-    "target": "Mạnh Đạt Trung",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-322",
-    "source": "Long bang cùng",
-    "target": "Long Bang Cùng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-323",
-    "source": "Vũ bang Trương",
-    "target": "Vũ Bang, Trương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-324",
-    "source": "Cổ Lạp Tư Khải",
-    "target": "Nicolas Cage",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-325",
-    "source": "Lạp Tư Khải Kỳ",
-    "target": "Nicolas Cage",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-326",
-    "source": "Kim Tử Phi Kia",
-    "target": "Kim Tử Phi Kia",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-327",
-    "source": "Hồng Lâu Mộng",
-    "target": "Hồng Lâu Mộng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-328",
-    "source": "Triệu gió lục",
-    "target": "Triệu Phong Lục",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-329",
-    "source": "Chu Kiệt luân",
-    "target": "Châu Kiệt Luân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-330",
-    "source": "Tây Môn Khánh",
-    "target": "Tây Môn Khánh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-331",
-    "source": "Long bang lão",
-    "target": "Long Bang Lão",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-332",
-    "source": "Đại Từ Đại Bi",
-    "target": "Đại Từ Đại Bi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-333",
-    "source": "Lưu Thiên hoa",
-    "target": "Lưu Thiên Hoa",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-334",
-    "source": "Vũ trong bang",
-    "target": "Vũ Trong Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-335",
-    "source": "Lục thúc thúc",
-    "target": "Lục Thúc Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-336",
-    "source": "Hàn Tuyết hai",
-    "target": "Hàn Tuyết Hai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-337",
-    "source": "Vũ bang bang",
-    "target": "Vũ Bang Bang",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-338",
-    "source": "Mai tổng nói",
-    "target": "Mai Tổng Nói",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-339",
-    "source": "Vương gia hỉ",
-    "target": "Vương Gia Hỉ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-340",
-    "source": "Kim Bình Mai",
-    "target": "Kim Bình Mai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-341",
-    "source": "Lí Liên Kiệt",
-    "target": "Lý Liên Kiệt",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-342",
-    "source": "Chu quảng hỗ",
-    "target": "Chu Quảng Hỗ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-343",
-    "source": "Long kinh để",
-    "target": "Long Kinh Lý",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-344",
-    "source": "Ân Không cần",
-    "target": "Ân Không Cần",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-345",
-    "source": "Long ta cũng",
-    "target": "Long Ta Cũng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-346",
-    "source": "Thẩm thẩm tú",
-    "target": "Thẩm Thẩm Tú",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-347",
-    "source": "Chu Tự Thanh",
-    "target": "Chu Tự Thanh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-348",
-    "source": "Long bang tạ",
-    "target": "Long Bang, Tạ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-349",
-    "source": "Thẩm thẩm có",
-    "target": "Thẩm Thẩm Có",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-350",
-    "source": "Long công tử",
-    "target": "Long Công Tử",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-351",
-    "source": "Ni Cổ Lạp Tư",
-    "target": "Nicolas Cage",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-352",
-    "source": "Thẩm thẩm là",
-    "target": "Thẩm Thẩm Là",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-353",
-    "source": "Phương tỉnh",
-    "target": "Phương Tỉnh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-354",
-    "source": "Kinh Thượng",
-    "target": "Kinh Thượng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-355",
-    "source": "Mạnh bác sĩ",
-    "target": "Mạnh Bác Sĩ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-356",
-    "source": "Mai quản lí",
-    "target": "Mai Quản Lí",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-357",
-    "source": "Lan Hoa Chỉ",
-    "target": "Lan Hoa Chỉ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-358",
-    "source": "Mai tỷ cũng",
-    "target": "Mai Tỷ Cũng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-359",
-    "source": "Mai tỷ ngài",
-    "target": "Mai Tỷ Ngài",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-360",
-    "source": "Mai tổng ta",
-    "target": "Mai Tổng Ta",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-361",
-    "source": "Hàn lần này",
-    "target": "Hàn Lần Này",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-362",
-    "source": "Tôn Tử binh",
-    "target": "Tôn Tử Binh",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-363",
-    "source": "Uyển Bích A",
-    "target": "Uyển Bích A",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-364",
-    "source": "Lưu kinh lý",
-    "target": "Lưu Kinh Lý",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-365",
-    "source": "Vũ bang chủ",
-    "target": "Vũ Bang Chủ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-366",
-    "source": "Thiết Phiến",
-    "target": "Thiết Phiến",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-367",
-    "source": "Viễn Dương",
-    "target": "Viễn Dương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-368",
-    "source": "Thành Long",
-    "target": "Thành Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-369",
-    "source": "Mai lý Tây",
-    "target": "Mai Lý Tây",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-370",
-    "source": "Long ca ta",
-    "target": "Long Ca Ta",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-371",
-    "source": "Tạ công tử",
-    "target": "Tạ Công Tử",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-372",
-    "source": "Tạ gia cái",
-    "target": "Tạ Gia Cái",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-373",
-    "source": "Hưng muội",
-    "target": "Hưng Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-374",
-    "source": "Vương phi",
-    "target": "Vương Phi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-375",
-    "source": "Sông Viêm",
-    "target": "Sông Viêm",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-376",
-    "source": "Giác Chân",
-    "target": "Giác Chân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-377",
-    "source": "World Cup",
-    "target": "World Cup",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-378",
-    "source": "Trần tổng",
-    "target": "Trần Tổng",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-379",
-    "source": "Liễu muội",
-    "target": "Liễu Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-380",
-    "source": "Hắc Khách",
-    "target": "Hắc Khách",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-381",
-    "source": "Nhân Nhân",
-    "target": "Nhân Nhân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-382",
-    "source": "Thượng Đế",
-    "target": "Thượng Đế",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-383",
-    "source": "Tôn Lệ Na",
-    "target": "Tôn Lệ Na",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-384",
-    "source": "Tiền thúc",
-    "target": "Tiền Thúc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-385",
-    "source": "Dương gia",
-    "target": "Dương Gia",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-386",
-    "source": "Tốt Ngươi",
-    "target": "Tốt Ngươi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-387",
-    "source": "Đau Thiếu",
-    "target": "Đau Thiếu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-388",
-    "source": "AC Mễ Lan",
-    "target": "Ac Milan",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-389",
-    "source": "Thụy Điển",
-    "target": "Thụy Điển",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-390",
-    "source": "Thiết tỷ",
-    "target": "Thiết Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-391",
-    "source": "Tô hà đã",
-    "target": "Tô Hà Đã",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-392",
-    "source": "Bá Vương",
-    "target": "Bá Vương",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-393",
-    "source": "Lạp Đăng",
-    "target": "Bin Laden",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-394",
-    "source": "Dương tỷ",
-    "target": "Dương Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-395",
-    "source": "Khắc Lâm",
-    "target": "Clinton",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-396",
-    "source": "Là Lệ Na",
-    "target": "Là Lệ Na",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-397",
-    "source": "Ưng Trảo",
-    "target": "Ưng Trảo",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-398",
-    "source": "Bích tỷ",
-    "target": "Bích Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-399",
-    "source": "Văn lão",
-    "target": "Giáo Viên Văn",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-400",
-    "source": "Hi Long",
-    "target": "Hi Long",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-401",
-    "source": "Như Lai",
-    "target": "Như Lai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-402",
-    "source": "Đại Hòa",
-    "target": "Đại Hòa",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-403",
-    "source": "Tam Hạp",
-    "target": "Tam Hạp",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-404",
-    "source": "Tỷ muội",
-    "target": "Tỷ Muội",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-405",
-    "source": "Tốt Tốt",
-    "target": "Tốt Tốt",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-406",
-    "source": "Hoa Cốc",
-    "target": "Hoa Cốc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-407",
-    "source": "Tiêu Hà",
-    "target": "Tiêu Hà",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-408",
-    "source": "Đại tẩu",
-    "target": "Đại Tẩu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-409",
-    "source": "Vô Gian",
-    "target": "Vô Gian",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-410",
-    "source": "Long đệ",
-    "target": "Long Đệ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-411",
-    "source": "Tha tỷ",
-    "target": "Tha Cho Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-412",
-    "source": "Lỗ tai",
-    "target": "Lỗ Tai",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-413",
-    "source": "Nam Mĩ",
-    "target": "Nam Mỹ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-414",
-    "source": "Tạ lão",
-    "target": "Tạ Lão",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-415",
-    "source": "Nga Mi",
-    "target": "Nga Mi",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-416",
-    "source": "Lặc Tư",
-    "target": "Lex",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-417",
-    "source": "Lỗ Ban",
-    "target": "Lỗ Ban",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-418",
-    "source": "Ngô bá",
-    "target": "Ngô Bá",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-419",
-    "source": "Phi tỷ",
-    "target": "Phi Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-420",
-    "source": "Chi tỷ",
-    "target": "Chi Tỷ",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-421",
-    "source": "Ca ca",
-    "target": "Ca Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-422",
-    "source": "Lý ca",
-    "target": "Lý Ca",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-423",
-    "source": "A Đấu",
-    "target": "A Đấu",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-424",
-    "source": "A Ân",
-    "target": "A Ân",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-425",
-    "source": "của hắn sắc thủ",
-    "target": "Bàn Tay Sắc Lang Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-426",
-    "source": "dũ phát",
-    "target": "Càng Lúc Càng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-427",
-    "source": "thê tử",
-    "target": "Vợ",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-428",
-    "source": "của hắn thật lớn",
-    "target": "Cự Vật Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-429",
-    "source": "đang lúc",
-    "target": "Giữa Chốn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-430",
-    "source": "của nàng trong đó",
-    "target": "Giữa Hai Chân Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-431",
-    "source": "của hắn lưng hùm",
-    "target": "Tấm Lưng Hùm Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-432",
-    "source": "phó quản lý",
-    "target": "Phó Quản Lý",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-433",
-    "source": "lồi lõm có hứng thú",
-    "target": "Đường Cong Lồi Lõm Quyến Rũ",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-434",
-    "source": "thành phần tri thức",
-    "target": "Nữ Trí Thức",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-435",
-    "source": "của hắn cường tráng",
-    "target": "Lồng Ngực Cường Tráng Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-436",
-    "source": "của hắn cứng rắn",
-    "target": "Thứ Cứng Rắn Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-437",
-    "source": "của nàng mông",
-    "target": "Bờ Mông Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-438",
-    "source": "cao dép lê",
-    "target": "Giày Cao Gót",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-439",
-    "source": "của ngươi rồi",
-    "target": "Của Cô Rồi",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-440",
-    "source": "của ta a",
-    "target": "Của Tôi A",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-441",
-    "source": "của hắn mãnh liệt",
-    "target": "Hơi Thở Mãnh Liệt Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-442",
-    "source": "của hắn vuốt ve",
-    "target": "Sự Vuốt Ve Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-443",
-    "source": "của hắn ý tại",
-    "target": "Hàm Ý Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-444",
-    "source": "của hắn quái vật",
-    "target": "Quái Vật Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-445",
-    "source": "hạt giảng",
-    "target": "Nói Bậy",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-446",
-    "source": "của hắn hôn môi",
-    "target": "Nụ Hôn Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-447",
-    "source": "của ngươi a",
-    "target": "Của Em A",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-448",
-    "source": "của hắn ma sát",
-    "target": "Sự Ma Sát Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-449",
-    "source": "của nàng ở giữa",
-    "target": "Nơi Tư Mật Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-450",
-    "source": "của hắn mỗi một",
-    "target": "Mỗi Một Hành Động Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-451",
-    "source": "của hắn rộng lớn",
-    "target": "Vòm Ngực Rộng Lớn Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-452",
-    "source": "của hắn cùng nàng",
-    "target": "Của Hắn Và Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-453",
-    "source": "của hắn nhất hai",
-    "target": "Hai Bàn Tay Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-454",
-    "source": "của nàng vú",
-    "target": "Bầu Ngực Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-455",
-    "source": "của hắn cự long",
-    "target": "Cự Long Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-456",
-    "source": "của ngươi thẩm thẩm",
-    "target": "Thím Của Con",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-457",
-    "source": "của nàng đặt tại",
-    "target": "Đặt Tay Của Nàng Lên",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-458",
-    "source": "quay đầu dẫn rất cao",
-    "target": "Tỷ Lệ Ngoái Nhìn Cực Cao",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-459",
-    "source": "quay đầu dẫn",
-    "target": "Tỷ Lệ Ngoái Nhìn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-460",
-    "source": "của nàng lên",
-    "target": "Lên Người Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-461",
-    "source": "của hắn phía dưới",
-    "target": "Phần Dưới Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-462",
-    "source": "của hắn kinh hoàng",
-    "target": "Sự Kinh Hoàng Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-463",
-    "source": "chờ thông tri",
-    "target": "Đợi Thông Báo",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-464",
-    "source": "của nàng đầu vú",
-    "target": "Nhũ Hoa Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-465",
-    "source": "của hắn tay kia",
-    "target": "Bàn Tay Kia Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-466",
-    "source": "của hắn cư nhiên",
-    "target": "Ngón Tay Hắn Cư Nhiên",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-467",
-    "source": "của ngươi đâu",
-    "target": "Của Em Đấy",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-468",
-    "source": "của hắn sắc dạng",
-    "target": "Dáng Vẻ Háo Sắc Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-469",
-    "source": "của nàng ôn nhu",
-    "target": "Ánh Mắt Ôn Nhu Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-470",
-    "source": "của hắn thiện giải",
-    "target": "Lời Lẽ Tâm Lý Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-471",
-    "source": "của ngươi thời điểm",
-    "target": "Lúc Nhìn Thấy Em",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-472",
-    "source": "của hắn cảm động",
-    "target": "Sự Cảm Động Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-473",
-    "source": "của ta đi",
-    "target": "Của Tôi Đi",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-474",
-    "source": "của hắn khóa kéo",
-    "target": "Khóa Kéo Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-475",
-    "source": "của hắn kích thích",
-    "target": "Sự Kích Thích Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-476",
-    "source": "của hắn cuồng dã",
-    "target": "Sự Cuồng Dã Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-477",
-    "source": "của hắn tiến vào",
-    "target": "Sự Tiến Vào Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-478",
-    "source": "của hắn nói",
-    "target": "Lời Nói Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-479",
-    "source": "của ngươi nữ bí",
-    "target": "Nữ Thư Ký Của Cậu",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-480",
-    "source": "của hắn a",
-    "target": "Của Cậu Ấy Nhé",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-481",
-    "source": "của hắn trên đũng",
-    "target": "Trên Đũng Quần Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-482",
-    "source": "của hắn hùng vĩ",
-    "target": "Sự Hùng Vĩ Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-483",
-    "source": "của hắn một chút",
-    "target": "Của Hắn Một Cái",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-484",
-    "source": "của nàng khi hắn",
-    "target": "Khi Hắn Ôm Lấy Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-485",
-    "source": "của nàng cười nói",
-    "target": "Cười Nói Với Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-486",
-    "source": "của nàng mông trong",
-    "target": "Giữa Cặp Mông Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-487",
-    "source": "đại quản lí",
-    "target": "Đại Giám Đốc",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-488",
-    "source": "của hắn mặt trên",
-    "target": "Bên Trên Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-489",
-    "source": "của hắn đỉnh tại",
-    "target": "Cọ Xát Đỉnh Của Hắn Vào",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-490",
-    "source": "của hắn hơn người",
-    "target": "Sự Hơn Người Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-491",
-    "source": "của hắn hài hước",
-    "target": "Sự Hài Hước Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-492",
-    "source": "của hắn tao nhã",
-    "target": "Sự Tao Nhã Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-493",
-    "source": "của hắn mê người",
-    "target": "Sức Mê Người Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-494",
-    "source": "của nàng phi",
-    "target": "Cánh Cửa Lòng Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-495",
-    "source": "của nàng càng đối",
-    "target": "Nàng Càng Đối Với",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-496",
-    "source": "của ngươi nữ tiểu",
-    "target": "Nữ Thư Ký Nhỏ Của Anh",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-497",
-    "source": "của hắn khiêu khích",
-    "target": "Sự Khiêu Khích Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-498",
-    "source": "của hắn lý",
-    "target": "Lý Trí Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-499",
-    "source": "của ngươi long kiếm",
-    "target": "Long Kiếm Phi Của Tỷ",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-500",
-    "source": "của hắn tách ra",
-    "target": "Tách Đôi Của Hắn Ra",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-501",
-    "source": "của hắn càn rỡ",
-    "target": "Chiếc Lưỡi Càn Rỡ Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-502",
-    "source": "của hắn một ngụm",
-    "target": "Một Cái Lên Má Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-503",
-    "source": "của hắn đã nhanh",
-    "target": "Nụ Hôn Của Hắn Đã Nhanh",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-504",
-    "source": "của nàng ngược lại",
-    "target": "Của Nàng Hùa Theo",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-505",
-    "source": "của hắn cực đại",
-    "target": "Cự Vật Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-506",
-    "source": "của nàng như ẩn",
-    "target": "Thân Hình Như Ẩn Như Hiện Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-507",
-    "source": "của ta hay không",
-    "target": "Của Con Hay Không",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-508",
-    "source": "của nàng nói",
-    "target": "Của Nàng Và Nói",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-509",
-    "source": "của nàng mềm mại",
-    "target": "Sự Mềm Mại Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-510",
-    "source": "của hắn mút vào",
-    "target": "Sự Mút Vào Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-511",
-    "source": "của hắn ôm",
-    "target": "Cái Ôm Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-512",
-    "source": "của nàng mặt trên",
-    "target": "Trên Mặt Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-513",
-    "source": "của hắn thân thể",
-    "target": "Thân Thể Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-514",
-    "source": "của nàng mông đẹp",
-    "target": "Mông Đẹp Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-515",
-    "source": "của hắn anh tuấn",
-    "target": "Khuôn Mặt Anh Tuấn Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-516",
-    "source": "của hắn chiều dài",
-    "target": "Chiều Dài Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-517",
-    "source": "của hắn độ cứng",
-    "target": "Độ Cứng Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-518",
-    "source": "của hắn rên rỉ",
-    "target": "Tiếng Rên Rỉ Của Hắn",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-519",
-    "source": "của nàng đút vào",
-    "target": "Đôi Môi Đút Vào Của Nàng",
-    "novel_tag": "Chung"
-  },
-  {
-    "id": "ch-520",
-    "source": "Dương ngọc",
-    "target": "Dương Ngọc",
-    "novel_tag": "Thiếu Long"
-  },
-  {
-    "id": "ch-521",
+    "id": "ch-10",
     "source": "Ngọc Thiến",
     "target": "Ngọc Thiến",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-522",
+    "id": "ch-11",
+    "source": "Tỷ tỷ",
+    "target": "Tỷ Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-12",
     "source": "Tạ quốc",
-    "target": "Tạ Quốc",
+    "target": "Tạ Quốc Hoa",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-523",
-    "source": "Ngọc Chi",
-    "target": "Ngọc Chi",
+    "id": "ch-13",
+    "source": "Mai tỷ",
+    "target": "Mai Tỷ",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-524",
+    "id": "ch-14",
+    "source": "Dương ngọc",
+    "target": "Dương Ngọc Nhàn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-15",
+    "source": "Nguyễn tổng",
+    "target": "Nguyễn Tổng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-16",
+    "source": "Liễu Ngọc như",
+    "target": "Liễu Ngọc Như",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-17",
+    "source": "Tạ quốc hoa",
+    "target": "Tạ Quốc Hoa",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-18",
     "source": "Chu Ngọc",
-    "target": "Chu Ngọc",
+    "target": "Chu Ngọc Mị",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-525",
-    "source": "Xảo Xảo",
-    "target": "Xảo Xảo",
+    "id": "ch-19",
+    "source": "Chu Ngọc mị",
+    "target": "Chu Ngọc Mị",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-526",
-    "source": "Lỵ Lỵ",
-    "target": "Lỵ Lỵ",
+    "id": "ch-20",
+    "source": "Hảo tỷ",
+    "target": "Hảo Tỷ",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-527",
+    "id": "ch-21",
+    "source": "Như tỷ",
+    "target": "Như Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-22",
+    "source": "Mai tổng",
+    "target": "Mai Tổng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-23",
+    "source": "Lưu tuệ đẹp",
+    "target": "Lưu Tuệ Mỹ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-24",
+    "source": "Dương ngọc nhã",
+    "target": "Dương Ngọc Nhã",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-25",
+    "source": "Trung Quốc",
+    "target": "Trung Quốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-26",
+    "source": "Trương Tử",
+    "target": "Trương Tử Kiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-27",
+    "source": "Hạ ngọc hà",
+    "target": "Hạ Ngọc Hà",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-28",
+    "source": "Diệp Ngọc Thiến",
+    "target": "Diệp Ngọc Thiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-29",
+    "source": "Tạ tổng",
+    "target": "Tạ Tổng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-30",
+    "source": "Mạnh huệ san",
+    "target": "Mạnh Huệ San",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-31",
+    "source": "Trung Hoa",
+    "target": "Đại Trung Hoa",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-32",
+    "source": "Long đại",
+    "target": "Long Đại Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-33",
+    "source": "Long đại ca",
+    "target": "Long Đại Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-34",
+    "source": "Tạ thúc",
+    "target": "Tạ Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-35",
+    "source": "Tốt đệ",
+    "target": "Hảo Đệ Đệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-36",
+    "source": "Nguyễn tỷ",
+    "target": "Nguyễn Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-37",
+    "source": "Tô hà",
+    "target": "Tô Hà",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-38",
+    "source": "Long ca ca",
+    "target": "Long Ca Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-39",
+    "source": "Vân Long",
+    "target": "Vân Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-40",
+    "source": "Vũ bang",
+    "target": "Huyền Vũ Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-41",
+    "source": "Chu vệ đông",
+    "target": "Chu Vệ Đông",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-42",
+    "source": "Trinh tỷ",
+    "target": "Trinh Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-43",
+    "source": "Đường Văn Hưng",
+    "target": "Đường Văn Hưng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-44",
+    "source": "Tiền tuyết văn",
+    "target": "Tiền Tuyết Văn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-45",
+    "source": "đại Trung Hoa",
+    "target": "Đại Trung Hoa",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-46",
+    "source": "Trương Tử Cường",
+    "target": "Trương Tử Cường",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-47",
+    "source": "Lương hiểu tịnh",
+    "target": "Lương Hiểu Tịnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-48",
+    "source": "tiểu Lệ",
+    "target": "Tiểu Lệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-49",
+    "source": "Long bang",
+    "target": "Vân Long Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-50",
+    "source": "Nhật Bản",
+    "target": "Nhật Bản",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-51",
+    "source": "tiểu Long",
+    "target": "Tiểu Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-52",
+    "source": "Chung thục huệ",
+    "target": "Chung Thục Huệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-53",
+    "source": "Phương thành",
+    "target": "Nam Phương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-54",
+    "source": "Đài Loan",
+    "target": "Đài Loan",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-55",
+    "source": "Mã Kiến Thiết",
+    "target": "Mã Kiến Thiết",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-56",
+    "source": "Chu kinh lý",
+    "target": "Giám Đốc Chu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-57",
+    "source": "Nhã tỷ",
+    "target": "Nhã Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-58",
+    "source": "Tạ gia",
+    "target": "Tạ Gia",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-59",
+    "source": "Điền tú hồng",
+    "target": "Điền Tú Hồng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-60",
+    "source": "Tạ thúc thúc",
+    "target": "Tạ Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-61",
+    "source": "Tạ quốc vĩ",
+    "target": "Tạ Quốc Vĩ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-62",
+    "source": "Triệu thúc",
+    "target": "Triệu Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-63",
+    "source": "Tử Kiến",
+    "target": "Tử Kiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-64",
+    "source": "Trương Tử Kiến",
+    "target": "Trương Tử Kiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-65",
+    "source": "Lâm nhã thơ",
+    "target": "Lâm Nhã Thi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-66",
+    "source": "Tôn quản lý",
+    "target": "Giám Đốc Tôn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-67",
+    "source": "Dương ngọc khanh",
+    "target": "Dương Ngọc Khanh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-68",
+    "source": "Dương ngọc nhàn",
+    "target": "Dương Ngọc Nhàn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-69",
+    "source": "Hảo muội",
+    "target": "Hảo Muội Muội",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-70",
+    "source": "Chung tỷ",
+    "target": "Chung Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-71",
+    "source": "Hồ thị",
+    "target": "Hồ Thị",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-72",
+    "source": "Hà tỷ",
+    "target": "Hà Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-73",
+    "source": "Long huynh đệ",
+    "target": "Long Huynh Đệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-74",
+    "source": "Tiền cá cùng",
+    "target": "Tiền Các Cùng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-75",
+    "source": "Như Yên",
+    "target": "Như Yên",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-76",
+    "source": "Tứ Hải",
+    "target": "Tứ Hải Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-77",
+    "source": "Hưng Mã Kiến Thiết",
+    "target": "Hưng, Mã Kiến Thiết",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-78",
+    "source": "Đường Văn Hưng Mã",
+    "target": "Đường Văn Hưng, Mã",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-79",
+    "source": "Văn Hưng Mã Kiến",
+    "target": "Văn Hưng, Mã Kiến Thiết",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-80",
+    "source": "Tứ Hải Bang",
+    "target": "Tứ Hải Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-81",
+    "source": "Dì Lâm",
+    "target": "Dì Lâm",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-82",
+    "source": "Tiền ngọc văn",
+    "target": "Tiền Ngọc Văn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-83",
+    "source": "Nguyễn mai",
+    "target": "Nguyễn, Mai",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-84",
+    "source": "Thiếu gia",
+    "target": "Thiếu Gia",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-85",
+    "source": "Nhân gia",
+    "target": "Người Ta",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-86",
+    "source": "Đại tỷ",
+    "target": "Đại Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-87",
+    "source": "Mị tỷ",
+    "target": "Mị Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-88",
+    "source": "Hồ thị hậu",
+    "target": "Hậu Sinh Họ Hồ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-89",
+    "source": "Trầm thúc",
+    "target": "Trầm Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-90",
+    "source": "Phó tổng",
+    "target": "Phó Tổng Giám Đốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-91",
+    "source": "Hàn Quốc",
+    "target": "Hàn Quốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-92",
+    "source": "Phi Nhi",
+    "target": "Phi Nhi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-93",
+    "source": "Triệu thúc thúc",
+    "target": "Triệu Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-94",
+    "source": "Long tiên sinh",
+    "target": "Long Tiên Sinh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-95",
+    "source": "Đông Phương",
+    "target": "Phương Đông",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-96",
     "source": "Thương Hải",
     "target": "Thương Hải",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-528",
+    "id": "ch-97",
     "source": "Âu Dương",
     "target": "Âu Dương",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-529",
-    "source": "Tuệ Mẫn",
-    "target": "Tuệ Mẫn",
+    "id": "ch-98",
+    "source": "Tốt Long",
+    "target": "Hảo Long Kiếm Phi",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-530",
+    "id": "ch-99",
     "source": "Ngọc Mị",
     "target": "Ngọc Mị",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-531",
+    "id": "ch-100",
+    "source": "Tốt Long Kiếm Phi",
+    "target": "Hảo Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-101",
+    "source": "Chư Cát Lượng",
+    "target": "Chư Cát Lượng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-102",
+    "source": "Thiếu Long",
+    "target": "Thiếu Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-103",
+    "source": "Thiên Đạo",
+    "target": "Thiên Đạo",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-104",
+    "source": "Phi thần",
+    "target": "Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-105",
+    "source": "Hồng tẩu",
+    "target": "Hồng Tẩu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-106",
+    "source": "Nhật Bổn",
+    "target": "Nhật Bản",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-107",
+    "source": "Trịnh tỷ",
+    "target": "Trịnh Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-108",
+    "source": "Mạnh đạt",
+    "target": "Mạnh Đạt",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-109",
+    "source": "Khanh tỷ",
+    "target": "Khanh Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-110",
+    "source": "Long nhi",
+    "target": "Long Nhi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-111",
+    "source": "Hồng Hà",
+    "target": "Hồng Hà",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-112",
+    "source": "Tốt bác",
+    "target": "Hảo Bá Bá",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-113",
+    "source": "Đại ca",
+    "target": "Đại Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-114",
+    "source": "Vĩ ca",
+    "target": "Vĩ Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-115",
+    "source": "Tú Tú",
+    "target": "Tú Khí",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-116",
+    "source": "Dương như tuyết",
+    "target": "Âu Dương Như Tuyết",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-117",
+    "source": "Tô Nguyên Xuân",
+    "target": "Tô Nguyên Xuân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-118",
     "source": "Thẩm bóng hình",
     "target": "Thẩm Thiến Ảnh",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-532",
+    "id": "ch-119",
+    "source": "Nguyễn mai hai",
+    "target": "Nguyễn, Mai Hai Người",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-120",
+    "source": "Long ca ngươi",
+    "target": "Long Ca, Ngươi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-121",
+    "source": "Lâm Ngọc Chi",
+    "target": "Lâm Ngọc Chi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-122",
+    "source": "Thiên Tiên",
+    "target": "Tuyệt Sắc Thiên Tiên",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-123",
+    "source": "Tốt Lệ Na",
+    "target": "Hảo Lệ Na",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-124",
+    "source": "Phi thiếu",
+    "target": "Phi Thiếu Gia",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-125",
+    "source": "Nhị thúc",
+    "target": "Nhị Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-126",
+    "source": "Yên muội",
+    "target": "Như Yên Muội Muội",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-127",
+    "source": "Như Vân",
+    "target": "Như Mây",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-128",
+    "source": "Đài Bắc",
+    "target": "Đài Bắc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-129",
+    "source": "Na muội",
+    "target": "Lệ Na Muội Muội",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-130",
+    "source": "Tam tỷ",
+    "target": "Tam Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-131",
+    "source": "Thấy Long Kiếm Phi",
+    "target": "Thấy Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-132",
+    "source": "Trương nghe thấy",
+    "target": "Trương Văn Viễn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-133",
+    "source": "Dương ngọc thục",
+    "target": "Dương Ngọc Thục",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-134",
+    "source": "Nguyễn tỷ ngươi",
+    "target": "Nguyễn Tỷ, Ngươi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-135",
+    "source": "Nguyễn mai Khưu",
+    "target": "Nguyễn, Mai, Khưu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-136",
+    "source": "Ủy Nội Thụy Tạp",
+    "target": "Venezuela",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-137",
+    "source": "Dương phu nhân",
+    "target": "Dương Phu Nhân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-138",
+    "source": "Phan chủ nhiệm",
+    "target": "Chủ Nhiệm Phan",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-139",
+    "source": "Thẩm quân như",
+    "target": "Thẩm Quân Như",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-140",
+    "source": "Hồng Hà tràn",
+    "target": "Hồng Hà Tràn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-141",
+    "source": "Mai tỷ cùng",
+    "target": "Mai Tỷ Cùng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-142",
+    "source": "Hồ thị thấy",
+    "target": "Họ Hồ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-143",
+    "source": "Lâm Thi Âm",
+    "target": "Lâm Thi Âm",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-144",
+    "source": "An Lộc Sơn",
+    "target": "Dê Xồm",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-145",
+    "source": "Đại Từ Đại",
+    "target": "Đại Từ Đại Bi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-146",
+    "source": "Trần tổng",
+    "target": "Trần Tổng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-147",
+    "source": "Thang máy",
+    "target": "Thang Máy",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-148",
+    "source": "Long thúc",
+    "target": "Long Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-149",
+    "source": "Vương gia",
+    "target": "Vương Gia Hỉ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-150",
+    "source": "Thất Tịch",
+    "target": "Thất Tịch",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-151",
+    "source": "Mai tỷ tỷ",
+    "target": "Mai Tỷ Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-152",
+    "source": "Mạnh bác",
+    "target": "Bác Sĩ Mạnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-153",
+    "source": "Linh Tê",
+    "target": "Linh Tê",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-154",
+    "source": "Sơn Tây",
+    "target": "Sơn Tây",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-155",
+    "source": "Đại Hòa",
+    "target": "To Lớn Và",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-156",
+    "source": "Ưm Một",
+    "target": "Ưm Một",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-157",
+    "source": "Hảo ca",
+    "target": "Hảo Ca Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-158",
+    "source": "Long Kiếm Phi Ngươi",
+    "target": "Long Kiếm Phi, Ngươi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-159",
+    "source": "Đương Long Kiếm Phi",
+    "target": "Khi Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-160",
+    "source": "Long Kiếm Phi Long",
+    "target": "Thấy Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-161",
+    "source": "Kiếm Phi Long Kiếm",
+    "target": "Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-162",
+    "source": "Chết Long Kiếm Phi",
+    "target": "Long Kiếm Phi Đáng Chết",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-163",
+    "source": "Long Kiếm Phi Như",
+    "target": "Long Kiếm Phi? Như",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-164",
+    "source": "Phi Long Kiếm Phi",
+    "target": "Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-165",
+    "source": "Phương chủ nhiệm",
+    "target": "Chủ Nhiệm Phương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-166",
+    "source": "Mà Long Kiếm Phi",
+    "target": "Mà Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-167",
+    "source": "Dương chủ nhiệm",
+    "target": "Chủ Nhiệm Dương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-168",
+    "source": "Long bang chúng",
+    "target": "Bang Chúng Vân Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-169",
+    "source": "Long trên người",
+    "target": "Trên Người Tiểu Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-170",
+    "source": "Trương Tử Mạnh",
+    "target": "Trương Tử Mạnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-171",
+    "source": "Phó tổng kinh",
+    "target": "Phó Tổng Giám Đốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-172",
+    "source": "Nguyên lai là",
+    "target": "Hóa Ra Là",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-173",
+    "source": "Tô Tích Xuân",
+    "target": "Tô Tích Xuân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-174",
+    "source": "Khưu quản lí",
+    "target": "Quản Lý Khưu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-175",
+    "source": "Tiếng Eskimo",
+    "target": "Eskimo",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-176",
+    "source": "Mai tỷ Trịnh",
+    "target": "Mai Tỷ, Trịnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-177",
+    "source": "Tạ gia huynh",
+    "target": "Anh Em Nhà Họ Tạ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-178",
+    "source": "Gavin phong",
+    "target": "Gavin Phong",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-179",
+    "source": "Ngũ Đài Sơn",
+    "target": "Ngũ Đài Sơn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-180",
     "source": "Ngọc Khanh",
     "target": "Ngọc Khanh",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-533",
+    "id": "ch-181",
     "source": "Minh Minh",
     "target": "Minh Minh",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-534",
-    "source": "Hứa tiểu",
-    "target": "Hứa Tiểu",
+    "id": "ch-182",
+    "source": "Điềm Điềm",
+    "target": "Điềm Điềm",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-535",
+    "id": "ch-183",
+    "source": "Tiêm Tiêm",
+    "target": "Tiêm Tiêm",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-184",
+    "source": "Địch nhân",
+    "target": "Kẻ Địch",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-185",
+    "source": "Lăng Vân",
+    "target": "Lăng Vân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-186",
+    "source": "Bá vương",
+    "target": "Bá Vương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-187",
+    "source": "Tô Châu",
+    "target": "Tô Châu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-188",
+    "source": "Xuân Tô",
+    "target": "Xuân, Tô",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-189",
+    "source": "Hạ thôn",
+    "target": "Hạ Thôn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-190",
+    "source": "Phó chủ",
+    "target": "Phó Chủ Tịch",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-191",
+    "source": "Tây Môn",
+    "target": "Tây Môn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-192",
+    "source": "Tốt tẩu",
+    "target": "Hảo Tẩu Tử",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-193",
+    "source": "Cố tình",
+    "target": "Cố Tình",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-194",
+    "source": "Hạng Võ",
+    "target": "Hạng Vũ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-195",
+    "source": "Tắc Hạ",
+    "target": "Tắc Hạ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-196",
+    "source": "Tốt Hà",
+    "target": "Hảo Hà",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-197",
+    "source": "An đệ",
+    "target": "Andes",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-198",
+    "source": "Trương Tử Cường Trương",
+    "target": "Trương Tử Cường, Trương Tử Kiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-199",
+    "source": "Cường Trương Tử Kiến",
+    "target": "Cường, Trương Tử Kiến",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-200",
+    "source": "Nguyên Xuân Tô Tích",
+    "target": "Nguyên Xuân, Tô Tích",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-201",
+    "source": "Việt Vương Câu Tiễn",
+    "target": "Việt Vương Câu Tiễn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-202",
+    "source": "Tử Cường Trương Tử",
+    "target": "Tử Cường, Trương Tử",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-203",
+    "source": "Nhìn Long Kiếm Phi",
+    "target": "Nhìn Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-204",
+    "source": "Tô Nguyên Xuân Tô",
+    "target": "Tô Nguyên Xuân, Tô",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-205",
+    "source": "Xuân Tô Tích Xuân",
+    "target": "Xuân, Tô Tích Xuân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-206",
+    "source": "Hàn Quốc Thái Cực",
+    "target": "Thái Cực Hổ Hàn Quốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-207",
+    "source": "Nguyễn tổng tính",
+    "target": "Nguyễn Tổng Dự Tính",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-208",
+    "source": "Nguyễn tổng phải",
+    "target": "Nguyễn Tổng Phải",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-209",
+    "source": "Chung đội trưởng",
+    "target": "Đội Trưởng Chung",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-210",
+    "source": "Nguyễn tổng còn",
+    "target": "Nguyễn Tổng, Còn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-211",
+    "source": "Nguyễn tổng nói",
+    "target": "Nguyễn Tổng Nói",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-212",
+    "source": "Taylor Hongkong",
+    "target": "Taylor",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-213",
+    "source": "Hải Đông Phương",
+    "target": "Hải Đông Phương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-214",
+    "source": "Phương văn hinh",
+    "target": "Đông Phương Văn Hinh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-215",
+    "source": "Văn Thiên Tường",
+    "target": "Văn Thiên Tường",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-216",
+    "source": "Thẩm thẩm ngươi",
+    "target": "Thẩm Thẩm, Người",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-217",
+    "source": "Long truyền kỳ",
+    "target": "Thiếu Long Truyền Kỳ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-218",
+    "source": "Long phong lưu",
+    "target": "Thiếu Long Phong Lưu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-219",
+    "source": "Nguyên Xuân nữ",
+    "target": "Nguyên Xuân, Nữ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-220",
+    "source": "Nguyễn tổng về",
+    "target": "Nguyễn Tổng Về",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-221",
+    "source": "Long thúc thúc",
+    "target": "Long Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-222",
+    "source": "Trình Giảo Kim",
+    "target": "Trình Giảo Kim",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-223",
+    "source": "Mạnh đạt trung",
+    "target": "Mạnh Đạt Trung",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-224",
+    "source": "Long bang cùng",
+    "target": "Bang Vân Long Cùng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-225",
+    "source": "Vũ bang Trương",
+    "target": "Bang Huyền Vũ Trương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-226",
+    "source": "Cổ Lạp Tư Khải",
+    "target": "Nicolas Cage",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-227",
+    "source": "Lạp Tư Khải Kỳ",
+    "target": "Nicolas Cage",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-228",
     "source": "Dương phi phi",
-    "target": "Dương Phi Phi",
+    "target": "Âu Dương Phi Phi",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-536",
+    "id": "ch-229",
+    "source": "Hồng Lâu Mộng",
+    "target": "Hồng Lâu Mộng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-230",
+    "source": "tiểu Nhật Bản",
+    "target": "Tiểu Nhật Bản",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-231",
+    "source": "Triệu gió lục",
+    "target": "Triệu Phong Lục",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-232",
+    "source": "Chu Kiệt luân",
+    "target": "Châu Kiệt Luân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-233",
+    "source": "Tây Môn Khánh",
+    "target": "Tây Môn Khánh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-234",
+    "source": "Long bang lão",
+    "target": "Lão Đại Vân Long Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-235",
+    "source": "Đại Từ Đại Bi",
+    "target": "Đại Từ Đại Bi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-236",
+    "source": "Ôn hương noãn",
+    "target": "Ôn Hương Noãn Ngọc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-237",
+    "source": "Lưu Thiên hoa",
+    "target": "Trần Thiên Hoa",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-238",
+    "source": "Long bang đà",
+    "target": "Đà Chủ Vân Long Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-239",
+    "source": "Tiểu Lâm Huệ",
+    "target": "Kobayashi Megumi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-240",
     "source": "Thương Giang",
-    "target": "Thương Giang",
+    "target": "Giả Thương Giang",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-537",
+    "id": "ch-241",
+    "source": "Tô Liên Xuân",
+    "target": "Tô Liên Xuân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-242",
+    "source": "Mai tổng nói",
+    "target": "Mai Tổng Nói",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-243",
+    "source": "Vương gia hỉ",
+    "target": "Vương Gia Hỉ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-244",
+    "source": "Phó chủ tịch",
+    "target": "Phó Chủ Tịch",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-245",
+    "source": "Kim Bình Mai",
+    "target": "Kim Bình Mai",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-246",
+    "source": "Chu quảng hỗ",
+    "target": "Chu Quảng Hỗ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-247",
+    "source": "Long kinh để",
+    "target": "Giám Đốc Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-248",
+    "source": "Tiểu Long Nữ",
+    "target": "Tiểu Long Nữ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-249",
+    "source": "Long ta cũng",
+    "target": "Long, Ta Cũng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-250",
+    "source": "Thẩm thẩm tú",
+    "target": "Thẩm Thẩm Tú Hồng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-251",
+    "source": "Chu Tự Thanh",
+    "target": "Chu Tự Thanh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-252",
+    "source": "Long bang tạ",
+    "target": "Vân Long Bang Tạ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-253",
+    "source": "Thẩm thẩm có",
+    "target": "Thẩm Thẩm Có",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-254",
+    "source": "Long công tử",
+    "target": "Long Công Tử",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-255",
+    "source": "Ni Cổ Lạp Tư",
+    "target": "Nicolas Cage",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-256",
+    "source": "Kim Tuệ Mẫn",
+    "target": "Kim Tuệ Mẫn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-257",
+    "source": "Phương tỉnh",
+    "target": "Phương Tỉnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-258",
+    "source": "Kinh Thượng",
+    "target": "Bắc Kinh, Thượng Hải",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-259",
+    "source": "Mạnh bác sĩ",
+    "target": "Bác Sĩ Mạnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-260",
+    "source": "Mai quản lí",
+    "target": "Quản Lý Mai",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-261",
+    "source": "Lan Hoa Chỉ",
+    "target": "Ngón Tay Hoa Lan",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-262",
+    "source": "Mai tỷ cũng",
+    "target": "Mai Tỷ Cũng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-263",
+    "source": "Mai tỷ ngài",
+    "target": "Mai Tỷ Ngài",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-264",
+    "source": "Mai tổng ta",
+    "target": "Mai Tổng, Ta",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-265",
+    "source": "Hàn lần này",
+    "target": "Người Hàn Lần Này",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-266",
+    "source": "Hoàng thiếu",
+    "target": "Hoàng Thiếu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-267",
+    "source": "Tôn Tử binh",
+    "target": "Tôn Tử Binh Pháp",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-268",
+    "source": "Uyển Bích A",
+    "target": "Uyển Bích! A",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-269",
+    "source": "Lưu kinh lý",
+    "target": "Giám Đốc Lưu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-270",
+    "source": "Tạ phu nhân",
+    "target": "Tạ Phu Nhân",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-271",
+    "source": "Triều Tiên",
+    "target": "Triều Tiên",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-272",
+    "source": "Vũ bang đà",
+    "target": "Đà Chủ Huyền Vũ Bang",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-273",
+    "source": "Mã Như Lan",
+    "target": "Mã Như Lan",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-274",
     "source": "Giả Thương",
-    "target": "Giả Thương",
+    "target": "Giả Thương Hải",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-538",
+    "id": "ch-275",
+    "source": "Viễn Dương",
+    "target": "Viễn Dương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-276",
+    "source": "Mai lý Tây",
+    "target": "Kim Bình Mai, Tây Môn Khánh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-277",
+    "source": "Diêm vương",
+    "target": "Diêm Vương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-278",
+    "source": "Thang lang",
+    "target": "Loảng Xoảng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-279",
+    "source": "Long ca ta",
+    "target": "Long Ca, Ta",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-280",
+    "source": "Tạ công tử",
+    "target": "Tạ Công Tử",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-281",
+    "source": "Việt vương",
+    "target": "Việt Vương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-282",
+    "source": "Đại Đông Á",
+    "target": "Đại Đông Á",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-283",
+    "source": "Long thiếu",
+    "target": "Long Thiếu Gia",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-284",
+    "source": "Trương gia",
+    "target": "Nhà Họ Trương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-285",
+    "source": "Xuân muội",
+    "target": "Xuân Muội Muội",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-286",
+    "source": "Vương phi",
+    "target": "Asakura Yumi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-287",
+    "source": "Tiểu Điền",
+    "target": "Oda",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-288",
+    "source": "Dương tập",
+    "target": "Viễn Dương Tập Đoàn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-289",
     "source": "Phương mỹ",
-    "target": "Phương Mỹ",
+    "target": "Phương Mỹ Dung",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-539",
+    "id": "ch-290",
+    "source": "Đường gia",
+    "target": "Đường Gia Lệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-291",
+    "source": "Sông Viêm",
+    "target": "Sông Viêm",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-292",
+    "source": "Long thần",
+    "target": "Thành Long, Phim Thần Thoại",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-293",
+    "source": "Giác Chân",
+    "target": "Cảm Giác Chân Thật",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-294",
+    "source": "lão Vương",
+    "target": "Lão Vương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-295",
+    "source": "Liễu muội",
+    "target": "Liễu Muội Muội",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-296",
+    "source": "Hắc Khách",
+    "target": "The Matrix",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-297",
+    "source": "Thượng Đế",
+    "target": "Thượng Đế",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-298",
+    "source": "Tôn Lệ Na",
+    "target": "Tôn Lệ Na",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-299",
+    "source": "Tiền thúc",
+    "target": "Tiền Thúc Thúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-300",
+    "source": "Đại Na Di",
+    "target": "Càn Khôn Đại Na Di",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-301",
+    "source": "Dương gia",
+    "target": "Nhà Họ Dương",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-302",
+    "source": "Đau Thiếu",
+    "target": "Như Thế",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-303",
+    "source": "Tiểu Bạch",
+    "target": "Trắng Nõn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-304",
+    "source": "Long tổng",
+    "target": "Long Tổng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-305",
+    "source": "Hứa tiểu",
+    "target": "Hứa Tiểu Trúc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-306",
     "source": "Linh Mộc",
-    "target": "Suzuki",
+    "target": "Suzuki Manami",
     "novel_tag": "Thiếu Long"
   },
   {
-    "id": "ch-540",
+    "id": "ch-307",
+    "source": "Khách đế",
+    "target": "The Matrix",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-308",
+    "source": "Đường mã",
+    "target": "Đường, Mã",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-309",
+    "source": "Tô hà đã",
+    "target": "Tô Hà Đã",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-310",
+    "source": "Nhạc mẫu",
+    "target": "Nhạc Mẫu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-311",
+    "source": "Lạp Đăng",
+    "target": "Bin Laden",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-312",
+    "source": "Tiểu Phi",
+    "target": "Tiểu Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-313",
+    "source": "Long gia",
+    "target": "Nhà Họ Long",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-314",
+    "source": "Dương tỷ",
+    "target": "Dương Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-315",
+    "source": "Là Lệ Na",
+    "target": "Là Lệ Na",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-316",
+    "source": "Đại Ngọc",
+    "target": "Lâm Đại Ngọc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-317",
+    "source": "Đại Thụy",
+    "target": "Ngủ Say Sưa",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-318",
+    "source": "Mạnh đệ",
+    "target": "Em Trai Trương Tử Mạnh",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-319",
+    "source": "Phi bác",
+    "target": "Bác",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-320",
+    "source": "Văn lão",
+    "target": "Thầy Ngữ Văn",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-321",
+    "source": "Hi Long",
+    "target": "Hi, Long Kiếm Phi",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-322",
+    "source": "Như Lai",
+    "target": "Như Lai",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-323",
+    "source": "Tam Hạp",
+    "target": "Tam Hiệp",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-324",
+    "source": "Tỷ muội",
+    "target": "Chị Em",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-325",
+    "source": "Tốt Tốt",
+    "target": "Tốt! Tốt",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-326",
+    "source": "Hoa Cốc",
+    "target": "Hoa Cốc",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-327",
+    "source": "Vô Gian",
+    "target": "Vô Gian Đạo",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-328",
     "source": "Lâm tử",
-    "target": "Lâm Tử",
+    "target": "Lâm Tử Hùng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-329",
+    "source": "Tha tỷ",
+    "target": "Tha Cho Tỷ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-330",
+    "source": "Lỗ tai",
+    "target": "Lỗ Tai",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-331",
+    "source": "Nam Mĩ",
+    "target": "Nam Mỹ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-332",
+    "source": "Tạ lão",
+    "target": "Tạ Lão Bản",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-333",
+    "source": "Nga Mi",
+    "target": "Lông Mày Lá Liễu",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-334",
+    "source": "Lỗ Ban",
+    "target": "Lỗ Ban",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-335",
+    "source": "Ngô bá",
+    "target": "Ngô Bá Hùng",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-336",
+    "source": "Phi tỷ",
+    "target": "Phi Đệ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-337",
+    "source": "Lỵ Lỵ",
+    "target": "Mã Lỵ Lỵ",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-338",
+    "source": "Ca ca",
+    "target": "Ca Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-339",
+    "source": "Lý ca",
+    "target": "Lý Ca",
+    "novel_tag": "Thiếu Long"
+  },
+  {
+    "id": "ch-340",
+    "source": "A Đấu",
+    "target": "A Đẩu",
     "novel_tag": "Thiếu Long"
   }
 ]

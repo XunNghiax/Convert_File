@@ -150,13 +150,13 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
                 })
 
         # Xuất kết quả hoàn chỉnh vào thư mục scanned/
-        part_files, master_json = ScanExporter.export_partitioned(candidates, safe_novel_name, config.SCANNED_DIR, part_size=100)
+        part_files, master_json = ScanExporter.export_partitioned(candidates, safe_novel_name, config.SCANNED_DIR, part_size=500)
 
         st.session_state["scan_results"] = results
         st.session_state["scan_novel_tag"] = novel_tag_input
         st.session_state["scan_json_path"] = str(master_json)
         st.session_state["scan_txt_path"] = str(part_files[0]) if part_files else ""
-        st.success(f"💾 **Đã tự động lưu kết quả quét liên tục vào thư mục scanned/:** `{master_json.name}` và {len(part_files)} file review phần (100 từ/file)")
+        st.success(f"💾 **Đã tự động lưu kết quả quét liên tục vào thư mục scanned/:** `{master_json.name}` và {len(part_files)} file review phần (500 từ/file)")
 
 
     # Hiển thị nút tải file nếu đã có kết quả scan

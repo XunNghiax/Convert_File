@@ -65,9 +65,9 @@ def test_export_partitioned_default_part_size_100(tmp_path):
         for i in range(1, 250)
     ]
     scanned_dir = tmp_path / "scanned"
-    part_files, master_json = ScanExporter.export_partitioned(candidates, "novel", scanned_dir)
+    part_files, master_json = ScanExporter.export_partitioned(candidates, "novel", scanned_dir, part_size=100)
 
-    # 249 mục với part_size mặc định 100 sẽ ra 3 file: 100, 100, 49
+    # 249 mục với part_size 100 sẽ ra 3 file: 100, 100, 49
     assert len(part_files) == 3
     assert part_files[0].name == "novel_part1_review.txt"
     assert part_files[1].name == "novel_part2_review.txt"

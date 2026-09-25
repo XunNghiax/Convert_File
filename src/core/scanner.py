@@ -843,7 +843,7 @@ class NovelScanner:
         scanned_dir: Path,
         novel_name: str,
         export_partition: bool = False,
-        partition_size: int = 50,
+        partition_size: int = 100,
         on_save_checkpoint: Optional[Callable[[List[ScannedCandidate], Path, Path], None]] = None
     ):
         from src.core.scan_exporter import ScanExporter

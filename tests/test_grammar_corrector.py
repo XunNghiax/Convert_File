@@ -41,3 +41,11 @@ def test_fix_reverse_possession_empty_or_none():
     assert GrammarCorrector.fix_reverse_possession("") == ("", 0)
     assert GrammarCorrector.fix_reverse_possession(None) == (None, 0)
     assert GrammarCorrector.fix_reverse_possession("Không có từ đó ở đây.") == ("Không có từ đó ở đây.", 0)
+
+def test_fix_reverse_possession_final_particles_guard():
+    text = "Cái đó là của hắn đó sao? Của ta đây rồi."
+    fixed, count = GrammarCorrector.fix_reverse_possession(text)
+    assert count == 0
+    assert fixed == text
+
+

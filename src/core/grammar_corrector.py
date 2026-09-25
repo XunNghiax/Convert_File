@@ -9,7 +9,9 @@ class GrammarCorrector:
     NON_NOUN_WORDS: Set[str] = {
         "là", "có", "không", "chưa", "đã", "sẽ", "đang", "phải", "được", "bị",
         "vốn", "tại", "cho", "với", "như", "thì", "mà", "bởi", "vì", "đều",
-        "cũng", "rất", "quá", "lắm", "hơn", "nhất", "ngươi", "ta", "hắn", "nàng"
+        "cũng", "rất", "quá", "lắm", "hơn", "nhất", "ngươi", "ta", "hắn", "nàng",
+        "đó", "đây", "này", "kia", "rồi", "sao", "đâu", "gì", "nhé", "nha", "à", "ơi",
+        "hả", "chứ", "thế", "vậy", "y", "thị", "họ"
     }
 
     _V_UPPER = "A-ZÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ"

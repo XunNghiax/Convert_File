@@ -1,6 +1,7 @@
 import re
 from pathlib import Path
 from typing import Dict, Tuple, Optional
+from src.core.grammar_corrector import GrammarCorrector
 
 def title_case_vietnamese(text: str) -> str:
     """Viết hoa chữ cái đầu cho mỗi từ trong tên riêng tiếng Việt."""
@@ -85,41 +86,54 @@ class ReplacerEngine:
         flags = re.IGNORECASE if not self.case_sensitive else 0
         self._compiled_regex = re.compile(combined_pattern, flags)
 
-    def replace_text(self, text: str) -> Tuple[str, Dict[str, int]]:
+    def replace_text(self, text: str, apply_grammar_fixes: bool = False) -> Tuple[str, Dict[str, int], int]:
         """
-        Thay thế chuỗi văn bản và trả về kết quả kèm thống kê số lần thay thế của từng từ.
+        Thay thế chuỗi văn bản và trả về kết quả kèm thống kê số lần thay thế của từng từ và số lần sửa ngữ pháp.
         """
-        if not self._compiled_regex or not text:
-            return text, {}
+        if not text:
+            return text, {}, 0
 
         stats: Dict[str, int] = {}
+        if self._compiled_regex:
+            def _sub_callback(match: re.Match) -> str:
+                matched_str = match.group(0)
+                lookup_key = matched_str.lower()
+                info = self._lookup.get(lookup_key)
+                if not info:
+                    return matched_str
 
-        def _sub_callback(match: re.Match) -> str:
-            matched_str = match.group(0)
-            lookup_key = matched_str.lower()
-            info = self._lookup.get(lookup_key)
-            if not info:
-                return matched_str
+                target, is_character = info
 
-            target, is_character = info
-
-            if is_character:
-                # TỰ ĐỘNG UPCASE: Tên nhân vật (ch-) luôn luôn viết hoa từng từ chuẩn hóa
-                replacement = target
-            else:
-                # TỪ PHỔ BIẾN (co-): Bảo toàn viết hoa chữ đầu nếu đứng đầu câu/đoạn, không ép Title Case
-                if matched_str and matched_str[0].isupper() and target:
-                    replacement = target[0].upper() + target[1:]
-                else:
+                if is_character:
+                    # TỰ ĐỘNG UPCASE: Tên nhân vật (ch-) luôn luôn viết hoa từng từ chuẩn hóa
                     replacement = target
+                else:
+                    # TỪ PHỔ BIẾN (co-): Bảo toàn viết hoa chữ đầu nếu đứng đầu câu/đoạn, không ép Title Case
+                    if matched_str and matched_str[0].isupper() and target:
+                        replacement = target[0].upper() + target[1:]
+                    else:
+                        replacement = target
 
-            stats[matched_str] = stats.get(matched_str, 0) + 1
-            return replacement
+                stats[matched_str] = stats.get(matched_str, 0) + 1
+                return replacement
 
-        result = self._compiled_regex.sub(_sub_callback, text)
-        return result, stats
+            result = self._compiled_regex.sub(_sub_callback, text)
+        else:
+            result = text
 
-    def replace_file(self, input_path: Path, output_path: Path, buffer_lines: int = 5000) -> Dict[str, int]:
+        grammar_count = 0
+        if apply_grammar_fixes:
+            result, grammar_count = GrammarCorrector.fix_reverse_possession(result)
+
+        return result, stats, grammar_count
+
+    def replace_file(
+        self,
+        input_path: Path,
+        output_path: Path,
+        buffer_lines: int = 5000,
+        apply_grammar_fixes: bool = False
+    ) -> Dict[str, int]:
         """
         Xử lý streaming theo buffer dòng để convert file lớn (50-70MB+) mà không gây tràn RAM.
         """
@@ -134,18 +148,26 @@ class ReplacerEngine:
                 buffer.append(line)
                 if len(buffer) >= buffer_lines:
                     chunk_text = "".join(buffer)
-                    converted_chunk, stats = self.replace_text(chunk_text)
+                    converted_chunk, stats, grammar_count = self.replace_text(
+                        chunk_text, apply_grammar_fixes=apply_grammar_fixes
+                    )
                     fout.write(converted_chunk)
                     for k, v in stats.items():
                         total_stats[k] = total_stats.get(k, 0) + v
+                    if grammar_count > 0:
+                        total_stats["__grammar_fixes__"] = total_stats.get("__grammar_fixes__", 0) + grammar_count
                     buffer.clear()
 
             if buffer:
                 chunk_text = "".join(buffer)
-                converted_chunk, stats = self.replace_text(chunk_text)
+                converted_chunk, stats, grammar_count = self.replace_text(
+                    chunk_text, apply_grammar_fixes=apply_grammar_fixes
+                )
                 fout.write(converted_chunk)
                 for k, v in stats.items():
                     total_stats[k] = total_stats.get(k, 0) + v
+                if grammar_count > 0:
+                    total_stats["__grammar_fixes__"] = total_stats.get("__grammar_fixes__", 0) + grammar_count
                 buffer.clear()
 
         return total_stats

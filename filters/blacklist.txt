@@ -1,4 +1,4 @@
-﻿# DANH SÁCH TỪ CẤM TUYỆT ĐỐI (BLACKLIST)
-# Mọi từ hoặc cụm từ trong danh sách này sẽ bị loại bỏ hoàn toàn khỏi kết quả quét.
-# Mỗi dòng một từ/cụm từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
-
+như vân
+như vậy
+hư thếcó thểcó lẽ	uy nhiên	hế nhưngmặc dù
+ghĩ thầm	ính toánphải chịuchịu trách nhiệmgiảm biên chế

@@ -105,7 +105,7 @@ class NovelScanner:
         "trên", "dưới", "với", "cùng", "và", "hoặc", "nhưng", "mà", "thì", "là", "ở",
         "tại", "rất", "quá", "lắm", "hơi", "khá", "cực", "càng", "luôn", "thường", "hay",
         "ít", "nhiều", "đã", "đang", "sẽ", "vừa", "mới", "ngay", "liền", "chợt", "bỗng",
-        "tự", "hãy", "đừng", "chớ", "nào", "gì", "đâu", "sao", "thế", "vậy", "nhất",
+        "tự", "hãy", "đừng", "chớ", "nào", "gì", "đâu", "sao", "thế", "vậy", "nhất", "hơn",
         "nữa", "mãi", "rồi", "kìa", "này", "đó", "kia", "ấy", "nọ", "hắn", "nàng", "ta"
     }
 
@@ -140,7 +140,7 @@ class NovelScanner:
         
         # Các họ kép (phức danh) Trung Quốc bổ sung
         "đông phương", "tây môn", "nam cung", "bắc minh", "công tôn", "hoàng phủ", 
-        "thượng quan", "lệnh hồ", "độc cô", "tư đồ", "hạ hầu", "uất trì"
+        "thượng quan", "lệnh hồ", "độc cô", "tư đồ", "hạ hầu", "uất trì", "tiểu"
     }
 
     # Hậu tố danh xưng thân tộc/vai vế thường đi sau tên riêng
@@ -151,6 +151,25 @@ class NovelScanner:
     }
 
     # Tiền tố chức danh / danh xưng thường đi trước tên
+
+    JAPANESE_SURNAMES = {
+        "sơn bản", "tùng bản", "độ biên", "mộc thôn", "lâm", "tá đằng", "y đằng", "cao kiều",
+        "tiểu lâm", "thanh mộc", "thạch điền", "cung bản", "tiểu dã", "đằng điền", "cát điền",
+        "cương bản", "trung thôn", "tỉnh thượng", "kim tĩnh", "ngự phản", "trường cốc xuyên",
+        "tây thôn", "kết thành", "anh tỉnh", "thần cốc", "đại đảo", "bản bản", "tiểu xuyên",
+        "trung đảo", "bình dã", "thủy dã", "an bội", "tá tá mộc", "đằng nguyên", "vũ điền",
+        "thạch nguyên", "tinh dã", "tùng điền", "nguyệt dã", "nhật hướng", "tứ cung", "hắc lăng",
+        "tinh xuyên", "thực hạnh", "hải đằng", "thần điền", "minh hải", "hùng cốc"
+    }
+
+    JAPANESE_NAME_SUFFIXES = {
+        "tử", "mỹ", "hương", "nại", "sa", "hợp", "quận", "lang", "trợ", "nhất", "ngạn", "phu", "thái",
+        "tu", "hùng", "kiện", "cát", "sinh"
+    }
+
+    PLACE_SUFFIXES = {"thôn", "thành", "trấn", "tỉnh", "quốc", "đạo", "giới", "núi", "sông", "biển", "đảo", "tông", "phái", "môn", "cốc", "lâu", "các", "điện", "cung", "miếu", "đường", "trại", "nhai", "phường"}
+    TITLES_AND_VERBS = {"tổng", "tính", "thân", "nhìn", "thấy", "phải", "còn", "một", "các", "làm", "chỉ", "có", "đang", "đã", "sẽ", "được", "bị", "đi", "lại", "ra", "vào", "lên", "xuống", "kia", "đó", "đây", "rất", "quá", "lắm", "thật", "cùng", "với", "cho", "để", "thì", "mà", "là", "và", "hay", "hoặc", "của", "tại", "từ", "đến", "ở", "đương", "trao", "dũ", "hãnh", "trừ", "gần", "làn", "lần", "kết", "nhân", "gia", "chủ", "quản", "lý", "giám", "đốc", "ca", "tỷ", "muội", "đệ", "thúc", "bá", "di", "cô", "nương", "tôn", "ông", "bà", "anh", "chị", "em", "nghĩ", "nói", "cười", "khóc", "hỏi", "đáp", "đứng", "ngồi", "nằm", "chạy", "nhảy", "ăn", "uống", "nghe", "xem", "cầm", "nắm", "mang", "đưa", "kéo", "đẩy", "giết", "đánh", "chém", "chết", "sống", "trốn", "bay", "rơi", "rớt", "đập", "phá", "tốt", "xấu", "cao", "thấp", "to", "nhỏ", "lớn", "bé", "nhiều", "ít", "sự", "việc", "người", "kẻ", "chúng", "bọn", "tuổi"}
+
     HONORIFIC_PREFIXES = {
         "bác sĩ", "chủ nhiệm", "quản lí", "quản lý", "trưởng phòng", "giáo sư", "y tá", "lão sư", "phu nhân", "tiểu thư",
         "tiểu", "lão", "đại", "a", "tổng giám đốc", "giám đốc", "đổng sự trưởng", "thị trưởng", "bí thư", "cảnh sát", "cảnh quan", "đội trưởng", "luật sư"
@@ -321,6 +340,13 @@ class NovelScanner:
         self.COMMON_PRONOUNS_AND_STARTS = self.pronouns_and_starts
         self.COMMON_TRAILING_STOPWORDS = self.trailing_stopwords
         self.COMMON_NON_PERSON_WORDS = self.non_person_words
+        import re
+        if self.non_person_words:
+            np_list = sorted(list(self.non_person_words), key=len, reverse=True)
+            self._non_person_pattern = re.compile(r' (?:' + '|'.join(map(re.escape, np_list)) + r') ', re.IGNORECASE)
+        else:
+            self._non_person_pattern = re.compile(r'(?!)')
+
 
     def reload_filters(self) -> Dict[str, int]:
         self.load_filters()
@@ -361,6 +387,9 @@ class NovelScanner:
             (prefix, re.compile(rf"\b(?i:{re.escape(prefix)})\s+({word_proper}(?:\s+{word_proper})?)", re.UNICODE))
             for prefix in sorted(self.HONORIFIC_PREFIXES, key=len, reverse=True)
         ]
+        ab_list = sorted(self.ABNORMAL_KEYWORDS, key=len, reverse=True)
+        self._abnormal_pattern = re.compile(r'(?:' + '|'.join(map(re.escape, ab_list)) + r')', re.IGNORECASE)
+
 
     @classmethod
     def extract_context_snippet(cls, line_str: str, phrase: str, target_len: int = 240) -> str:
@@ -551,160 +580,31 @@ class NovelScanner:
         if not line_str:
             return
 
-        # 1. Quét tên nhân vật & danh xưng
-        words = re.findall(r'[^\W\d_]+', line_str)
-        n = len(words)
-
-        for length in (4, 3, 2):
-            for i in range(n - length + 1):
-                ngram = words[i:i+length]
-                phrase = " ".join(ngram)
-                phrase_lower = phrase.lower()
-
-                # 0. Bỏ qua nếu từ thuộc blacklist tuyệt đối
-                if phrase_lower in self.blacklist or phrase in self.blacklist:
-                    continue
-
-                first_word_lower = ngram[0].lower()
-                # 1. Bỏ qua nếu từ đầu tiên là đại từ hoặc từ nối đầu câu thông dụng (Nàng, Hắn, Ta...)
-                if first_word_lower in self.pronouns_and_starts:
-                    continue
-
-                if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases or phrase_lower in self.non_person_words:
-                    continue
-
-                if any(np_w in phrase_lower for np_w in self.non_person_words):
-                    continue
-
-                # 2. Bỏ qua nếu từ thứ hai trong cụm 2 từ là động từ hoặc hư từ/phó từ đi sau tên (Phi mang, Nàng mặc...)
-                if length == 2 and ngram[1].lower() in self.trailing_stopwords:
-                    continue
-
-                is_known_surname = first_word_lower in self.VIET_CHINESE_SURNAMES
-
-                # Trường hợp 1A: Tên chuẩn viết hoa từng từ (Long Kiếm Phi, Trương Tử Kiến)
-                if all(w[0].isupper() for w in ngram):
-                    if length == 2 and not is_known_surname and (phrase_lower in self.COMMON_START_WORDS or ngram[1].lower() in self.trailing_stopwords):
-                        continue
-                    noun_counts[phrase] += 1
-                    if phrase not in suggested_map:
-                        suggested_map[phrase] = phrase
-                    if len(noun_contexts[phrase]) < 2:
-                        ctx = self.extract_context_snippet(line_str, phrase)
-                        if ctx and ctx not in noun_contexts[phrase]:
-                            noun_contexts[phrase].append(ctx)
-
-                # Trường hợp 1B: Họ viết hoa, âm sau viết thường (Liễu Ngọc như, Chu Ngọc mị, Khưu ngọc trinh)
-                elif ngram[0][0].isupper() and is_known_surname and (length in (2, 3)):
-                    if length == 2 and ngram[1].lower() in self.trailing_stopwords:
-                        continue
-                    noun_counts[phrase] += 1
-                    if phrase not in suggested_map:
-                        suggested_map[phrase] = title_case_vietnamese(phrase)
-                    if len(noun_contexts[phrase]) < 2:
-                        ctx = self.extract_context_snippet(line_str, phrase)
-                        if ctx and ctx not in noun_contexts[phrase]:
-                            noun_contexts[phrase].append(ctx)
-
-                # Trường hợp 1C: Tên nửa Tây nửa Việt (Gavin phong) hoặc họ + tên thường (Lỗ quân)
-                elif ngram[0][0].isupper() and all(w.islower() for w in ngram[1:]) and length == 2:
-                    is_foreign = bool(re.search(r'[wfjzWFJZ]', ngram[0])) or ngram[0].lower() in {
-                        "gavin", "david", "peter", "john", "mary", "jack", "tom", "alex"
-                    }
-                    if (is_known_surname or is_foreign) and ngram[1].lower() not in self.trailing_stopwords:
-                        noun_counts[phrase] += 1
-                        if phrase not in suggested_map:
-                            suggested_map[phrase] = title_case_vietnamese(phrase)
-                        if len(noun_contexts[phrase]) < 2:
-                            ctx = self.extract_context_snippet(line_str, phrase)
-                            if ctx and ctx not in noun_contexts[phrase]:
-                                noun_contexts[phrase].append(ctx)
-
-        for i in range(n - 1):
-            first_w = words[i]
-            matched_suffix = None
-            if i + 2 < n:
-                candidate_suffix_2 = f"{words[i+1]} {words[i+2]}".lower()
-                if candidate_suffix_2 in self.HONORIFIC_SUFFIXES:
-                    matched_suffix = candidate_suffix_2
-
-            if not matched_suffix:
-                candidate_suffix_1 = words[i+1].lower()
-                if candidate_suffix_1 in self.HONORIFIC_SUFFIXES:
-                    matched_suffix = candidate_suffix_1
-
-            if matched_suffix:
-                if (
-                    first_w[0].isupper()
-                    and first_w.lower() not in self.pronouns_and_starts
-                    and first_w.lower() not in self.non_person_words
-                ):
-                    name_phrase = f"{first_w} {matched_suffix}"
-                    name_phrase_lower = name_phrase.lower()
-                    if name_phrase_lower in self.blacklist or name_phrase in self.blacklist:
-                        continue
-                    if name_phrase_lower in self.existing_words or name_phrase_lower in self.existing_subphrases:
-                        continue
-                    noun_counts[name_phrase] += 1
-                    if name_phrase not in suggested_map:
-                        suggested_map[name_phrase] = f"{first_w.capitalize()} {matched_suffix}"
-                    if len(noun_contexts[name_phrase]) < 2:
-                        ctx = self.extract_context_snippet(line_str, name_phrase)
-                        if ctx and ctx not in noun_contexts[name_phrase]:
-                            noun_contexts[name_phrase].append(ctx)
-
-        for prefix, p_pattern in self._prefix_patterns:
-            for m in p_pattern.finditer(line_str):
-                full_match = m.group(0).strip()
-                full_match_lower = full_match.lower()
-                if full_match_lower in self.blacklist or full_match in self.blacklist:
-                    continue
-                if full_match_lower in self.existing_words or full_match_lower in self.existing_subphrases:
-                    continue
-                name_part = m.group(1).strip()
-                if (
-                    name_part.lower() not in self.COMMON_START_WORDS
-                    and name_part.lower() not in self.blacklist
-                    and name_part.lower() not in self.trailing_stopwords
-                    and name_part.lower() not in self.non_person_words
-                ):
-                    noun_counts[full_match] += 1
-                    if full_match not in suggested_map:
-                        suggested_map[full_match] = full_match
-                    if len(noun_contexts[full_match]) < 2:
-                        ctx = self.extract_context_snippet(line_str, full_match)
-                        if ctx and ctx not in noun_contexts[full_match]:
-                            noun_contexts[full_match].append(ctx)
-
-        # 2. Quét lỗi dịch máy & Cấu trúc Hán
         line_lower = line_str.lower()
-        for kw in self.ABNORMAL_KEYWORDS:
-            if kw.lower() in line_lower:
-                if kw.lower() in self.blacklist or kw in self.blacklist:
-                    continue
-                c_matches = len(re.findall(re.escape(kw), line_str, re.IGNORECASE))
-                if c_matches > 0 and kw.lower() not in self.existing_words:
-                    abnormal_counts[kw.lower()] += c_matches
-                    abnormal_type_map[kw.lower()] = "Lỗi dịch máy"
-                    abnormal_target_map[kw.lower()] = self.DEFAULT_TRANSLATION_MAP.get(kw.lower(), kw)
-                    if len(abnormal_contexts[kw.lower()]) < 2:
-                        ctx = self.extract_context_snippet(line_str, kw)
-                        if ctx and ctx not in abnormal_contexts[kw.lower()]:
-                            abnormal_contexts[kw.lower()].append(ctx)
+        
+        for m in getattr(self, '_abnormal_pattern', re.compile(r'(?!)')).finditer(line_str):
+            kw_match = m.group(0)
+            kw_lower = kw_match.lower()
+            if kw_lower in self.blacklist or kw_match in self.blacklist:
+                continue
+            if kw_lower not in self.existing_words:
+                abnormal_counts[kw_lower] += 1
+                abnormal_type_map[kw_lower] = "Lỗi dịch máy"
+                abnormal_target_map[kw_lower] = self.DEFAULT_TRANSLATION_MAP.get(kw_lower, kw_match)
+                if len(abnormal_contexts[kw_lower]) < 2:
+                    ctx = self.extract_context_snippet(line_str, kw_match)
+                    if ctx and ctx not in abnormal_contexts[kw_lower]:
+                        abnormal_contexts[kw_lower].append(ctx)
 
         PRONOUN_OWNERS = {"hắn", "nàng", "y", "thị", "ta", "ngươi", "bọn họ", "chúng nó"}
         for m in GrammarCorrector.REVERSE_POSSESSION_PATTERN.finditer(line_str):
-            cua_part = m.group(1)      # 'của' hoặc 'Của'
-            owner = m.group(2)         # 'hắn', 'Lệ Na', etc.
-            noun_part = m.group(3)     # cụm từ sau chủ thể
+            cua_part = m.group(1)
+            owner = m.group(2)
+            noun_part = m.group(3)
 
             noun_words = noun_part.strip().split()
-            if not noun_words:
-                continue
-
-            first_noun_word = noun_words[0].lower()
-            if first_noun_word in GrammarCorrector.NON_NOUN_WORDS:
-                continue
+            if not noun_words: continue
+            if noun_words[0].lower() in GrammarCorrector.NON_NOUN_WORDS: continue
 
             valid_len = len(noun_words)
             for i in range(1, len(noun_words)):
@@ -719,8 +619,6 @@ class NovelScanner:
                     valid_len = 2
 
             actual_noun = " ".join(noun_words[:valid_len])
-
-            # Guard clause: Tránh đảo nhầm khi trước 'của' đã có danh từ (sở hữu thuận)
             before_text = line_str[:m.start()].rstrip()
             if before_text:
                 last_char = before_text[-1]
@@ -742,16 +640,14 @@ class NovelScanner:
                 continue
 
             suggested, fix_count = GrammarCorrector.fix_reverse_possession(phrase)
-            if fix_count == 0:
-                continue
-
-            abnormal_counts[phrase] += 1
-            abnormal_type_map[phrase] = "Cấu trúc sở hữu ngược"
-            abnormal_target_map[phrase] = suggested
-            if len(abnormal_contexts[phrase]) < 2:
-                ctx = self.extract_context_snippet(line_str, phrase)
-                if ctx and ctx not in abnormal_contexts[phrase]:
-                    abnormal_contexts[phrase].append(ctx)
+            if fix_count > 0:
+                abnormal_counts[phrase] += 1
+                abnormal_type_map[phrase] = "Cấu trúc sở hữu ngược"
+                abnormal_target_map[phrase] = suggested
+                if len(abnormal_contexts[phrase]) < 2:
+                    ctx = self.extract_context_snippet(line_str, phrase)
+                    if ctx and ctx not in abnormal_contexts[phrase]:
+                        abnormal_contexts[phrase].append(ctx)
 
         for m in self._quantifier_pattern.finditer(line_str):
             full_match = m.group(1).strip()
@@ -779,6 +675,127 @@ class NovelScanner:
                         if ctx and ctx not in abnormal_contexts[p_clean]:
                             abnormal_contexts[p_clean].append(ctx)
 
+        def _add_noun(ph: str, sug: str):
+            noun_counts[ph] += 1
+            if ph not in suggested_map:
+                suggested_map[ph] = sug
+            if len(noun_contexts[ph]) < 2:
+                ctx = self.extract_context_snippet(line_str, ph)
+                if ctx and ctx not in noun_contexts[ph]:
+                    noun_contexts[ph].append(ctx)
+
+        chunks = re.split(r'[.,;!?"()\[\]{}:“”‘’…\-]+', line_str)
+        for chunk in chunks:
+            chunk = chunk.strip()
+            if not chunk:
+                continue
+                
+            words = re.findall(r'[^\W\d_]+', chunk)
+            n = len(words)
+            if n < 2:
+                continue
+
+            for length in (6, 5, 4, 3, 2):
+                for i in range(n - length + 1):
+                    ngram = words[i:i+length]
+                    first_word_lower = ngram[0].lower()
+                    next_w_lower = words[i+length].lower() if i+length < n else ""
+                    if next_w_lower in getattr(self, "PLACE_SUFFIXES", set()):
+                        continue
+                    
+                    if first_word_lower in self.pronouns_and_starts:
+                        continue
+                        
+                    phrase = " ".join(ngram)
+                    phrase_lower = phrase.lower()
+
+                    if phrase_lower in self.blacklist or phrase in self.blacklist:
+                        continue
+                    if phrase_lower in self.COMMON_START_WORDS or phrase_lower in self.existing_words or phrase_lower in self.existing_subphrases:
+                        continue
+                        
+                    if hasattr(self, "_non_person_pattern") and self._non_person_pattern.search(f" {phrase_lower} "):
+                        continue
+                        
+                    sur_1 = first_word_lower
+                    sur_2 = f"{ngram[0]} {ngram[1]}".lower() if length >= 2 else ""
+                    sur_3 = f"{ngram[0]} {ngram[1]} {ngram[2]}".lower() if length >= 3 else ""
+                    
+                    is_known_surname = sur_1 in self.VIET_CHINESE_SURNAMES
+                    is_known_compound_surname = sur_2 in self.VIET_CHINESE_SURNAMES
+                    is_jap_surname = sur_1 in self.JAPANESE_SURNAMES or sur_2 in self.JAPANESE_SURNAMES or sur_3 in self.JAPANESE_SURNAMES
+                    is_jap_suffix = ngram[-1].lower() in self.JAPANESE_NAME_SUFFIXES
+
+                    if all(w[0].isupper() for w in ngram):
+                        if first_word_lower in self.COMMON_START_WORDS:
+                            continue
+                        if length == 2 and not is_known_surname and not is_known_compound_surname and ngram[1].lower() in self.trailing_stopwords:
+                            continue
+                        _add_noun(phrase, phrase)
+                        
+                    elif ngram[0][0].isupper():
+                        valid_lower = True
+                        for w in ngram[1:]:
+                            wl = w.lower()
+                            if wl in self.trailing_stopwords or wl in self.COMMON_START_WORDS or wl in self.pronouns_and_starts or wl in getattr(self, "TITLES_AND_VERBS", set()) or wl in getattr(self, "PLACE_SUFFIXES", set()):
+                                valid_lower = False
+                                break
+                        
+                        if valid_lower:
+                            # Hỗ trợ tên 2-3 chữ cho họ đơn, và 3-4 chữ cho họ kép (Ví dụ Âu Dương phi phi)
+                            if (is_known_surname and length in (2, 3)) or (is_known_compound_surname and length in (3, 4)):
+                                _add_noun(phrase, title_case_vietnamese(phrase))
+                            elif length == 2 and all(w.islower() for w in ngram[1:]):
+                                is_foreign = bool(re.search(r'[wfjzWFJZ]', ngram[0])) or first_word_lower in {
+                                    "gavin", "david", "peter", "john", "mary", "jack", "tom", "alex"
+                                }
+                                if is_foreign:
+                                    _add_noun(phrase, title_case_vietnamese(phrase))
+
+            for i in range(n - 1):
+                first_w = words[i]
+                matched_suffix = None
+                if i + 2 < n:
+                    candidate_suffix_2 = f"{words[i+1]} {words[i+2]}".lower()
+                    if candidate_suffix_2 in self.HONORIFIC_SUFFIXES:
+                        matched_suffix = candidate_suffix_2
+
+                if not matched_suffix:
+                    candidate_suffix_1 = words[i+1].lower()
+                    if candidate_suffix_1 in self.HONORIFIC_SUFFIXES:
+                        matched_suffix = candidate_suffix_1
+
+                if matched_suffix:
+                    if (
+                        first_w[0].isupper()
+                        and first_w.lower() not in self.pronouns_and_starts
+                        and first_w.lower() not in self.non_person_words
+                    ):
+                        name_phrase = f"{first_w} {matched_suffix}"
+                        name_phrase_lower = name_phrase.lower()
+                        if name_phrase_lower in self.blacklist or name_phrase in self.blacklist:
+                            continue
+                        if name_phrase_lower in self.existing_words or name_phrase_lower in self.existing_subphrases:
+                            continue
+                        _add_noun(name_phrase, f"{first_w.capitalize()} {matched_suffix}")
+
+            for prefix, p_pattern in self._prefix_patterns:
+                for m in p_pattern.finditer(chunk):
+                    full_match = m.group(0).strip()
+                    full_match_lower = full_match.lower()
+                    if full_match_lower in self.blacklist or full_match in self.blacklist:
+                        continue
+                    if full_match_lower in self.existing_words or full_match_lower in self.existing_subphrases:
+                        continue
+                    name_part = m.group(1).strip()
+                    if (
+                        name_part.lower() not in self.COMMON_START_WORDS
+                        and name_part.lower() not in self.blacklist
+                        and name_part.lower() not in self.trailing_stopwords
+                        and name_part.lower() not in self.non_person_words
+                    ):
+                        _add_noun(full_match, full_match)
+
     def _build_candidates(
         self,
         min_count: int,
@@ -795,9 +812,30 @@ class NovelScanner:
         filtered_counts = {}
         for phrase, count in eligible_nouns:
             is_sub = False
+            words_phrase = phrase.split()
+            len_p = len(words_phrase)
             for longer_phrase, longer_count in filtered_counts.items():
-                if phrase in longer_phrase and count <= longer_count:
-                    is_sub = True
+                words_longer = longer_phrase.split()
+                len_l = len(words_longer)
+                if len_p < len_l:
+                    for i in range(len_l - len_p + 1):
+                        if words_longer[i:i+len_p] == words_phrase:
+                            # 1. Mặc định: Nếu số lượng <= cụm dài thì xóa
+                            if count <= longer_count:
+                                is_sub = True
+                                break
+                            
+                            # 2. Xóa triệt để "Họ + Tên đệm":
+                            # Nếu cụm con nằm ở đầu (i=0) VÀ chữ đầu tiên là một Họ phổ biến
+                            if i == 0 and words_phrase[0].lower() in self.VIET_CHINESE_SURNAMES:
+                                is_sub = True
+                                break
+                            
+                            # 3. Chấp nhận sai số nhỏ: Nếu chỉ chênh lệch vài lần xuất hiện
+                            if count <= longer_count + 3:
+                                is_sub = True
+                                break
+                if is_sub:
                     break
             if not is_sub:
                 filtered_counts[phrase] = count
@@ -843,7 +881,7 @@ class NovelScanner:
         scanned_dir: Path,
         novel_name: str,
         export_partition: bool = False,
-        partition_size: int = 500,
+        partition_size: int = 50,
         on_save_checkpoint: Optional[Callable[[List[ScannedCandidate], Path, Path], None]] = None
     ):
         from src.core.scan_exporter import ScanExporter

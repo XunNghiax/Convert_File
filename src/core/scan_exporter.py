@@ -104,7 +104,7 @@ Hãy tuân thủ các quy tắc sau:
         part_size: int = 500
     ) -> Tuple[List[Path], Path]:
         """
-        Chia nhỏ danh sách kết quả thành nhiều file review (mỗi file part_size mục, mặc định 100)
+        Chia nhỏ danh sách kết quả thành nhiều file review (mỗi file part_size mục, mặc định 500)
         giúp gửi cho AI hoặc biên tập từng đợt mà không bị tràn token context window.
         Đồng thời xuất master candidates.json đầy đủ.
         """

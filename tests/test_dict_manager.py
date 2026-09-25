@@ -283,6 +283,34 @@ def test_end_to_end_absence_of_double_word_replacement(tmp_path):
     assert "Tạ Quốc Hoa vĩ" not in converted
 
 
+def test_import_records_prevents_expansion_corruption_on_existing_clean_entry(tmp_path):
+    import json
+    common_file = tmp_path / "common.json"
+    char_file = tmp_path / "char.json"
+    common_file.write_text("[]", encoding="utf-8")
+    char_file.write_text(json.dumps([
+        {"id": "ch-1", "source": "Tạ quốc", "target": "Tạ Quốc", "novel_tag": "Thiếu Long"},
+        {"id": "ch-2", "source": "Tạ quốc hoa", "target": "Tạ Quốc Hoa", "novel_tag": "Thiếu Long"}
+    ], ensure_ascii=False), encoding="utf-8")
+
+    mgr = DictManager(common_file, char_file)
+
+    records = [
+        {"source": "Tạ quốc", "target": "Tạ Quốc Hoa", "is_character": True, "novel_tag": "Thiếu Long"}
+    ]
+
+    res = mgr.import_records(records, default_novel_tag="Thiếu Long", auto_resolve_conflicts=True)
+    assert res["conflicts_resolved"] >= 1
+    assert res["chars_skipped"] == 1
+    assert res["chars_updated"] == 0
+
+    saved_chars = mgr.load_character_dict()
+    char_map = {c.source: c.target for c in saved_chars}
+    assert char_map["Tạ quốc"] == "Tạ Quốc"
+    assert char_map["Tạ quốc hoa"] == "Tạ Quốc Hoa"
+
+
+
 
 
 

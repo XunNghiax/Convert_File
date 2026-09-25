@@ -14,7 +14,7 @@ def render_tab_dict(dict_manager: DictManager):
             if st.button("✨ Thực hiện Chuẩn hóa ngay", key="btn_standardize"):
                 stats = dict_manager.standardize_dictionaries()
                 extra_msg = f", Đã khắc phục {stats.get('conflicts_fixed', 0)} mục xung đột mở rộng" if stats.get('conflicts_fixed', 0) > 0 else ""
-                st.success(f"Đã chuẩn hóa thành công! Common: {stats['common_after']} từ (khử {stats['common_deduped']}), Characters: {stats['character_after']} từ (khử {stats['character_deduped']}){extra_msg}.")
+                st.toast(f"Đã chuẩn hóa thành công! Common: {stats['common_after']} từ (khử {stats['common_deduped']}), Characters: {stats['character_after']} từ (khử {stats['character_deduped']}){extra_msg}.", icon="✨")
                 st.rerun()
 
         with c2:
@@ -29,7 +29,7 @@ def render_tab_dict(dict_manager: DictManager):
                 try:
                     records = dict_manager.parse_scanned_file(tmp_path)
                     res = dict_manager.import_records(records, default_novel_tag=novel_tag_input)
-                    st.success(f"Nạp thành công {res['total_records']} mục! Nhân vật: +{res['chars_added']} mới, ~{res['chars_updated']} cập nhật. Từ phổ biến: +{res['common_added']} mới, ~{res['common_updated']} cập nhật.")
+                    st.toast(f"Nạp thành công {res['total_records']} mục! Nhân vật: +{res['chars_added']} mới, ~{res['chars_updated']} cập nhật. Từ phổ biến: +{res['common_added']} mới, ~{res['common_updated']} cập nhật.", icon="🚀")
                     st.rerun()
                 except Exception as e:
                     st.error(f"Lỗi khi nạp file: {e}")

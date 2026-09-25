@@ -355,8 +355,11 @@ class DictManager:
         source_lower = source_clean.lower()
         prefix_with_space = f"{source_lower} "
         is_subphrase = any(
-            s.lower() != source_lower and (s.lower().startswith(prefix_with_space) or f" {source_lower} " in f" {s.lower()} ")
+            (s_clean := s.strip().lower()) != source_lower and (
+                s_clean.startswith(prefix_with_space) or f" {source_lower} " in f" {s_clean} "
+            )
             for s in all_known_sources
+            if s
         )
 
         if is_subphrase:
@@ -424,6 +427,15 @@ class DictManager:
                 novel_tag = unicodedata.normalize('NFC', str(novel_tag)).strip()
                 target_clean = title_case_vietnamese(target)
 
+                was_conflict = False
+                if auto_resolve_conflicts:
+                    resolved_target, was_conflict = self.resolve_expansion_conflict(
+                        source, target_clean, all_known_sources
+                    )
+                    if was_conflict:
+                        target_clean = resolved_target
+                        conflicts_resolved += 1
+
                 # Tìm kiếm đã tồn tại
                 existing = next((
                     c for c in char_terms
@@ -443,20 +455,13 @@ class DictManager:
 
                     if updated:
                         chars_updated += 1
-                        actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": existing.novel_tag, "status": "updated"})
+                        status_str = "normalized_expansion_updated" if was_conflict else "updated"
+                        actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": existing.novel_tag, "status": status_str})
                     else:
                         chars_skipped += 1
-                        actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": existing.novel_tag, "status": "skipped"})
+                        status_str = "normalized_expansion" if was_conflict else "skipped"
+                        actions.append({"type": "character", "source": source, "target": target_clean, "novel_tag": existing.novel_tag, "status": status_str})
                 else:
-                    was_conflict = False
-                    if auto_resolve_conflicts:
-                        resolved_target, was_conflict = self.resolve_expansion_conflict(
-                            source, target_clean, all_known_sources
-                        )
-                        if was_conflict:
-                            target_clean = resolved_target
-                            conflicts_resolved += 1
-
                     new_char = CharacterTerm(
                         id=f"ch-{len(char_terms) + 1}",
                         source=source,

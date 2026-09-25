@@ -11,6 +11,9 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
     st.header("🔍 Quét & Lọc Từ Mới Tự Động")
     st.write("Quét file truyện thô để tìm tên riêng, nhân vật và các từ ngữ bất thường chưa có trong từ điển.")
 
+    if st.session_state.get("scan_import_msg"):
+        st.success(st.session_state.pop("scan_import_msg"))
+
     col1, col2 = st.columns([2, 1])
     with col1:
         txt_files = list(config.TXT_DIR.glob("*.txt"))
@@ -227,7 +230,9 @@ def render_tab_scan(dict_manager: DictManager, config: Config):
             if res.get("conflicts_resolved", 0) > 0:
                 msg_parts.append(f"+ Tự động chuẩn hóa 1-1 chống xung đột lặp từ: **{res['conflicts_resolved']}** mục")
 
-            st.success(" | ".join(msg_parts))
+            full_msg = " | ".join(msg_parts)
+            st.session_state["scan_import_msg"] = full_msg
+            st.toast(full_msg, icon="🎉")
             st.session_state["scan_results"] = []
             st.rerun()
 

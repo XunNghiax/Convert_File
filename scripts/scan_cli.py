@@ -78,30 +78,62 @@ def run_scan_cli(
     if not novel_tag:
         novel_tag = file_path.stem[:25]
     log("INFO", f"Tag truyện: '{novel_tag}' | Tần suất tối thiểu: {min_count}")
-
-    # 1. Đọc nội dung
-    log("INFO", "Đang nạp nội dung văn bản...")
     start_time = time.time()
-    with open(file_path, "r", encoding="utf-8", errors="replace") as f:
-        if sample_size > 0:
-            text = f.read(sample_size)
-            log("INFO", f"Chế độ: Quét mẫu {sample_size:,} ký tự đầu tiên.")
-        else:
-            text = f.read()
-            log("INFO", f"Chế độ: Quét toàn bộ file ({len(text):,} ký tự).")
 
-    # 2. Nạp từ điển hiện có để loại trừ
+    # 1. Nạp từ điển hiện có để loại trừ
     log("INFO", "Đang nạp từ điển hiện có để loại trừ từ đã duyệt...")
     common_terms = dict_mgr.load_common_dict()
     char_terms = dict_mgr.load_character_dict()
     existing_all = {t.source.lower() for t in common_terms}.union({c.source.lower() for c in char_terms})
     log("INFO", f"-> Đã nạp {len(common_terms)} từ phổ biến, {len(char_terms)} tên nhân vật làm bộ lọc loại trừ.")
 
-    # 3. Khởi tạo Scanner và chạy Heuristic
+    # 2. Khởi tạo Scanner và chạy Heuristic
     log("SCAN", "Bắt đầu thuật toán quét Heuristic (Tên riêng, lỗi dịch máy, cấu trúc Hán)...")
     scanner_start = time.time()
     scanner = NovelScanner(existing_words=existing_all)
-    candidates = scanner.scan_text(text, min_count=min_count)
+    filter_counts = {
+        "từ cấm": len(scanner.blacklist),
+        "đại từ": len(scanner.pronouns_and_starts),
+        "từ đuôi": len(scanner.trailing_stopwords),
+        "phi nhân vật": len(scanner.non_person_words),
+    }
+    log("INFO", f"Đã nạp bộ lọc tùy biến từ filters/: {', '.join(f'{v} {k}' for k, v in filter_counts.items())}")
+
+    if sample_size > 0:
+        log("INFO", f"Chế độ: Quét mẫu {sample_size:,} ký tự đầu tiên.")
+        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+            text = f.read(sample_size)
+        candidates = scanner.scan_text(text, min_count=min_count)
+    else:
+        log("INFO", "Chế độ: Quét toàn bộ file bằng Streaming Buffer (tránh tràn RAM, tự động lưu liên tục vào scanned/)...")
+        last_progress_time = 0
+
+        def on_chunk_progress(bytes_read, total_bytes, count):
+            nonlocal last_progress_time
+            now = time.time()
+            if now - last_progress_time >= 1.0 or bytes_read >= total_bytes:
+                pct = (bytes_read / total_bytes * 100) if total_bytes > 0 else 100
+                mb_read = bytes_read / (1024 * 1024)
+                mb_total = total_bytes / (1024 * 1024)
+                log("SCAN", f"Đang quét: {pct:5.1f}% ({mb_read:.2f}/{mb_total:.2f} MB) ── Đã tìm thấy {count} ứng viên...")
+                last_progress_time = now
+
+        def on_checkpoint(cands, jpath, tpath):
+            log("INFO", f"💾 Đã lưu liên tục checkpoint {len(cands)} từ vào thư mục scanned/: {jpath.name}")
+
+        candidates = scanner.scan_file_streaming(
+            file_path=file_path,
+            min_count=min_count,
+            chunk_size_bytes=128 * 1024,
+            on_chunk_progress=on_chunk_progress,
+            scanned_dir=config.SCANNED_DIR,
+            novel_name=novel_tag,
+            save_interval_chunks=5,
+            on_save_checkpoint=on_checkpoint,
+            export_partition=True,
+            partition_size=50
+        )
+
     scanner_elapsed = time.time() - scanner_start
 
     char_candidates = [c for c in candidates if c.candidate_type == "Tên nhân vật"]
@@ -114,7 +146,7 @@ def run_scan_cli(
         log("WARN", "Không tìm thấy cụm từ mới nào thỏa mãn điều kiện quét.")
         return 0
 
-    # 4. Chạy AI Assistant nếu được bật
+    # 3. Chạy AI Assistant nếu được bật
     if use_ai:
         api_key = config.GEMINI_API_KEY if provider == "gemini" else config.OPENAI_API_KEY
         if not api_key:
@@ -136,11 +168,12 @@ def run_scan_cli(
                     c.candidate_type = r.category
                 log("AI", f"   └── Lô {b_idx + 1}/{total_batches} hoàn tất trong {b_elapsed:.2f}s.")
 
-    # 5. Xuất kết quả vào thư mục scanned/
-    log("INFO", f"Đang xuất kết quả vào thư mục: {config.SCANNED_DIR}...")
-    json_path, txt_path = ScanExporter.auto_export_scanned(candidates, novel_tag, config.SCANNED_DIR)
-    log("SUCCESS", f"File JSON cấu trúc: {json_path}")
-    log("SUCCESS", f"File Prompt biên tập: {txt_path}")
+    # 4. Xuất kết quả hoàn chỉnh vào thư mục scanned/
+    log("INFO", f"Đang lưu trữ kết quả hoàn chỉnh vào thư mục: {config.SCANNED_DIR}...")
+    part_files, master_json = ScanExporter.export_partitioned(candidates, novel_tag, config.SCANNED_DIR, part_size=50)
+    log("SUCCESS", f"File JSON cấu trúc: {master_json}")
+    log("SUCCESS", f"Đã chia thành {len(part_files)} file review trong scanned/ (50 từ/file)")
+
 
     # 6. In bảng tóm tắt Top kết quả ra màn hình CLI
     total_time = time.time() - start_time

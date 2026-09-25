@@ -52,6 +52,12 @@ def render_tab_convert(dict_manager: DictManager, config: Config):
     with col2:
         selected_tags = st.multiselect("Lọc Tag nhân vật áp dụng:", options=all_tags, default=all_tags)
 
+    fix_grammar = st.checkbox(
+        "✨ Tự động sửa cấu trúc sở hữu ngược ('của hắn bàn tay' -> 'bàn tay của hắn')",
+        value=True,
+        key="fix_grammar_toggle"
+    )
+
     # Xây dựng bảng ánh xạ (mappings)
     common_mappings = {}
     if apply_common:
@@ -85,7 +91,9 @@ def render_tab_convert(dict_manager: DictManager, config: Config):
         sample_preview = "Lỗi khi đọc file xem trước."
 
     if st.button("🔍 Xem trước kết quả thay thế trên đoạn đầu"):
-        converted_preview, preview_stats = engine.replace_text(sample_preview)
+        converted_preview, preview_stats, grammar_fixes = engine.replace_text(
+            sample_preview, apply_grammar_fixes=fix_grammar
+        )
         
         c_prev1, c_prev2 = st.columns(2)
         with c_prev1:
@@ -97,6 +105,8 @@ def render_tab_convert(dict_manager: DictManager, config: Config):
             
         total_prev_replaced = sum(preview_stats.values())
         st.success(f"Đã thay thế thành công **{total_prev_replaced}** vị trí trong đoạn xem trước!")
+        if grammar_fixes > 0:
+            st.info(f"✨ Đã tự động nắn chỉnh {grammar_fixes} cấu trúc sở hữu ngược trong đoạn xem trước.")
         if preview_stats:
             with st.expander("Chi tiết các từ đã thay thế trong đoạn xem trước"):
                 st.json(preview_stats)
@@ -114,14 +124,17 @@ def render_tab_convert(dict_manager: DictManager, config: Config):
         status_text.text("Đang xử lý streaming file qua engine Longest Match First...")
         
         start_time = time.time()
-        stats = engine.replace_file(input_file_path, output_file_path)
+        stats = engine.replace_file(input_file_path, output_file_path, apply_grammar_fixes=fix_grammar)
         elapsed = time.time() - start_time
         
         progress_bar.progress(100)
-        total_replaced = sum(stats.values())
+        grammar_count = stats.get("__grammar_fixes__", 0)
+        total_replaced = sum(v for k, v in stats.items() if k != "__grammar_fixes__")
         status_text.text("Hoàn thành!")
 
         st.success(f"🎉 **Convert hoàn tất trong {elapsed:.2f} giây!** Tổng cộng đã thay thế **{total_replaced:,}** lượt từ.")
+        if grammar_count > 0:
+            st.info(f"✨ Đã tự động nắn chỉnh {grammar_count} cấu trúc sở hữu ngược.")
         st.info(f"📂 File kết quả đã được lưu tại: `{output_file_path}`")
 
         # Nút tải file trực tiếp về máy

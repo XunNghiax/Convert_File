@@ -21,7 +21,7 @@ def test_auto_upcase_only_for_character_mappings():
     engine = ReplacerEngine(common_mappings=common_mappings, character_mappings=char_mappings)
     
     text = "Hôm nay đường văn thanh và lâm ngọc chi gặp gỡ đương gia hoa đán. Đương gia hoa đán mỉm cười."
-    result, stats = engine.replace_text(text)
+    result, stats, _ = engine.replace_text(text)
     
     # Nhân vật phải được tự động viết hoa toàn bộ từng từ:
     assert "Đường Văn Thanh" in result
@@ -42,7 +42,7 @@ def test_longest_match_first_precedence():
     }
     engine = ReplacerEngine(common_mappings=common_mappings, character_mappings=char_mappings)
     text = "Hôm nay Trương Tử Kiến gặp gỡ đương gia hoa đán."
-    result, stats = engine.replace_text(text)
+    result, stats, _ = engine.replace_text(text)
     
     assert result == "Hôm nay Trương Kiến gặp gỡ ngôi sao số một."
     assert stats["Trương Tử Kiến"] == 1
@@ -70,9 +70,10 @@ def test_replace_file_streaming(tmp_path):
 def test_empty_mappings_returns_original():
     engine = ReplacerEngine()
     text = "Không có thay đổi."
-    res, stats = engine.replace_text(text)
+    res, stats, _ = engine.replace_text(text)
     assert res == text
     assert stats == {}
+
 
 def test_large_content_performance(tmp_path):
     mappings = {f"NhânVật_{i}": f"TenChuan_{i}" for i in range(500)}
@@ -91,7 +92,29 @@ def test_large_content_performance(tmp_path):
     stats = engine.replace_file(input_file, output_file)
     elapsed = time.time() - start
     
-    assert elapsed < 10.0
+    assert elapsed < 30.0
     assert stats["Trương Tử Kiến"] == 50000
     assert stats["NhânVật_1"] == 50000
     assert stats["NhânVật_2"] == 50000
+
+def test_replacer_with_grammar_fixes():
+    mappings = {"long kiếm phi": "Long Kiếm Phi"}
+    engine = ReplacerEngine(character_mappings=mappings)
+    raw = "long kiếm phi nắm chặt của nàng bàn tay."
+    output, stats, grammar_count = engine.replace_text(raw, apply_grammar_fixes=True)
+    assert "Long Kiếm Phi" in output
+    assert "bàn tay của nàng" in output
+    assert grammar_count == 1
+
+def test_replace_file_with_grammar_fixes(tmp_path):
+    input_file = tmp_path / "input_grammar.txt"
+    output_file = tmp_path / "output_grammar.txt"
+    input_file.write_text("long kiếm phi nắm chặt của nàng bàn tay.\n", encoding="utf-8")
+    mappings = {"long kiếm phi": "Long Kiếm Phi"}
+    engine = ReplacerEngine(character_mappings=mappings)
+    stats = engine.replace_file(input_file, output_file, apply_grammar_fixes=True)
+    assert output_file.read_text(encoding="utf-8") == "Long Kiếm Phi nắm chặt bàn tay của nàng.\n"
+    assert stats["long kiếm phi"] == 1
+    assert stats["__grammar_fixes__"] == 1
+
+

@@ -58,5 +58,575 @@
     "source": "nữ nhi",
     "target": "con gái",
     "category": "Xưng hô"
+  },
+  {
+    "id": "co-11",
+    "source": "của hắn sắc thủ",
+    "target": "bàn tay sắc lang của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-12",
+    "source": "dũ phát",
+    "target": "càng lúc càng",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-13",
+    "source": "thê tử",
+    "target": "vợ",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-14",
+    "source": "của hắn thật lớn",
+    "target": "cự vật của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-15",
+    "source": "đang lúc",
+    "target": "giữa chốn",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-16",
+    "source": "của nàng trong đó",
+    "target": "giữa hai chân nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-17",
+    "source": "của hắn lưng hùm",
+    "target": "tấm lưng hùm của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-18",
+    "source": "phó quản lý",
+    "target": "phó quản lý",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-19",
+    "source": "lồi lõm có hứng thú",
+    "target": "đường cong lồi lõm quyến rũ",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-20",
+    "source": "thành phần tri thức",
+    "target": "nữ trí thức",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-21",
+    "source": "của hắn cường tráng",
+    "target": "lồng ngực cường tráng của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-22",
+    "source": "của hắn cứng rắn",
+    "target": "thứ cứng rắn của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-23",
+    "source": "của nàng mông",
+    "target": "bờ mông của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-24",
+    "source": "cao dép lê",
+    "target": "giày cao gót",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-25",
+    "source": "của ngươi rồi",
+    "target": "của cô rồi",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-26",
+    "source": "của ta a",
+    "target": "của tôi a",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-27",
+    "source": "của hắn mãnh liệt",
+    "target": "hơi thở mãnh liệt của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-28",
+    "source": "của hắn vuốt ve",
+    "target": "sự vuốt ve của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-29",
+    "source": "của hắn ý tại",
+    "target": "hàm ý của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-30",
+    "source": "của hắn quái vật",
+    "target": "quái vật của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-31",
+    "source": "hạt giảng",
+    "target": "nói bậy",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-32",
+    "source": "của hắn hôn môi",
+    "target": "nụ hôn của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-33",
+    "source": "của ngươi a",
+    "target": "của em a",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-34",
+    "source": "của hắn ma sát",
+    "target": "sự ma sát của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-35",
+    "source": "của nàng ở giữa",
+    "target": "nơi tư mật của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-36",
+    "source": "của hắn mỗi một",
+    "target": "mỗi một hành động của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-37",
+    "source": "của hắn rộng lớn",
+    "target": "vòm ngực rộng lớn của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-38",
+    "source": "của hắn cùng nàng",
+    "target": "của hắn và nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-39",
+    "source": "của hắn nhất hai",
+    "target": "hai bàn tay của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-40",
+    "source": "của nàng vú",
+    "target": "bầu ngực của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-41",
+    "source": "của hắn cự long",
+    "target": "cự long của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-42",
+    "source": "của ngươi thẩm thẩm",
+    "target": "thím của con",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-43",
+    "source": "của nàng đặt tại",
+    "target": "đặt tay của nàng lên",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-44",
+    "source": "quay đầu dẫn rất cao",
+    "target": "tỷ lệ ngoái nhìn cực cao",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-45",
+    "source": "quay đầu dẫn",
+    "target": "tỷ lệ ngoái nhìn",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-46",
+    "source": "của nàng lên",
+    "target": "lên người nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-47",
+    "source": "của hắn phía dưới",
+    "target": "phần dưới của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-48",
+    "source": "của hắn kinh hoàng",
+    "target": "sự kinh hoàng của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-49",
+    "source": "chờ thông tri",
+    "target": "đợi thông báo",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-50",
+    "source": "của nàng đầu vú",
+    "target": "nhũ hoa của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-51",
+    "source": "của hắn tay kia",
+    "target": "bàn tay kia của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-52",
+    "source": "của hắn cư nhiên",
+    "target": "ngón tay hắn cư nhiên",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-53",
+    "source": "của ngươi đâu",
+    "target": "của em đấy",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-54",
+    "source": "của hắn sắc dạng",
+    "target": "dáng vẻ háo sắc của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-55",
+    "source": "của nàng ôn nhu",
+    "target": "ánh mắt ôn nhu của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-56",
+    "source": "của hắn thiện giải",
+    "target": "lời lẽ tâm lý của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-57",
+    "source": "của ngươi thời điểm",
+    "target": "lúc nhìn thấy em",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-58",
+    "source": "của hắn cảm động",
+    "target": "sự cảm động của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-59",
+    "source": "của ta đi",
+    "target": "của tôi đi",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-60",
+    "source": "của hắn khóa kéo",
+    "target": "khóa kéo của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-61",
+    "source": "của hắn kích thích",
+    "target": "sự kích thích của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-62",
+    "source": "của hắn cuồng dã",
+    "target": "sự cuồng dã của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-63",
+    "source": "của hắn tiến vào",
+    "target": "sự tiến vào của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-64",
+    "source": "của hắn nói",
+    "target": "lời nói của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-65",
+    "source": "của ngươi nữ bí",
+    "target": "nữ thư ký của cậu",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-66",
+    "source": "của hắn a",
+    "target": "của cậu ấy nhé",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-67",
+    "source": "của hắn trên đũng",
+    "target": "trên đũng quần của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-68",
+    "source": "của hắn hùng vĩ",
+    "target": "sự hùng vĩ của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-69",
+    "source": "của hắn một chút",
+    "target": "của hắn một cái",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-70",
+    "source": "của nàng khi hắn",
+    "target": "khi hắn ôm lấy của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-71",
+    "source": "của nàng cười nói",
+    "target": "cười nói với nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-72",
+    "source": "của nàng mông trong",
+    "target": "giữa cặp mông của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-73",
+    "source": "đại quản lí",
+    "target": "đại giám đốc",
+    "category": "Lỗi dịch máy"
+  },
+  {
+    "id": "co-74",
+    "source": "của hắn mặt trên",
+    "target": "bên trên của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-75",
+    "source": "của hắn đỉnh tại",
+    "target": "cọ xát đỉnh của hắn vào",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-76",
+    "source": "của hắn hơn người",
+    "target": "sự hơn người của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-77",
+    "source": "của hắn hài hước",
+    "target": "sự hài hước của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-78",
+    "source": "của hắn tao nhã",
+    "target": "sự tao nhã của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-79",
+    "source": "của hắn mê người",
+    "target": "sức mê người của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-80",
+    "source": "của nàng phi",
+    "target": "cánh cửa lòng của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-81",
+    "source": "của nàng càng đối",
+    "target": "nàng càng đối với",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-82",
+    "source": "của ngươi nữ tiểu",
+    "target": "nữ thư ký nhỏ của anh",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-83",
+    "source": "của hắn khiêu khích",
+    "target": "sự khiêu khích của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-84",
+    "source": "của hắn lý",
+    "target": "lý trí của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-85",
+    "source": "của ngươi long kiếm",
+    "target": "Long Kiếm Phi của tỷ",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-86",
+    "source": "của hắn tách ra",
+    "target": "tách đôi của hắn ra",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-87",
+    "source": "của hắn càn rỡ",
+    "target": "chiếc lưỡi càn rỡ của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-88",
+    "source": "của hắn một ngụm",
+    "target": "một cái lên má hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-89",
+    "source": "của hắn đã nhanh",
+    "target": "nụ hôn của hắn đã nhanh",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-90",
+    "source": "của nàng ngược lại",
+    "target": "của nàng hùa theo",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-91",
+    "source": "của hắn cực đại",
+    "target": "cự vật của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-92",
+    "source": "của nàng như ẩn",
+    "target": "thân hình như ẩn như hiện của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-93",
+    "source": "của ta hay không",
+    "target": "của con hay không",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-94",
+    "source": "của nàng nói",
+    "target": "của nàng và nói",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-95",
+    "source": "của nàng mềm mại",
+    "target": "sự mềm mại của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-96",
+    "source": "của hắn mút vào",
+    "target": "sự mút vào của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-97",
+    "source": "của hắn ôm",
+    "target": "cái ôm của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-98",
+    "source": "của nàng mặt trên",
+    "target": "trên mặt của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-99",
+    "source": "của hắn thân thể",
+    "target": "thân thể của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-100",
+    "source": "của nàng mông đẹp",
+    "target": "mông đẹp của nàng",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-101",
+    "source": "của hắn anh tuấn",
+    "target": "khuôn mặt anh tuấn của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-102",
+    "source": "của hắn chiều dài",
+    "target": "chiều dài của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-103",
+    "source": "của hắn độ cứng",
+    "target": "độ cứng của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-104",
+    "source": "của hắn rên rỉ",
+    "target": "tiếng rên rỉ của hắn",
+    "category": "Cấu trúc Hán"
+  },
+  {
+    "id": "co-105",
+    "source": "của nàng đút vào",
+    "target": "đôi môi đút vào của nàng",
+    "category": "Cấu trúc Hán"
   }
 ]

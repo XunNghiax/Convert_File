@@ -9,6 +9,7 @@ class Config:
     DATA_DIR: Path = BASE_DIR / "data"
     TXT_DIR: Path = BASE_DIR / "txt"
     OUTPUT_DIR: Path = BASE_DIR / "output"
+    SCANNED_DIR: Path = BASE_DIR / "scanned"
     
     COMMON_DICT_PATH: Path = DATA_DIR / "common_dict.json"
     CHARACTER_DICT_PATH: Path = DATA_DIR / "character_dict.json"
@@ -20,3 +21,4 @@ class Config:
         self.DATA_DIR.mkdir(parents=True, exist_ok=True)
         self.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         self.TXT_DIR.mkdir(parents=True, exist_ok=True)
+        self.SCANNED_DIR.mkdir(parents=True, exist_ok=True)

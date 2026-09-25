@@ -10,3 +10,5 @@ def test_config_paths_exist():
     assert config.CHARACTER_DICT_PATH.name == "character_dict.json"
     assert config.TXT_DIR.exists()
     assert config.OUTPUT_DIR.exists()
+    assert config.SCANNED_DIR.name == "scanned"
+    assert config.SCANNED_DIR.exists()

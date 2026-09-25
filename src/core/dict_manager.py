@@ -2,7 +2,7 @@ import json
 import re
 import unicodedata
 from pathlib import Path
-from typing import List, Optional, Tuple, Dict, Any
+from typing import List, Optional, Tuple, Dict, Any, Set
 from pydantic import BaseModel, Field
 from src.core.replacer import title_case_vietnamese
 
@@ -322,6 +322,38 @@ class DictManager:
             return line_records
 
         raise ValueError(f"Không thể trích xuất danh sách JSON hợp lệ từ {file_path.name}")
+
+    @classmethod
+    def resolve_expansion_conflict(
+        cls,
+        source: str,
+        target: str,
+        all_known_sources: Set[str]
+    ) -> Tuple[str, bool]:
+        """
+        Kiểm tra xem target có bị mở rộng thêm từ so với source không.
+        Nếu có và source là tiền tố của ít nhất một từ khác trong all_known_sources,
+        tự động hạ target về dạng Title Case 1-1 tương ứng với source.
+        """
+        source_clean = unicodedata.normalize('NFC', source.strip())
+        target_clean = unicodedata.normalize('NFC', target.strip())
+        source_words = source_clean.split()
+        target_words = target_clean.split()
+
+        if len(target_words) <= len(source_words) or not source_words:
+            return target_clean, False
+
+        source_lower = source_clean.lower()
+        prefix_with_space = f"{source_lower} "
+        is_subphrase = any(
+            s != source_lower and (s.startswith(prefix_with_space) or f" {source_lower} " in f" {s} ")
+            for s in all_known_sources
+        )
+
+        if is_subphrase:
+            return title_case_vietnamese(source_clean), True
+
+        return target_clean, False
 
     def import_records(self, records: List[dict], default_novel_tag: str = "Chung") -> Dict[str, Any]:
         """

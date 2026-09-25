@@ -166,3 +166,24 @@ def test_import_records(temp_dict_manager):
     assert len(common) == 1
     assert common[0].id == "co-1"
 
+
+def test_resolve_expansion_conflict():
+    from src.core.dict_manager import DictManager
+    known = {"tạ quốc hoa", "tạ quốc vĩ", "long kiếm phi"}
+
+    # Trường hợp 1: Có xung đột mở rộng (Tạ quốc 2 từ -> Tạ Quốc Hoa 3 từ, và là tiền tố)
+    resolved, was_conflict = DictManager.resolve_expansion_conflict("Tạ quốc", "Tạ Quốc Hoa", known)
+    assert was_conflict is True
+    assert resolved == "Tạ Quốc"
+
+    # Trường hợp 2: Không có xung đột vì số từ bằng nhau (3 từ -> 3 từ)
+    resolved, was_conflict = DictManager.resolve_expansion_conflict("Tạ quốc hoa", "Tạ Quốc Hoa", known)
+    assert was_conflict is False
+    assert resolved == "Tạ Quốc Hoa"
+
+    # Trường hợp 3: Target nhiều từ hơn nhưng source KHÔNG phải là tiền tố của từ nào
+    resolved, was_conflict = DictManager.resolve_expansion_conflict("Tiểu hoa", "Tiểu Mỹ Nhân Hoa", known)
+    assert was_conflict is False
+    assert resolved == "Tiểu Mỹ Nhân Hoa"
+
+
